@@ -1,0 +1,4 @@
+# .dotfiles
+
+Managed with stow
+

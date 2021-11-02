@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo -n "Where do you want to see the weather? "
+read loc
+
+echo "Getting Ready..."
+
+curl https://wttr.in/$loc

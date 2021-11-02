@@ -1,0 +1,114 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty it self.
+env:
+  TERM: xterm-256color
+
+window:
+
+  padding:
+    x: 0
+    y: 0
+
+  dynamic_padding: false
+  decorations: full
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+
+  # When true, bold text is drawn using the bright variant of colors.
+tabspaces: 4
+draw_bold_text_with_bright_colors: true
+
+# Font configuration (changes require restart)
+font:
+  # The normal (roman) font face to use.
+  # normal:
+  #   family: Fixedsys Excelsior
+  #   style: Regular
+  # size: 6.5
+
+  normal:
+    family: SauceCodePro Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Medium
+
+      #The bold font face
+  bold:
+    family: SauceCodePro Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Black
+
+  # The italic font face
+  italic:
+    family: SauceCodePro Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Medium Italic
+  size: 6
+
+    # Point size of the font
+    #
+  scale_with_dpi: true
+  use_thin_strokes: false
+
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: false
+
+background_opacity: 1
+
+colors:
+  # TOKYO-NIGHT-STORM
+  primary:
+    background: '0x24283b'
+    # background: '0x1a1b26'
+    foreground: '0xa9b1d6'
+
+    # Normal colors
+  normal:
+    black:   '0x32344a'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xad8ee6'
+    cyan:    '0x449dab'
+    white:   '0x9699a8'
+
+    # Bright colors
+  bright:
+    black:   '0x444b6a'
+    red:     '0xff7a93'
+    green:   '0xb9f27c'
+    yellow:  '0xff9e64'
+    blue:    '0x7da6ff'
+    magenta: '0xbb9af7'
+    cyan:    '0x0db9d7'
+    white:   '0xacb0d0'
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+triple_click: { threshold: 300 }
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+hide_cursor_when_typing: false
+
+
+# Shell
+
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+shell:
+program: /bin/zsh
+args:
+  - --login
