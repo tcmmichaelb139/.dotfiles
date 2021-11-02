@@ -1,3 +1,5 @@
+-- plugins 
+
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
@@ -103,10 +105,10 @@ return require('packer').startup(function()
 	})
 
 	-- startup time
-	use ({ 
-		'lewis6991/impatient.nvim',
-		config = [[require('config.impatient')]]
-	})
+	-- use ({ 
+	-- 	'lewis6991/impatient.nvim',
+	-- 	config = [[require('config.impatient')]]
+	-- })
 	use ({ 'tweekmonster/startuptime.vim' })
 
 
