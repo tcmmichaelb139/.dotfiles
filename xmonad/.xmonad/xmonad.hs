@@ -269,10 +269,11 @@ myKeys =
         , ("M-S-q", io exitSuccess)              -- Quits xmonad
 
     -- Dmenu 
-        , ("M-<Space>", spawn "dmenu_run -i -l 20 -p \"Run: \"")    -- choose an ambient background
-        , ("M-p w", spawn "bash $HOME/.config/dmscripts/scripts/dm-wifi")
-        , ("M-p q", spawn "bash $HOME/.config/dmscripts/scripts/dm-logout")
-        , ("M-p p", spawn "passmenu")    -- choose an ambient background
+        -- , ("M-<Space>", spawn "dmenu_run -i -l 20 -x 10 -y 10 -z 1900 -p \"Run: \"")    -- choose an ambient background
+        , ("M-<Space>", spawn "dmenu_run -i -l 20 -x 10 -y 10 -z 1900 -p \"Run: \"")    -- choose an ambient background
+        , ("M-p w", spawn "bash $HOME/.config/dmscripts/scripts/dm-wifi -i -x 10 -y 10 -z 1900")
+        , ("M-p q", spawn "bash $HOME/.config/dmscripts/scripts/dm-logout -i -x 10 -y 10 -z 1900")
+        , ("M-p p", spawn "passmenu -i -x 10 -y 10 -z 1900 -p \"Password: \"")    -- choose an ambient background
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))

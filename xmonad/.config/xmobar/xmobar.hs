@@ -6,7 +6,7 @@ Config { font = "xft:SauceCodePro Nerd Font:weight=bold:pixelsize=11:antialias=t
        , additionalFonts = [ "xft: Font Awesome 5 Free Solid:pixelsize=12"]
        , bgColor = "#24283b"
        , fgColor = "#a9b1d6"
-      , position = Static { xpos = 10 , ypos = 10, width = 1900, height = 22 }
+       , position = Static { xpos = 10 , ypos = 10, width = 1900, height = 22 }
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True

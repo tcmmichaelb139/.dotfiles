@@ -1,0 +1,15 @@
+--- dmenu.1
++++ dmenu.1
+@@ -8,6 +8,12 @@ dmenu \- dynamic menu
+ .IR lines ]
+ .RB [ \-m
+ .IR monitor ]
++.RB [ \-x
++.IR xoffset ]
++.RB [ \-y
++.IR yoffset ]
++.RB [ \-z
++.IR width ]
+ .RB [ \-p
+ .IR prompt ]
+ .RB [ \-fn

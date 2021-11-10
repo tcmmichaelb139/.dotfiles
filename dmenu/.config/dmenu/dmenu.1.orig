@@ -83,24 +83,6 @@ is present, the measurement will use the given monitor.
 .BI \-z " width"
 sets the width of the dmenu window.
 .TP
-.BI \-x " xoffset"
-dmenu is placed at this offset measured from the left side of the monitor.
-Can be negative.
-If option
-.B \-m
-is present, the measurement will use the given monitor.
-.TP
-.BI \-y " yoffset"
-dmenu is placed at this offset measured from the top of the monitor.  If the
-.B \-b
-option is used, the offset is measured from the bottom.  Can be negative.
-If option
-.B \-m
-is present, the measurement will use the given monitor.
-.TP
-.BI \-z " width"
-sets the width of the dmenu window.
-.TP
 .BI \-p " prompt"
 defines the prompt to be displayed to the left of the input field.
 .TP
