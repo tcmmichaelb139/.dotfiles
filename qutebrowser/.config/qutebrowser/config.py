@@ -23,6 +23,7 @@ c.downloads.position = "bottom"
 
 # set dark mode
 c.colors.webpage.preferred_color_scheme = "dark"
+# c.colors.webpage.darkmode.enabled = True
 
 # font
 c.fonts.default_family = "SauceCodePro Nerd Font"
@@ -326,3 +327,7 @@ c.colors.tabs.selected.even.fg = base09
 
 # Background color of selected even tabs.
 c.colors.tabs.selected.even.bg = base02
+
+# keybindings
+config.bind('M', 'hint links spawn mpv {hint-url}')
+
