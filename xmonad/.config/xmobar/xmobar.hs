@@ -11,16 +11,16 @@ Config { font = "xft:SauceCodePro Nerd Font:weight=bold:pixelsize=11:antialias=t
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , iconRoot = "/home/tcmb139/.xmonad/xpm/"  -- default: "."
+       , iconRoot = "/home/tcmb139/.config/xmonad/xpm/"  -- default: "."
        , commands = [
                       Run Date "\xf017  %b %d %Y - (%H:%M) " "date" 50
                     , Run Network "wlp1s0" ["-t", "\xf0ab  <rx>kb  \xf0aa  <tx>kb"] 20
                     , Run Cpu ["-t", "<fn=1>\xf2db</fn> (<total>%)","-H","50","--high","red"] 20
                     , Run Memory ["-t", "<fn=1>\xf538</fn> <used>M (<usedratio>%)"] 20
                     , Run DiskU [("/", "\xf0c7  <free>")] [] 60
-                    , Run Com "/home/tcmb139/.xmonad/scripts/volume" [] "vol" 30
-                    , Run Com "/home/tcmb139/.xmonad/scripts/batinfo" [] "bat" 20
-                    , Run Com "/home/tcmb139/.xmonad/scripts/pacupdate" [] "pacupdate" 36000
+                    , Run Com "/home/tcmb139/.config/xmonad/scripts/volume" [] "vol" 30
+                    , Run Com "/home/tcmb139/.config/xmonad/scripts/batinfo" [] "bat" 20
+                    , Run Com "/home/tcmb139/.config/xmonad/scripts/pacupdate" [] "pacupdate" 36000
                     , Run Com "uname" ["-r"] "" 3600
                     , Run UnsafeStdinReader
                     ]
