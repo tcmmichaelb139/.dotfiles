@@ -101,9 +101,12 @@ return require('packer').startup(function()
 	-- ccs colors
 	use ({ 
 		'ap/vim-css-color',
-		disable = true
+		disable = false
 	})
 
+	use ({
+		'ThePrimeagen/vim-be-good'
+	})
 	-- startup time
 	-- use ({ 
 	-- 	'lewis6991/impatient.nvim',

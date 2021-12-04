@@ -95,14 +95,14 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOnce "picom &"
-    spawnOnce "pulseaudio --daemonize &"
-    spawnOnce "nitrogen --restore &"
-    spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-    spawnOnce "xfce4-power-manager &"
-    spawnOnce "fcitx -d &"
-    spawnOnce "libinput-gestures-setup start"
-    spawnOnce "dropbox &"
+    spawnOnce "picom &"														-- picom 
+    spawnOnce "pulseaudio --daemonize &"									-- audio
+    spawnOnce "nitrogen --restore &"										-- background
+    spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"	-- authenticator
+    spawnOnce "xfce4-power-manager &"										-- power manager
+    spawnOnce "fcitx -d &"													-- language support
+    spawnOnce "libinput-gestures-setup start"								-- trackpad gestures
+    spawnOnce "dropbox &"													-- dropbox
 
 spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
