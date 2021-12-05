@@ -31,6 +31,8 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 50
 vim.o.signcolumn = 'yes'
 
+vim.o.lazyredraw = true
+
 vim.cmd[[colorscheme tokyonight]]
 vim.cmd[[highlight NormalFloat guibg=#24283b]]
 vim.cmd[[highlight FloatBorder guifg=#a9b1d6 guibg=#24283b]]

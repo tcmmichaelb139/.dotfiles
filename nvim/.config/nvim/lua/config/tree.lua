@@ -58,7 +58,7 @@ require'nvim-tree'.setup {
     -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
     height = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
-    side = 'left',
+    side = 'right',
     -- if true the tree will resize itself after opening a file
     auto_resize = false,
     mappings = {

@@ -6,6 +6,31 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+local disabled_built_ins = {
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"gzip",
+	"zip",
+	"zipPlugin",
+	"tar",
+	"tarPlugin",
+	"getscript",
+	"getscriptPlugin",
+	"vimball",
+	"vimballPlugin",
+	"2html_plugin",
+	"logipat",
+	"rrhelper",
+	"spellfile_plugin",
+	"matchit"
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+	vim.g["loaded_" .. plugin] = 1
+end
+
 return require('packer').startup(function()
 	-- Packer can manage itself
 	use ({ 'wbthomason/packer.nvim' })
@@ -45,23 +70,24 @@ return require('packer').startup(function()
 		cmd = { 'UndotreeShow', 'UndotreeToggle', 'UndotreeHide', 'UndotreeFocus' }
 	})
 
-	-- comments
-	-- use 'tpope/vim-commentary'          
-	use ({
-		'terrortylor/nvim-comment',
-		config = [[require('config.comment')]]
-	})
+ 	-- comments
+ 	-- use 'tpope/vim-commentary'          
+ 	use ({
+ 		'terrortylor/nvim-comment',
+ 		config = [[require('config.comment')]]
+ 	})
 
 	-- autopairs
 	use ({
 		'windwp/nvim-autopairs',
-		config = [[require('config.autopairs')]]
+		config = [[require('config.autopairs')]],
+		event = "InsertEnter",
 	})
 
 	-- colorscheme
-	use ({ 
-		'folke/tokyonight.nvim',
-	}) 
+ 	use ({ 
+ 		'folke/tokyonight.nvim',
+ 	}) 
 
 	-- statusline
 	use ({ 
@@ -73,13 +99,20 @@ return require('packer').startup(function()
 	use ({
 		'akinsho/bufferline.nvim', 
 		config = [[require('config.bufferline')]],
-		requires = 'kyazdani42/nvim-web-devicons'
+		requires = 'kyazdani42/nvim-web-devicons',
 	})
 
 	-- nvim tree
 	use ({
 		'kyazdani42/nvim-tree.lua',
-		cmd = { "NvimTreeToggle", "NvimTreeClose" },
+		cmd = {
+			"NvimTreeClipboard",
+			"NvimTreeClose",
+			"NvimTreeFindFile",
+			"NvimTreeOpen",
+			"NvimTreeRefresh",
+			"NvimTreeToggle",
+		},
 		requires = 'kyazdani42/nvim-web-devicons',
 		config = [[require('config.tree')]]
 	})
@@ -87,9 +120,8 @@ return require('packer').startup(function()
 	-- toggle term
 	use ({
 		"akinsho/toggleterm.nvim",
-		config = [[require('config.toggleterm')]]
+		config = [[require('config.toggleterm')]],
 	})
-
 
 	-- notes
 	use ({ 
@@ -100,19 +132,19 @@ return require('packer').startup(function()
 
 	-- ccs colors
 	use ({ 
-		'ap/vim-css-color',
-		disable = false
+		'norcalli/nvim-colorizer.lua',
 	})
 
 	use ({
 		'ThePrimeagen/vim-be-good'
 	})
 	-- startup time
-	-- use ({ 
-	-- 	'lewis6991/impatient.nvim',
-	-- 	config = [[require('config.impatient')]]
-	-- })
+	use ({ 
+		'lewis6991/impatient.nvim',
+		config = [[require('config.impatient')]]
+	})
 	use ({ 'tweekmonster/startuptime.vim' })
 
 
 end)
+
