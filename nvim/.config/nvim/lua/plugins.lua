@@ -55,6 +55,12 @@ return require('packer').startup(function()
 		}
 	})
 
+	-- treesitter
+	use ({
+		'nvim-treesitter/nvim-treesitter',
+		config = [[require('config.treesitter')]]
+	})
+
 	-- telescope
 	use ({ 'nvim-lua/popup.nvim' })
 	use ({ 'nvim-lua/plenary.nvim' })
@@ -88,6 +94,11 @@ return require('packer').startup(function()
  	use ({ 
  		'folke/tokyonight.nvim',
  	}) 
+	
+	-- use ({
+	-- 	-- 'kyazdani42/nvim-palenight.lua'
+	-- 	'drewtempelmeyer/palenight.vim'
+	-- })
 
 	-- statusline
 	use ({ 
