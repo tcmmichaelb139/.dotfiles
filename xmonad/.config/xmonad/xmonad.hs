@@ -103,6 +103,7 @@ myStartupHook = do
     spawnOnce "fcitx -d &"													-- language support
     spawnOnce "libinput-gestures-setup start"								-- trackpad gestures
     spawnOnce "dropbox &"													-- dropbox
+    spawnOnce "conky &"														-- conky
 
 spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn

@@ -12,6 +12,7 @@ config.set('content.javascript.enabled', True, 'chrome-devtools://*')
 config.set('content.javascript.enabled', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set('content.tls.certificate_errors', 'load-insecurely')
 c.tabs.position = 'top'
 
 # Custom Configurations
