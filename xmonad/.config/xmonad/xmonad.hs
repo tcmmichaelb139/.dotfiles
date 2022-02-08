@@ -104,6 +104,7 @@ myStartupHook = do
     spawnOnce "libinput-gestures-setup start"								-- trackpad gestures
     spawnOnce "dropbox &"													-- dropbox
     spawnOnce "conky &"														-- conky
+    -- spawnOnce "bluetoothctl power on"										-- bluetooth, probably not needed
 
 spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
@@ -271,10 +272,12 @@ myKeys =
 
     -- Dmenu 
         -- , ("M-<Space>", spawn "dmenu_run -i -l 20 -x 10 -y 10 -z 1900 -p \"Run: \"")    -- choose an ambient background
-        , ("M-<Space>", spawn "dmenu_run -i -l 20 -x 10 -y 10 -z 1900 -p \"Run: \"")    -- choose an ambient background
-        , ("M-p w", spawn "bash $HOME/.config/dmscripts/scripts/dm-wifi -i -x 10 -y 10 -z 1900")
-        , ("M-p q", spawn "bash $HOME/.config/dmscripts/scripts/dm-logout -i -x 10 -y 10 -z 1900")
-        , ("M-p p", spawn "passmenu -i -x 10 -y 10 -z 1900 -p \"Password: \"")    -- choose an ambient background
+        , ("M-<Space>", spawn "dmenu_run -i -l 20 -p \"Run: \"")    -- choose an ambient background
+        , ("M-p w", spawn "bash $HOME/.config/dmscripts/scripts/dm-wifi -i")
+        -- , ("M-p q", spawn "bash $HOME/.config/dmscripts/scripts/dm-logout -i x 10 -y 10 -z 1900")
+        , ("M-p q", spawn "bash $HOME/.config/dmscripts/scripts/dm-logout -i")
+        -- , ("M-p p", spawn "passmenu -i -x 10 -y 10 -z 1900 -p \"Password: \"")    -- choose an ambient background
+        , ("M-p p", spawn "passmenu -i -p \"Password: \"")    -- choose an ambient background
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
@@ -308,10 +311,10 @@ myKeys =
         , ("M1-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
 
     -- Increase/decrease windows in the master pane or the stack
-        , ("M-S-<Up>", sendMessage (IncMasterN 1))      -- Increase # of clients master pane
-        , ("M-S-<Down>", sendMessage (IncMasterN (-1))) -- Decrease # of clients master pane
-        , ("M-C-<Up>", increaseLimit)                   -- Increase # of windows
-        , ("M-C-<Down>", decreaseLimit)                 -- Decrease # of windows
+        , ("M-S-k", sendMessage (IncMasterN 1))      -- Increase # of clients master pane
+        , ("M-S-j", sendMessage (IncMasterN (-1))) -- Decrease # of clients master pane
+        , ("M-C-k", increaseLimit)                   -- Increase # of windows
+        , ("M-C-j", decreaseLimit)                 -- Decrease # of windows
 
     -- Window resizing
         , ("M1-C-h", sendMessage Shrink)                   -- Shrink horiz window width

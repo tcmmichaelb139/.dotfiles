@@ -71,12 +71,16 @@ vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>tt', ':Telescope find_file<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>tf', ':Telescope find_file<CR>', opts)
 
-
 -- competitive programming (toggle term)
-vim.api.nvim_set_keymap('n', '<Leader>c', ':w <bar> :TermExec cmd="g++ -o %:r % -std=c++17 -O3 -Wall -lm -ggdb -fsanitize=address,undefined" size=50 direction=float go_back=0<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>r', ':TermExec cmd="./%:r" size=50 direction=vertical go_back=0<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<Leader>c', ':w <bar> :TermExec cmd="g++ -o %:r % -std=c++17 -O3 -Wall -lm -ggdb -fsanitize=address,undefined" size=50 direction=float go_back=0<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<Leader>r', ':TermExec cmd="./%:r" size=50 direction=tab go_back=0<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<Leader>r', ':TermExec cmd="python3 %:r.py" size=50 direction=tab go_back=0<CR>', opts)
+-- vim.cmd('autocmd FileType cpp nnoremap :TermExec cmd="./%:r" size=50 direction=tab go_back=0<CR>')
+-- vim.cmd('autocmd FileType python nnoremap :TermExec cmd="python3 %:r" size=50 direction=tab go_back=0<CR>')
 
--- vim.api.nvim_exec(
--- [[
--- autocmd BufNewFile *.cpp 0r $HOME/cp/Implementations/template_minimal.cpp
--- ]], false)
+vim.api.nvim_exec(
+[[
+autocmd FileType cpp nnoremap <leader>c :w <bar> :TermExec cmd="g++ -o %:r % -std=c++17 -O3 -Wall -lm -ggdb -fsanitize=address,undefined" size=50 direction=float go_back=0<CR>
+autocmd FileType cpp nnoremap <leader>r :TermExec cmd="./%:r" size=50 direction=tab go_back=0<CR>
+autocmd FileType python nnoremap <leader>r :TermExec cmd="python %" size=50 direction=tab go_back=0<CR>
+]], false)

@@ -15,6 +15,7 @@ window:
 
   dynamic_padding: false
   decorations: full
+  opacity: 1
 
 scrolling:
   history: 10000
@@ -27,11 +28,10 @@ draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
-  # The normal (roman) font face to use.
   # normal:
   #   family: Fixedsys Excelsior
   #   style: Regular
-  # size: 6.5
+  # size: 7
 
   normal:
     family: SauceCodePro Nerd Font
@@ -59,8 +59,6 @@ font:
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
-
-background_opacity: 1
 
 colors:
   # TOKYO-NIGHT-STORM
@@ -91,12 +89,17 @@ colors:
     cyan:    '0x0db9d7'
     white:   '0xacb0d0'
 
+
+  indexed_colors:
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }
+
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
 mouse:
   double_click: { threshold: 300 }
-triple_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"

@@ -94,6 +94,10 @@ return require('packer').startup(function()
  	use ({ 
  		'folke/tokyonight.nvim',
  	}) 
+
+	use ({
+		'rebelot/kanagawa.nvim',
+	})
 	
 	-- use ({
 	-- 	-- 'kyazdani42/nvim-palenight.lua'

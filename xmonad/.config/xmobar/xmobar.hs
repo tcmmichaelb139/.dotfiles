@@ -6,7 +6,7 @@ Config { font = "xft:SauceCodePro Nerd Font:weight=bold:pixelsize=11:antialias=t
        , additionalFonts = [ "xft: Font Awesome 5 Free Solid:pixelsize=12"]
        , bgColor = "#24283b"
        , fgColor = "#a9b1d6"
-       , position = Static { xpos = 10 , ypos = 10, width = 1900, height = 22 }
+       -- , position = Static { xpos = 10 , ypos = 10, width = 1900, height = 22 }
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True
@@ -40,14 +40,7 @@ Config { font = "xft:SauceCodePro Nerd Font:weight=bold:pixelsize=11:antialias=t
                       \<fc=#24283b,#1a1b26> </fc> }\
                       \{ <fc=#24283b,#1a1b26> </fc>\
 
-                      \<fc=#c0caf5,#1a1b26> <action='flameshot-gui'> </action></fc>\
-                      \<fc=#c0caf5,#1a1b26> <action='discord'> </action></fc>\
-                      \<fc=#c0caf5,#1a1b26> <action='alacritty -e nmgui'> </action>\
-
-                      \<fc=#1a1b26,#24283b> </fc>\
-                      \<fc=#24283b,#1a1b26> </fc>\
-
-                      \<fc=#bb9af7,#1a1b26> %wlp1s0% </fc>\
+                      \<fc=#bb9af7,#1a1b26> %wlp1s0% \
 
                       \<fc=#1a1b26,#24283b> </fc>\
                       \<fc=#24283b,#1a1b26> </fc>\
