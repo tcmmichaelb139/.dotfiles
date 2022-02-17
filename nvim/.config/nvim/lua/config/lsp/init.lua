@@ -77,3 +77,14 @@ require'lspconfig'.sumneko_lua.setup {
 -- {{{ bash lsp
 require'lspconfig'.bashls.setup{ on_attach = on_attach }-- }}}
 
+--{{{arduino
+lspconfig.arduino_language_server.setup({
+	cmd =  {
+		-- Required
+		"arduino-language-server",
+		"-cli-config", "/path/to/arduino-cli.yaml",
+		-- Optional
+		"-cli", "/path/to/arduino-cli",
+		"-clangd", "/path/to/clangd"
+	}
+}) -- }}}

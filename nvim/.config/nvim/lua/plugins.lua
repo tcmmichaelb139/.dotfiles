@@ -153,12 +153,14 @@ return require('packer').startup(function()
 	use ({
 		'ThePrimeagen/vim-be-good'
 	})
+
 	-- startup time
 	use ({ 
 		'lewis6991/impatient.nvim',
 		config = [[require('config.impatient')]]
 	})
 	use ({ 'tweekmonster/startuptime.vim' })
+
 
 
 end)

@@ -119,7 +119,8 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
-                , NS "mocp" spawnMocp findMocp manageMocp
+                , NS "mpv-music" spawnMpv findMpv manageMpv
+                , NS "calendar" spawnCal findCal manageCal
                 , NS "calculator" spawnCalc findCalc manageCalc
                 ]
   where
@@ -131,9 +132,17 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnMocp  = myTerminal ++ " -t mocp -e mocp"
-    findMocp   = title =? "mocp"
-    manageMocp = customFloating $ W.RationalRect l t w h
+    spawnMpv  = myTerminal ++ " -t mpv-music"
+    findMpv   = title =? "mpv-music"
+    manageMpv = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+    spawnCal  = "google-calendar-nativefier"
+    findCal   = className =? "googlecalendar-nativefier-e22938"
+    manageCal = customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -330,6 +339,14 @@ myKeys =
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 2%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 2%+ unmute")
         , ("<Print>", spawn "flameshot gui")
+
+	-- scratchpad
+	    , ("M1-s t", namedScratchpadAction myScratchPads "terminal")
+	    , ("M1-s m", namedScratchpadAction myScratchPads "mpv-music")
+	    , ("M1-c", namedScratchpadAction myScratchPads "calendar")
+		, ("M1-s c", namedScratchpadAction myScratchPads "calculator")
+
+
         ]
 myKeys2 conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. mod1Mask, k), windows $ f i)

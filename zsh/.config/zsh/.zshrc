@@ -125,6 +125,11 @@ alias vim='nvim'
 export EDITOR='nvim'
 export PATH=$PATH:~/.scripts
 
+# music
+alias hya="cd ~/Music/HYAmusic"
+alias win="mpv --loop --no-video ~/Music/HYAmusic/the\ Win\ -\ H¥Amusic-soT8GPdj5Aw.mkv"
+alias ytdl-hya="youtube-dl https://www.youtube.com/channel/UCGsJUlFVL-9UF0Txxp1VB_w"
+
 # for cp
 ulimit -s unlimited
 
