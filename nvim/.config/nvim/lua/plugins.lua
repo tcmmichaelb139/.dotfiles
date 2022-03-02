@@ -160,10 +160,10 @@ return require('packer').startup(function()
 	})
 
 	-- startup time
-	-- use ({ 
-	-- 	'lewis6991/impatient.nvim',
-	-- 	config = [[require('config.impatient')]]
-	-- })
+	use ({ 
+		'lewis6991/impatient.nvim',
+		config = [[require('config.impatient')]]
+	})
 
 	use ({ 'tweekmonster/startuptime.vim' })
 
