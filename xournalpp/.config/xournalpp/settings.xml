@@ -6,15 +6,15 @@
   <property name="pressureMultiplier" value="1.00000000"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Tokyonight-Storm"/>
-  <property name="lastSavePath" value="/home/tcmb139/Personal/School/Freshmen/Math"/>
-  <property name="lastOpenPath" value="/home/tcmb139/Personal/School/Freshmen/IED"/>
+  <property name="lastSavePath" value="/home/tcmb139/Documents/Math/PDF"/>
+  <property name="lastOpenPath" value="/home/tcmb139/Personal/Math/Homework/Xournalpp"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20.00000000"/>
   <property name="edgePanMaxMult" value="5.00000000"/>
   <property name="zoomStep" value="10.00000000"/>
   <property name="zoomStepScroll" value="2.00000000"/>
   <property name="displayDpi" value="148"/>
-  <property name="mainWndWidth" value="939"/>
+  <property name="mainWndWidth" value="1894"/>
   <property name="mainWndHeight" value="1036"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
@@ -206,14 +206,14 @@
     </data>
     <data name="eraser">
       <attribute name="drawingType" type="string" value="default"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="THIN"/>
       <attribute name="type" type="string" value="deleteStroke"/>
     </data>
     <data name="hand">
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="highlighter">
-      <attribute name="color" type="hex" value="b4f994"/>
+      <attribute name="color" type="hex" value="ffe66100"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
@@ -223,7 +223,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="b4f994"/>
+      <attribute name="color" type="hex" value="7aa2f7"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>

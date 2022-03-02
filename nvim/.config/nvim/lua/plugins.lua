@@ -138,6 +138,11 @@ return require('packer').startup(function()
 		config = [[require('config.toggleterm')]],
 	})
 
+	use ({
+		'lukas-reineke/indent-blankline.nvim',
+		config = [[require('config.indent-blankline')]]
+	})
+
 	-- notes
 	use ({ 
 		'vimwiki/vimwiki',
@@ -155,10 +160,11 @@ return require('packer').startup(function()
 	})
 
 	-- startup time
-	use ({ 
-		'lewis6991/impatient.nvim',
-		config = [[require('config.impatient')]]
-	})
+	-- use ({ 
+	-- 	'lewis6991/impatient.nvim',
+	-- 	config = [[require('config.impatient')]]
+	-- })
+
 	use ({ 'tweekmonster/startuptime.vim' })
 
 
