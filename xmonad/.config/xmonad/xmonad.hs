@@ -104,6 +104,7 @@ myStartupHook = do
     spawnOnce "libinput-gestures-setup start"								-- trackpad gestures
     spawnOnce "dropbox &"													-- dropbox
     spawnOnce "conky &"														-- conky
+    spawnOnce "emacs --daemon &"
     -- spawnOnce "bluetoothctl power on"										-- bluetooth, probably not needed
 
 spawnSelected' :: [(String, String)] -> X ()
@@ -290,6 +291,7 @@ myKeys =
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
+        , ("M-e", spawn "emacsclient -c -a emacs")
         , ("M-b", spawn (myBrowser))
         , ("M-f", spawn (myFileManager))
 
@@ -345,8 +347,6 @@ myKeys =
 	    , ("M1-s m", namedScratchpadAction myScratchPads "mpv-music")
 	    , ("M1-c", namedScratchpadAction myScratchPads "calendar")
 		, ("M1-s c", namedScratchpadAction myScratchPads "calculator")
-
-
         ]
 myKeys2 conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. mod1Mask, k), windows $ f i)

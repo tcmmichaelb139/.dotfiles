@@ -7,7 +7,7 @@
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Tokyonight-Storm"/>
   <property name="lastSavePath" value="/home/tcmb139/Documents/Math/PDF"/>
-  <property name="lastOpenPath" value="/home/tcmb139/Personal/Math/Homework/Xournalpp"/>
+  <property name="lastOpenPath" value="/home/tcmb139/Documents/Math/Xournalpp"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20.00000000"/>
   <property name="edgePanMaxMult" value="5.00000000"/>
@@ -19,7 +19,7 @@
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="true"/>
-  <property name="sidebarWidth" value="117"/>
+  <property name="sidebarWidth" value="118"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
   <property name="menubarVisible" value="true"/>
@@ -234,6 +234,14 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectObject">
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectPdfTextLinear">
+      <attribute name="color" type="hex" value="000000"/>
+      <attribute name="drawingType" type="string" value="default"/>
+    </data>
+    <data name="selectPdfTextRect">
+      <attribute name="color" type="hex" value="000000"/>
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectRect">

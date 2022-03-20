@@ -138,14 +138,14 @@ return require('packer').startup(function()
 		config = [[require('config.toggleterm')]],
 	})
 
-	use ({
-		'lukas-reineke/indent-blankline.nvim',
-		config = [[require('config.indent-blankline')]]
-	})
+	-- use ({
+	-- 	'lukas-reineke/indent-blankline.nvim',
+	-- 	config = [[require('config.indent-blankline')]]
+	-- })
 
 	-- notes
 	use ({ 
-		'vimwiki/vimwiki',
+		'vimwiki/vimwiki', branch = "dev",
 		config = [[require('config.vimwiki')]],
 		-- ft = {'wiki'}
 	})

@@ -81,4 +81,5 @@ vim.api.nvim_exec(
 autocmd FileType cpp nnoremap <leader>c :w <bar> :TermExec cmd="g++ -o %:r % -std=c++17 -O3 -Wall -lm -ggdb -fsanitize=address,undefined" size=50 direction=float<CR>
 autocmd FileType cpp nnoremap <leader>r :TermExec cmd="./%:r" size=50 direction=tab go_back=0<CR>
 autocmd FileType python nnoremap <leader>r :TermExec cmd="python3 %" size=50 direction=tab go_back=0<CR>
+autocmd FileType vimwiki set tw=80
 ]], true)
