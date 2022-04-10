@@ -123,6 +123,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "mpv-music" spawnMpv findMpv manageMpv
                 , NS "calendar" spawnCal findCal manageCal
                 , NS "calculator" spawnCalc findCalc manageCalc
+                , NS "vpn" spawnVpn findVpn manageVpn
                 ]
   where
     spawnTerm  = myTerminal ++ " -t scratchpad"
@@ -157,6 +158,14 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.4
                  t = 0.75 -h
                  l = 0.70 -w
+    spawnVpn  = "./Applications/Outline-Client.AppImage"
+    findVpn   = className =? "Outline"
+    manageVpn = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.5
+                 w = 0.2
+                 t = 0.75 -h
+                 l = 0.6 -w
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
@@ -294,6 +303,7 @@ myKeys =
         , ("M-e", spawn "emacsclient -c -a emacs")
         , ("M-b", spawn (myBrowser))
         , ("M-f", spawn (myFileManager))
+        , ("M-d", spawn "discord")
 
     -- Kill windows
         , ("M1-q", kill1)     -- Kill the currently focused client
@@ -347,6 +357,7 @@ myKeys =
 	    , ("M1-s m", namedScratchpadAction myScratchPads "mpv-music")
 	    , ("M1-c", namedScratchpadAction myScratchPads "calendar")
 		, ("M1-s c", namedScratchpadAction myScratchPads "calculator")
+		, ("M1-s v", namedScratchpadAction myScratchPads "vpn")
         ]
 myKeys2 conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. mod1Mask, k), windows $ f i)

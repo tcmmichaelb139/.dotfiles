@@ -32,8 +32,8 @@ vim.api.nvim_set_keymap('n', '<Leader>=', ':vertical resize +5<CR>', opts)
 vim.api.nvim_set_keymap('i', '<C-h>', '<C-w>', opts)
 
 -- tab movements
-vim.api.nvim_set_keymap('n', '<Leader>n', ':tabn<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>p', ':tabp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>n', ':bn<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>p', ':bp<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>tn', ':tabnew<Space>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>tm', ':tabmove<Space>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>tp', ':tabclose<CR>', {noremap = true})

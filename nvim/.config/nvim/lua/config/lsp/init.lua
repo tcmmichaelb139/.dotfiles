@@ -77,14 +77,21 @@ require'lspconfig'.sumneko_lua.setup {
 -- {{{ bash lsp
 require'lspconfig'.bashls.setup{ on_attach = on_attach }-- }}}
 
---{{{arduino
-lspconfig.arduino_language_server.setup({
-	cmd =  {
-		-- Required
-		"arduino-language-server",
-		"-cli-config", "/path/to/arduino-cli.yaml",
-		-- Optional
-		"-cli", "/path/to/arduino-cli",
-		"-clangd", "/path/to/clangd"
-	}
-}) -- }}}
+--{{{ html and css
+--Enable (broadcasting) snippet capability for completion
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+--}}}
