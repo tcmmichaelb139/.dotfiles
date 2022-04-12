@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 
+
 -- Automatically update diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
@@ -26,11 +27,12 @@ local border = {
       {"│", "FloatBorder"},
 }
 
-local on_attach = function(client, bufnr)
-  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
-  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
-
 
 -- {{{ c++ lsp
 lspconfig.clangd.setup{ on_attach = on_attach }-- }}}
@@ -77,7 +79,7 @@ require'lspconfig'.sumneko_lua.setup {
 -- {{{ bash lsp
 require'lspconfig'.bashls.setup{ on_attach = on_attach }-- }}}
 
---{{{ html and css
+--{{{ html and css and angular 
 --Enable (broadcasting) snippet capability for completion
 
 --Enable (broadcasting) snippet capability for completion
@@ -94,4 +96,15 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
+
+local project_library_path = "/path/to/project/lib"
+local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
+
+require'lspconfig'.angularls.setup{
+  cmd = cmd,
+  on_new_config = function(new_config,new_root_dir)
+    new_config.cmd = cmd
+  end,
+}
+
 --}}}
