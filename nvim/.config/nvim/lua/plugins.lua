@@ -98,6 +98,10 @@ return require('packer').startup(function()
 	use ({
 		'rebelot/kanagawa.nvim',
 	})
+
+    use ({
+        'navarasu/onedark.nvim'
+    })
 	
 	-- use ({
 	-- 	-- 'kyazdani42/nvim-palenight.lua'

@@ -19,7 +19,7 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-	documentation = {
+	window = {
 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 	},
 	sources = {

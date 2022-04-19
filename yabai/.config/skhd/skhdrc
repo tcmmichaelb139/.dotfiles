@@ -1,0 +1,45 @@
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
+
+# focus window
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+
+# move managed window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+# fast focus desktop
+# enabled in Sys Pref > Keyboard > Shortcuts > Mission Control > Switch To Desktop X
+
+# send window to desktop and follow focus
+# shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
+shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
+shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
+shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
+shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
+shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
+
+# focus monitor
+cmd - z  : yabai -m display --focus prev
+cmd - c  : yabai -m display --focus next
+# ctrl + alt - 3  : yabai -m display --focus 3
+
+# send window to monitor and follow focus
+shift + cmd - z  : yabai -m window --display prev; yabai -m display --focus prev
+shift + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+
+# toggle window zoom
+# alt - d : yabai -m window --toggle zoom-parent
+cmd - f : yabai -m window --toggle zoom-fullscreen
+
+# float / unfloat window and center on screen
+shift + cmd - space : yabai -m window --toggle float;\
+#           yabai -m window --grid 4:4:1:1:2:2
+

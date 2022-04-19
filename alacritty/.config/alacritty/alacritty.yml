@@ -10,8 +10,8 @@ env:
 window:
 
   padding:
-    x: 0
-    y: 0
+    x: 2
+    y: 2
 
   dynamic_padding: false
   decorations: full
@@ -22,7 +22,7 @@ scrolling:
   multiplier: 3
 
 
-  # When true, bold text is drawn using the bright variant of colors.
+  # When true, bold text is drawn using the bright variant of colors. 
 tabspaces: 4
 draw_bold_text_with_bright_colors: true
 
@@ -36,7 +36,7 @@ font:
   normal:
     family: SauceCodePro Nerd Font
     # Style can be specified to pick a specific face.
-    style: Medium
+    style: Regular
 
       #The bold font face
   bold:
@@ -49,7 +49,7 @@ font:
     family: SauceCodePro Nerd Font
     # Style can be specified to pick a specific face.
     style: Medium Italic
-  size: 6.5
+  size: 13.5
 
     # Point size of the font
     #

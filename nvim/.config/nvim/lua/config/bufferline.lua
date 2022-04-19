@@ -2,7 +2,7 @@ require("bufferline").setup({
 	options = {
 		diagnostics = "nvim_lsp",
 		numbers = "both",
-		separator_style = "padded_slant",
+		separator_style = "padded",
 		diagnostics_indicator = function(_, _, diagnostics_dict)
 			local s = " "
 			for e, n in pairs(diagnostics_dict) do

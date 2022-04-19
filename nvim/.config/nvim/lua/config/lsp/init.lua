@@ -40,41 +40,41 @@ lspconfig.clangd.setup{ on_attach = on_attach }-- }}}
 -- {{{ python lsp
 lspconfig.pyright.setup{ on_attach = on_attach }-- }}}
 
---{{{ lua lsp
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
-USER = vim.fn.expand('$USER')
-
-local system_name
-if vim.fn.has("mac") == 1 then
-	system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-	system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-	system_name = "Windows"
-else
-	print("Unsupported system for sumneko")
-end
-
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = '/home/'..USER..'/.config/nvim/lsps/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-
-require'lspconfig'.sumneko_lua.setup {
-	on_attach = on_attach,
-	cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = {'vim'},
-			},
-			workspace = { 
-				maxPreload = 100000,
-				preloadFileSize = 10000,
-			},
-		},
-	},
-}--}}}
+-- --{{{ lua lsp
+-- -- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+-- USER = vim.fn.expand('$USER')
+--
+-- local system_name
+-- if vim.fn.has("mac") == 1 then
+-- 	system_name = "macOS"
+-- elseif vim.fn.has("unix") == 1 then
+-- 	system_name = "Linux"
+-- elseif vim.fn.has('win32') == 1 then
+-- 	system_name = "Windows"
+-- else
+-- 	print("Unsupported system for sumneko")
+-- end
+--
+-- -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
+-- local sumneko_root_path = '/Users/'..USER..'/.config/nvim/lsps/lua-language-server'
+-- local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+--
+-- require'lspconfig'.sumneko_lua.setup {
+-- 	on_attach = on_attach,
+-- 	cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+-- 	settings = {
+-- 		Lua = {
+-- 			diagnostics = {
+-- 				-- Get the language server to recognize the `vim` global
+-- 				globals = {'vim'},
+-- 			},
+-- 			workspace = { 
+-- 				maxPreload = 100000,
+-- 				preloadFileSize = 10000,
+-- 			},
+-- 		},
+-- 	},
+-- }--}}}
 
 -- {{{ bash lsp
 require'lspconfig'.bashls.setup{ on_attach = on_attach }-- }}}

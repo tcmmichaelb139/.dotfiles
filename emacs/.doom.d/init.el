@@ -84,6 +84,7 @@
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
+       lsp
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
        ;;debugger          ; FIXME stepping through code, to help you add bugs
