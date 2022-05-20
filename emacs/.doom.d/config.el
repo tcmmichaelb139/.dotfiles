@@ -26,7 +26,7 @@
 (setq doom-theme 'doom-one)
 
 ; (setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 15))
-(setq doom-font (font-spec :family "Source Code Pro" :size 15))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -58,7 +58,7 @@
 (add-hook 'org-mode-hook 'auto-fill-mode)
 
 (after! org
-  (setq org-directory "~/Dropbox/Org/"
+  (setq org-directory "~/My Drive/Org"
         ;; org-agenda-files '("~/Dropbox/Org/agenda.org")
         ;; org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
@@ -97,9 +97,9 @@
 ;; (setq org-export-with-section-numbers nil)
 (setq org-publish-project-alist
       '(("org-notes"
-        :base-directory "~/Dropbox/Org/"
+        :base-directory "~/My Drive/Org"
         :base-extension "org"
-        :publishing-directory "~/Dropbox/Org/html/"
+        :publishing-directory "~/My Drive/Org/html"
         :recursive t
         :exclude "org-html-themes/.*"
         :publishing-function org-html-publish-to-html

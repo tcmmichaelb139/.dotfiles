@@ -10,34 +10,35 @@ yabai -m space 2 --label two
 yabai -m space 3 --label three
 yabai -m space 4 --label four
 yabai -m space 5 --label five
+yabai -m space 6 --label six
+yabai -m space 7 --label seven
+yabai -m space 8 --label eight
+yabai -m space 9 --label nine
 
 # float system preferences. Most of these just diable Yabai form resizing them.
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="Stats" sticky=on layer=above manage=off
+yabai -m rule --add app="Calculator" sticky=on layer=above manage=off
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
 yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Path Finder$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^console$" manage=off
 
-#find ~/Library/Parallels/Applications\ Menus/ -maxdepth 3 -type f | awk -F'/' '{ print $NF; }' | awk '{$1=$1};1' | sort | uniq | tr "\n" "\0" | xargs -0 -I{} yabai -m rule --add app="^{}\$" title=".*" manage=on
 
 ## Some random global settings
-#yabai -m config focus_follows_mouse          autoraise
-#yabai -m config focus_follows_mouse          on
+yabai -m config focus_follows_mouse          autoraise
+yabai -m config focus_follows_mouse          on
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child
 yabai -m config window_topmost off
-#yabai -m config window_shadow float
 yabai -m config window_opacity off
 yabai -m config window_opacity_duration 0.00
 yabai -m config active_window_opacity 1.0
-#yabai -m config normal_window_opacity        0.97
-#yabai -m config window_border                on | off
 
 yabai -m config window_border on
-yabai -m config window_border_width 3
+yabai -m config window_border_width 2
 yabai -m config active_window_border_color 0xFFC678DD
 yabai -m config normal_window_border_color 0xFF282C34
 yabai -m config insert_feedback_color 0xffd75f5f

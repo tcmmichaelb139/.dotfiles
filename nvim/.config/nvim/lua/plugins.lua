@@ -100,7 +100,8 @@ return require('packer').startup(function()
 	})
 
     use ({
-        'navarasu/onedark.nvim'
+        'navarasu/onedark.nvim',
+        config = [[require('config.onedark')]],
     })
 	
 	-- use ({

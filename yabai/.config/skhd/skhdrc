@@ -3,43 +3,59 @@ ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 # alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
 
 # focus window
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
 
 # move managed window
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
 
 # fast focus desktop
 # enabled in Sys Pref > Keyboard > Shortcuts > Mission Control > Switch To Desktop X
 
 # send window to desktop and follow focus
 # shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
-shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
-shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
+shift + alt - 1 : yabai -m window --space  1; yabai -m space --focus 1
+shift + alt - 2 : yabai -m window --space  2; yabai -m space --focus 2
+shift + alt - 3 : yabai -m window --space  3; yabai -m space --focus 3
+shift + alt - 4 : yabai -m window --space  4; yabai -m space --focus 4
+shift + alt - 5 : yabai -m window --space  5; yabai -m space --focus 5
+shift + alt - 6 : yabai -m window --space  6; yabai -m space --focus 6
+shift + alt - 7 : yabai -m window --space  7; yabai -m space --focus 7
+shift + alt - 8 : yabai -m window --space  8; yabai -m space --focus 8
+shift + alt - 9 : yabai -m window --space  9; yabai -m space --focus 9
 
 # focus monitor
-cmd - z  : yabai -m display --focus prev
-cmd - c  : yabai -m display --focus next
+alt - z  : yabai -m display --focus prev
+alt - c  : yabai -m display --focus next
 # ctrl + alt - 3  : yabai -m display --focus 3
 
 # send window to monitor and follow focus
-shift + cmd - z  : yabai -m window --display prev; yabai -m display --focus prev
-shift + cmd - c  : yabai -m window --display next; yabai -m display --focus next
+shift + alt - z  : yabai -m window --display prev; yabai -m display --focus prev
+shift + alt - c  : yabai -m window --display next; yabai -m display --focus next
 # ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
 
 # toggle window zoom
 # alt - d : yabai -m window --toggle zoom-parent
-cmd - f : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 # float / unfloat window and center on screen
-shift + cmd - space : yabai -m window --toggle float;\
+shift + alt - space : yabai -m window --toggle float;\
 #           yabai -m window --grid 4:4:1:1:2:2
 
+
+# Focus window up/down in stack
+alt - n : yabai -m window --focus stack.next
+alt - p : yabai -m window --focus stack.prev
+
+# Add the active window  to the window or stack to the {direction}
+# Note that this only works when the active window does *not* already belong to a stack
+
+ctrl + alt - h : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window west --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+ctrl + alt - j : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window south --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+ctrl + alt - k : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window north --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+ctrl + alt - l : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
