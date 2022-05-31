@@ -137,9 +137,6 @@ alias playall="mpv --no-video --shuffle --volume=50 ~/Music/playlists/*"
 ulimit -s unlimited
 alias cdcp="cd ~/My\ Drive/programming/Competitive\ Programming/"
 
-# google drive
-alias drive="cd ~/My\ Drive/"
-
 #syntax highlighting
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
@@ -150,5 +147,3 @@ alias luamake=/Users/tcmb139/.config/nvim/lsps/lua-language-server/3rd/luamake/l
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f "/Users/tcmb139/.ghcup/env" ] && source "/Users/tcmb139/.ghcup/env" # ghcup-env

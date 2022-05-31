@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: cpp with silent result
+# key: <cpprs
+# --
+
+#+begin_src cpp :results silent
+$0
+#+end_src
