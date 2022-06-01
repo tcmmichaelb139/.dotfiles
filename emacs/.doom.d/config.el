@@ -1,5 +1,5 @@
 (setq user-full-name "Michael Bao"
-      doom-theme 'doom-one
+      doom-theme 'catppuccin
       doom-font (font-spec :family "FiraCode Nerd Font" :size 14)
       ;; setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 15)
       display-line-numbers-type 'relative
@@ -37,6 +37,7 @@
       recentf-mode 1
       yas-snippet-dirs '("~/.doom.d/snippets")
       )
+
 
 (custom-set-faces
   '(org-level-1 ((t (:inherit outline-1 :height 1.5))))

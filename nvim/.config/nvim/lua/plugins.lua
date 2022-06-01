@@ -103,7 +103,12 @@ return require('packer').startup(function()
         'navarasu/onedark.nvim',
         config = [[require('config.onedark')]],
     })
-	
+
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin"
+    })
+
 	-- use ({
 	-- 	-- 'kyazdani42/nvim-palenight.lua'
 	-- 	'drewtempelmeyer/palenight.vim'

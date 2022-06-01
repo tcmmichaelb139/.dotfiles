@@ -16,7 +16,7 @@ vim.o.wrap = false
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undofile = true
-vim.o.undodir = '/Users/tcmb139/.cache/nvim/undodir'
+vim.o.undodir = '/home/tcmb139/.cache/nvim/undodir'
 vim.o.backspace = 'indent,eol,start'
 vim.o.foldmethod = 'marker'
 vim.o.title = true
@@ -33,6 +33,8 @@ vim.o.signcolumn = 'yes'
 
 vim.o.lazyredraw = true
 
-vim.cmd[[colorscheme onedark]]
-vim.cmd[[highlight NormalFloat guibg=#24283b]]
-vim.cmd[[highlight FloatBorder guifg=#a9b1d6 guibg=#24283b]]
+-- vim.g.catppuccin_flavour = "macchiato"
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+vim.cmd[[colorscheme catppuccin]]
+-- vim.cmd[[highlight NormalFloat guibg=#24283b]]
+-- vim.cmd[[highlight FloatBorder guifg=#a9b1d6 guibg=#24283b]]

@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/tcmb139/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -72,49 +72,54 @@ _G.packer_plugins = {
   ["bufferline.nvim"] = {
     config = { "require('config.bufferline')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-nvim-lua"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-path",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["impatient.nvim"] = {
     config = { "require('config.impatient')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lualine.nvim"] = {
     config = { "require('config.lualine')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-autopairs"] = {
@@ -122,30 +127,30 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     config = { "require('config.cmp')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-comment"] = {
     config = { "require('config.comment')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
   },
   ["nvim-lspconfig"] = {
     config = { "require('config.lsp')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
@@ -154,66 +159,66 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "require('config.treesitter')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
     config = { "require('config.onedark')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["startuptime.vim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/startuptime.vim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/startuptime.vim",
     url = "https://github.com/tweekmonster/startuptime.vim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     config = { "require('config.telescope')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "require('config.toggleterm')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
   undotree = {
@@ -221,35 +226,55 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/opt/undotree",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/opt/undotree",
     url = "https://github.com/mbbill/undotree"
   },
   ["vim-be-good"] = {
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
   vimwiki = {
     config = { "require('config.vimwiki')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/vimwiki",
+    path = "/home/tcmb139/.local/share/nvim/site/pack/packer/start/vimwiki",
     url = "https://github.com/vimwiki/vimwiki"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+require('config.comment')
+time([[Config for nvim-comment]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('config.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp')
+time([[Config for nvim-lspconfig]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 require('config.toggleterm')
 time([[Config for toggleterm.nvim]], false)
--- Config for: impatient.nvim
-time([[Config for impatient.nvim]], true)
-require('config.impatient')
-time([[Config for impatient.nvim]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
 require('config.bufferline')
 time([[Config for bufferline.nvim]], false)
+-- Config for: impatient.nvim
+time([[Config for impatient.nvim]], true)
+require('config.impatient')
+time([[Config for impatient.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('config.treesitter')
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('config.cmp')
@@ -258,30 +283,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for onedark.nvim]], true)
 require('config.onedark')
 time([[Config for onedark.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('config.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-comment
-time([[Config for nvim-comment]], true)
-require('config.comment')
-time([[Config for nvim-comment]], false)
 -- Config for: vimwiki
 time([[Config for vimwiki]], true)
 require('config.vimwiki')
 time([[Config for vimwiki]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('config.lualine')
-time([[Config for lualine.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lsp')
-time([[Config for nvim-lspconfig]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

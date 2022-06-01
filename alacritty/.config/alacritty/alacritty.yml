@@ -1,9 +1,3 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator
-
-
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty it self.
 env:
   TERM: xterm-256color
 
@@ -22,77 +16,66 @@ scrolling:
   multiplier: 3
 
 
-  # When true, bold text is drawn using the bright variant of colors. 
 tabspaces: 4
 draw_bold_text_with_bright_colors: true
 
-# Font configuration (changes require restart)
 font:
-  # normal:
-  #   family: Fixedsys Excelsior
-  #   style: Regular
-  # size: 7
 
   normal:
-    family: SauceCodePro Nerd Font
-    # Style can be specified to pick a specific face.
+    family: Fira Code Nerd Font
     style: Regular
 
-      #The bold font face
   bold:
-    family: SauceCodePro Nerd Font
-    # Style can be specified to pick a specific face.
+    family: Fira Code Nerd Font
     style: Black
 
-  # The italic font face
   italic:
-    family: SauceCodePro Nerd Font
-    # Style can be specified to pick a specific face.
+    family: Fira Code Nerd Font
     style: Medium Italic
-  size: 13.5
+  size: 12
 
-    # Point size of the font
-    #
   scale_with_dpi: true
   use_thin_strokes: false
 
-# Use custom cursor colors. If true, display the cursor in the cursor.foreground
-# and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
 colors:
-  # TOKYO-NIGHT-STORM
-  primary:
-    background: '0x24283b'
-    # background: '0x1a1b26'
-    foreground: '0xa9b1d6'
 
-    # Normal colors
-  normal:
-    black:   '0x32344a'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xad8ee6'
-    cyan:    '0x449dab'
-    white:   '0x9699a8'
-
-    # Bright colors
-  bright:
-    black:   '0x444b6a'
-    red:     '0xff7a93'
-    green:   '0xb9f27c'
-    yellow:  '0xff9e64'
-    blue:    '0x7da6ff'
-    magenta: '0xbb9af7'
-    cyan:    '0x0db9d7'
-    white:   '0xacb0d0'
+    # Default colors
+    primary:
+      background: '#1E1E2E' # base
+      foreground: '#CDD6F4' # text
+      # Bright and dim foreground colors
+      dim_foreground: '#CDD6F4' # text
+      bright_foreground: '#CDD6F4' # text
 
 
-  indexed_colors:
-    - { index: 16, color: '0xffa066' }
-    - { index: 17, color: '0xff5d62' }
+    # Search colors
+    search:
+      matches:
+        foreground: '#1E1E2E' # base
+        background: '#A6ADC8' # subtext0
+      focused_match:
+        foreground: '#1E1E2E' # base
+        background: '#A6E3A1' # green
+      bar:
+        foreground: '#1E1E2E' # base
+        background: '#A6ADC8' # subtext0
+
+    # Keyboard regex hints
+    hints:
+      start:
+        foreground: '#1E1E2E' # base
+        background: '#F9E2AF' # yellow
+      end:
+        foreground: '#1E1E2E' # base
+        background: '#A6ADC8' # subtext0
+
+    # Selection colors
+    selection:
+      text: '#1E1E2E' # base
+      background: '#F5E0DC' # rosewater
+
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }

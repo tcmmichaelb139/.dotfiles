@@ -141,8 +141,8 @@ alias cdcp="cd ~/My\ Drive/programming/Competitive\ Programming/"
 alias drive="cd ~/My\ Drive/"
 
 #syntax highlighting
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 alias luamake=/Users/tcmb139/.config/nvim/lsps/lua-language-server/3rd/luamake/luamake
 

@@ -60,3 +60,4 @@
 
 (package! yasnippets)
 
+(package! catppuccin-theme)

@@ -5,17 +5,18 @@ local lualine = require 'lualine'
 
 -- Color table for highlights
 -- stylua: ignore
-local c = require('onedark.colors')
+-- catppuccin - mocha theme
+local c = require('catppuccin.core.palettes.mocha')
 local colors = {
-    bg = c.bg0,
-    fg = c.fg,
+    bg = c.base,
+    fg = c.text,
     red = c.red,
     green = c.green,
     yellow = c.yellow,
     blue = c.blue,
-    purple = c.purple,
-    cyan = c.cyan,
-    gray = c.grey
+    purple = c.lavender,
+    cyan = c.teal,
+    gray = c.crust
 }
 
 local conditions = {
