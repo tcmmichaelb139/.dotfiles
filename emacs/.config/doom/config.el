@@ -64,7 +64,11 @@
      (string-prefix-p "*Help" name)
      (string-prefix-p "*mybuf" name)
 
-     (string-prefix-p "*doom*" name)
+     ;; doesn't work
+     (string-prefix-p "*doom" name)
+     (string-prefix-p "*Messages" name)
+     (string-prefix-p "*clangd" name)
+     (string-prefix-p "*clangd::stderr" name)
 
      ;; Is not magit buffer.
      (and (string-prefix-p "magit" name)
@@ -99,6 +103,37 @@
 
 (use-package! lsp-tailwindcss)
 
+;; ligatures
+;; this works instead of the doom package for the => in js files
+
+(let ((ligatures `((?-  . ,(regexp-opt '("-|" "-~" "---" "-<<" "-<" "--" "->" "->>" "-->")))
+                   (?/  . ,(regexp-opt '("/**" "/*" "///" "/=" "/==" "/>" "//")))
+                   (?*  . ,(regexp-opt '("*>" "***" "*/")))
+                   (?<  . ,(regexp-opt '("<-" "<<-" "<=>" "<=" "<|" "<||" "<|||::=" "<|>" "<:" "<>" "<-<"
+                                         "<<<" "<==" "<<=" "<=<" "<==>" "<-|" "<<" "<~>" "<=|" "<~~" "<~"
+                                         "<$>" "<$" "<+>" "<+" "</>" "</" "<*" "<*>" "<->" "<!--")))
+                   (?:  . ,(regexp-opt '(":>" ":<" ":::" "::" ":?" ":?>" ":=")))
+                   (?=  . ,(regexp-opt '("=>>" "==>" "=/=" "=!=" "=>" "===" "=:=" "==")))
+                   (?!  . ,(regexp-opt '("!==" "!!" "!=")))
+                   (?>  . ,(regexp-opt '(">]" ">:" ">>-" ">>=" ">=>" ">>>" ">-" ">=")))
+                   (?&  . ,(regexp-opt '("&&&" "&&")))
+                   (?|  . ,(regexp-opt '("|||>" "||>" "|>" "|]" "|}" "|=>" "|->" "|=" "||-" "|-" "||=" "||")))
+                   (?.  . ,(regexp-opt '(".." ".?" ".=" ".-" "..<" "...")))
+                   (?+  . ,(regexp-opt '("+++" "+>" "++")))
+                   (?\[ . ,(regexp-opt '("[||]" "[<" "[|")))
+                   (?\{ . ,(regexp-opt '("{|")))
+                   (?\? . ,(regexp-opt '("??" "?." "?=" "?:")))
+                   (?#  . ,(regexp-opt '("####" "###" "#[" "#{" "#=" "#!" "#:" "#_(" "#_" "#?" "#(" "##")))
+                   (?\; . ,(regexp-opt '(";;")))
+                   (?_  . ,(regexp-opt '("_|_" "__")))
+                   (?\\ . ,(regexp-opt '("\\" "\\/")))
+                   (?~  . ,(regexp-opt '("~~" "~~>" "~>" "~=" "~-" "~@")))
+                   (?$  . ,(regexp-opt '("$>")))
+                   (?^  . ,(regexp-opt '("^=")))
+                   (?\] . ,(regexp-opt '("]#"))))))
+  (dolist (char-regexp ligatures)
+    (set-char-table-range composition-function-table (car char-regexp)
+                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
 ;; org stuff
 
@@ -260,7 +295,7 @@
 ;; treemacs
 
 (after! treemacs
-  (setq treemacs-position 'right
+  (setq treemacs-position 'left
         treemacs-git-mode 'deferred))
 
 ;;treesitter
@@ -272,7 +307,7 @@
 
 ;; vterm
 ;; (after! vterm
-;;   (set-popup-rule! "*doom:vterm-popup:main" :size 0.40 :vslot -4 :select t :quit nil :ttl 0 :side 'right)
+;;   (set-popup-rule! "*doom:vterm-popup:main" :select t :quit nil :side 'right)
 ;;   )
 
 ;;flycheck
@@ -283,24 +318,25 @@
       )
 
 ;; cp
-;; (defun runc()
-;;   "Build and runc .cpp files"
-;;   (interactive)
-;;   (if (or (string= major-mode "c++-mode") (boundp 'file))
-;;       (let ((a 10))
-;;         (if (string= major-mode "c++-mode")
-;;             (setq file (buffer-file-name (window-buffer (minibuffer-selected-window)))))
-;;         (evil-write-all nil)
 
-;;         (setq code-buf-default-directory default-directory)
-;;         (if (boundp 'buf)
-;;              (pop-to-buffer buf)
-;;           (setq buf (+vterm/toggle nil)))
-;;         (vterm-send-string (concat "cd " code-buf-default-directory "; ") )
-;;         (vterm-send-string (concat "g++ '" file "' -o ~/dDg && echo 'Compiled.'; /usr/bin/time -f \"Executed in %esec. Used %KKB.\" ") )
-;;         (vterm-send-return)
-;;         (with-current-buffer buf
-;;           (evil-normal-state))
-;;         (er-switch-to-previous-buffer))))
 
-;; (map! :desc "Run c++ code" "<f9>" #'runc)
+(defun run-in-vterm-kill (process event)
+  "A process sentinel. Kills PROCESS's buffer if it is live."
+  (let ((b (process-buffer process)))
+    (and (buffer-live-p b)
+         (kill-buffer b))))
+
+(defun compileandrun()
+  "Build and runc .cpp files"
+  (interactive)
+  (if (or (string= major-mode "c++-mode"))
+      (let ((a 10))
+
+        (setq src (file-name-nondirectory (buffer-file-name)))
+        (setq exe (file-name-sans-extension src))
+        (with-current-buffer (vterm (concat "*" src "*"))
+          (set-process-sentinel vterm--process #'run-in-vterm-kill)
+          (vterm-send-string (concat "g++ '" src "' -o " exe " -std=c++17 -O3 -Wall -lm -ggdb -fsanitize=address,undefined && echo 'Compiled.\n---------' && ./" exe))
+          (vterm-send-return)))))
+
+(map! :desc "Compile and run cpp code" "s-r" #'compileandrun)
