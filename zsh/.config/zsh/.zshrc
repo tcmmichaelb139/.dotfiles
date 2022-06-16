@@ -127,9 +127,9 @@ export PATH=$PATH:~/.scripts
 export PATH=$HOME/.emacs.d/bin:$PATH
 
 # music
-alias listall="ls ~/Music/playlists/all"
+alias listall="ls ~/Music/playlists/idk"
 alias playlists="ls ~/Music/playlists"
-play() { clear; mpv --no-video --loop --volume=50 "`find ~/Music/playlists/all | grep \"$@\"`"}
+play() { clear; mpv --no-video --loop --volume=50 "`find ~/Music/playlists/ | grep \"$@\"`"}
 playlist() { clear; mpv --no-video --shuffle --loop-playlist=inf --volume=50 ~/Music/playlists/"$@" }
 alias playall="mpv --no-video --shuffle --volume=50 ~/Music/playlists/*"
 

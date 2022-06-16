@@ -47,16 +47,23 @@
 ;; ...or multiple packages
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
-; (unpin! t)
+;(unpin! t)
+
+(package! org-modern)
 
 (package! org-roam-ui)
 
 (package! org-fragtog)
 
-(package! ox-hugo)
+
+(package! info-colors)
+
 
 (package! tree-sitter)
 (package! tree-sitter-langs)
 
-(package! yasnippets)
+(package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
 
+;; removing packages
+
+(package! evil-escape :disable t)

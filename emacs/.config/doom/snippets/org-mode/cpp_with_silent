@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cpp with silent result
-# key: <cpprs
+# key: <cpp
 # --
 
 #+begin_src cpp :results silent
