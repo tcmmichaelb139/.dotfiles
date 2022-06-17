@@ -99,9 +99,16 @@
 (after! lsp-mode
   (setq lsp-modeline-code-actions-enable t
         lsp-headerline-breadcrumb-enable t
-        +format-with-lsp nil))
+        +format-with-lsp nil
+        lsp-lens-enable nil))
+
+(after! ccls
+  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t))
+        ccls-executable "~/.dotfiles/scripts/.scripts/ccls")
+  (set-lsp-priority! 'ccls 0)) ; optional as ccls is the default in Doom
 
 (use-package! lsp-tailwindcss)
+
 
 ;; ligatures
 ;; cause => is broken in js
