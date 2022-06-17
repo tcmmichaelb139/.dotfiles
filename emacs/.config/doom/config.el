@@ -104,7 +104,7 @@
 (use-package! lsp-tailwindcss)
 
 ;; ligatures
-;; this works instead of the doom package for the => in js files
+;; cause => is broken in js
 
 (let ((ligatures `((?-  . ,(regexp-opt '("-|" "-~" "---" "-<<" "-<" "--" "->" "->>" "-->")))
                    (?/  . ,(regexp-opt '("/**" "/*" "///" "/=" "/==" "/>" "//")))
@@ -113,7 +113,7 @@
                                          "<<<" "<==" "<<=" "<=<" "<==>" "<-|" "<<" "<~>" "<=|" "<~~" "<~"
                                          "<$>" "<$" "<+>" "<+" "</>" "</" "<*" "<*>" "<->" "<!--")))
                    (?:  . ,(regexp-opt '(":>" ":<" ":::" "::" ":?" ":?>" ":=")))
-                   (?=  . ,(regexp-opt '("=>>" "==>" "=/=" "=!=" "=>" "===" "=:=" "==")))
+                   (?=  . ,(regexp-opt '(">>" "=>>" "==>" "=/=" "=!=" "=>" "===" "=:=" "==")))
                    (?!  . ,(regexp-opt '("!==" "!!" "!=")))
                    (?>  . ,(regexp-opt '(">]" ">:" ">>-" ">>=" ">=>" ">>>" ">-" ">=")))
                    (?&  . ,(regexp-opt '("&&&" "&&")))
@@ -307,7 +307,7 @@
 
 ;; vterm
 (after! vterm
-  (set-popup-rule! "*doom:vterm-popup:main" :size 0.35 :select t :quit nil :side 'right)
+  (set-popup-rule! "*doom:vterm-popup:main" :size 0.4 :select t :quit nil :side 'right)
   )
 
 ;;flycheck

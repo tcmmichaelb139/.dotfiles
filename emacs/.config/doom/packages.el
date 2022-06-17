@@ -55,9 +55,7 @@
 
 (package! org-fragtog)
 
-
 (package! info-colors)
-
 
 (package! tree-sitter)
 (package! tree-sitter-langs)
