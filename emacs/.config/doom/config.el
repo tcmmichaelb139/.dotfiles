@@ -306,9 +306,9 @@
 ;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; vterm
-;; (after! vterm
-;;   (set-popup-rule! "*doom:vterm-popup:main" :select t :quit nil :side 'right)
-;;   )
+(after! vterm
+  (set-popup-rule! "*doom:vterm-popup:main" :size 0.35 :select t :quit nil :side 'right)
+  )
 
 ;;flycheck
 ;; (global-flycheck-mode)
@@ -317,26 +317,3 @@
 (setq yas-snippet-dirs '("~/.doom.d/snippets")
       )
 
-;; cp
-
-
-(defun run-in-vterm-kill (process event)
-  "A process sentinel. Kills PROCESS's buffer if it is live."
-  (let ((b (process-buffer process)))
-    (and (buffer-live-p b)
-         (kill-buffer b))))
-
-(defun compileandrun()
-  "Build and runc .cpp files"
-  (interactive)
-  (if (or (string= major-mode "c++-mode"))
-      (let ((a 10))
-
-        (setq src (file-name-nondirectory (buffer-file-name)))
-        (setq exe (file-name-sans-extension src))
-        (with-current-buffer (vterm (concat "*" src "*"))
-          (set-process-sentinel vterm--process #'run-in-vterm-kill)
-          (vterm-send-string (concat "g++ '" src "' -o " exe " -std=c++17 -O3 -Wall -lm -ggdb -fsanitize=address,undefined && echo 'Compiled.\n---------' && ./" exe))
-          (vterm-send-return)))))
-
-(map! :desc "Compile and run cpp code" "s-r" #'compileandrun)
