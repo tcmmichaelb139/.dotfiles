@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-if [ -z "$1" ]; then
+if [ -z "$1" ]
+then
     echo "Please give a file to compile and run."
     exit
 fi
@@ -9,13 +10,32 @@ filename="$1"
 
 filename="${filename%.*}"
 
-printf "g++ $1 -o $filename -std=c++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion\n"
 
-g++ $1 -o $filename -std=c++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion
+flag="-std=c++17 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal"
 
-printf "Compiled...\n\n"
+dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all"
 
-printf "|--------|\n\n"
+echo $2
+
+if [ "$2" == "-d" ]
+then
+    printf "g++ $1 -o $filename $flag $dbgFlag"
+
+    printf "\n\nCompiled with DEBUG flags enabled, code may be slower than normal"
+    printf "\n|---- \e[0;34mCompilation output\e[m ----|\n\n"
+
+    g++ $1 -o $filename $flag $dbgFlag
+else
+    printf "g++ $1 -o $filename $flag"
+
+    printf "\n\n|---- \e[0;34mCompilation output\e[m ----|\n\n"
+
+    g++ $1 -o $filename $flag
+fi
+
+
+
+printf "\n|---- \e[0;34mRunning\e[m ----|\n\n"
 
 # replace gtime with time on linux operating systems
 gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' ./$filename
