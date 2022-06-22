@@ -78,8 +78,8 @@
 
        :checkers
        ;; syntax              ; tasing you for every semicolon you forget
-       (spell +flyspell +enchant) ; tasing you for misspelling mispelling
-       ;; grammar           ; tasing grammar mistake every you make
+       (spell +aspell +enchant) ; tasing you for misspelling mispelling
+       grammar           ; tasing grammar mistake every you make
 
        :tools
        ansible
@@ -99,6 +99,7 @@
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        rgb               ; creating color strings
+       tree-sitter
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux

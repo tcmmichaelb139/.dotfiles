@@ -57,9 +57,6 @@
 
 (package! info-colors)
 
-(package! tree-sitter)
-(package! tree-sitter-langs)
-
 (package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
 
 ;; removing packages

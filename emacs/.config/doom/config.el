@@ -5,7 +5,7 @@
 
 ;; defaults
 (setq user-full-name "Michael Bao"
-      doom-theme 'doom-one
+      doom-theme 'doom-tokyo-night
       doom-font (font-spec :family "FiraCode Nerd Font" :size 14)
       ;; setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 15)
       display-line-numbers-type 'relative
@@ -18,8 +18,8 @@
 
 ;; centaur tabs
 
+
 (after! centaur-tabs
-  (centaur-tabs-mode t)
   (centaur-tabs-group-by-projectile-project) ;;for https://github.com/ema2159/centaur-tabs/issues/181#issuecomment-1075806796
   (centaur-tabs-headline-match)
   (setq centaur-tabs-style "wave"
@@ -28,11 +28,44 @@
         centaur-tabs-gray-out-icons 'buffer
         centaur-tabs-set-bar 'under
         x-underline-at-descent-line t
-        centaur-tabs-show-navigation-buttons t
         centaur-tabs-close-button "×"
         centaur-tabs-modified-marker "•"
         centaur-tabs-show-new-tab-button nil
-        centaur-tabs-show-count t)
+        centaur-tabs-show-count t
+        centaur-tabs-show-navigation-buttons t)
+  (defun centaur-tabs-hide-tab (x)
+    "Do no to show buffer X in tabs."
+    (let ((name (format "%s" x)))
+      (or
+       ;; Current window is not dedicated window.
+       (window-dedicated-p (selected-window))
+
+       ;; Buffer name not match below blacklist.
+       (string-prefix-p "*epc" name)
+       (string-prefix-p "*helm" name)
+       (string-prefix-p "*Helm" name)
+       (string-prefix-p "*Compile-Log*" name)
+       (string-prefix-p "*lsp" name)
+       (string-prefix-p "*company" name)
+       (string-prefix-p "*Flycheck" name)
+       (string-prefix-p "*tramp" name)
+       (string-prefix-p " *Mini" name)
+       (string-prefix-p "*help" name)
+       (string-prefix-p "*straight" name)
+       (string-prefix-p " *temp" name)
+       (string-prefix-p "*Help" name)
+       (string-prefix-p "*mybuf" name)
+
+       (string-prefix-p "*doom" name)
+       (string-prefix-p "*scratch*" name)
+       (string-prefix-p "*Messages" name)
+       (string-prefix-p "*clangd" name)
+       (string-prefix-p "*clangd::stderr" name)
+
+       ;; Is not magit buffer.
+       (and (string-prefix-p "magit" name)
+            (not (file-name-extension name)))
+       )))
   (map! :map evil-normal-state-map
         "t n" #'centaur-tabs-forward
         "t p" #'centaur-tabs-backward
@@ -41,39 +74,6 @@
         "t g n" #'centaur-tabs-forward-group
         "t g p" #'centaur-tabs-backward-group))
 
-(defun centaur-tabs-hide-tab (x)
-  "Do no to show buffer X in tabs."
-  (let ((name (format "%s" x)))
-    (or
-     ;; Current window is not dedicated window.
-     (window-dedicated-p (selected-window))
-
-     ;; Buffer name not match below blacklist.
-     (string-prefix-p "*epc" name)
-     (string-prefix-p "*helm" name)
-     (string-prefix-p "*Helm" name)
-     (string-prefix-p "*Compile-Log*" name)
-     (string-prefix-p "*lsp" name)
-     (string-prefix-p "*company" name)
-     (string-prefix-p "*Flycheck" name)
-     (string-prefix-p "*tramp" name)
-     (string-prefix-p " *Mini" name)
-     (string-prefix-p "*help" name)
-     (string-prefix-p "*straight" name)
-     (string-prefix-p " *temp" name)
-     (string-prefix-p "*Help" name)
-     (string-prefix-p "*mybuf" name)
-
-     ;; doesn't work
-     (string-prefix-p "*doom" name)
-     (string-prefix-p "*Messages" name)
-     (string-prefix-p "*clangd" name)
-     (string-prefix-p "*clangd::stderr" name)
-
-     ;; Is not magit buffer.
-     (and (string-prefix-p "magit" name)
-          (not (file-name-extension name)))
-     )))
 
 ;;evil keybinds
 
@@ -217,10 +217,6 @@
 (use-package! ox-hugo
   :after org)
 
-(use-package! tree-sitter
-  :hook
-  (global-tree-sitter-mode))
-
 (after! org
   (setq org-agenda-files '("~/My Drive/Org/agenda.org")))
 ;; org-default-notes-file (expand-file-name "notes.org" org-directory)
@@ -298,29 +294,23 @@
   (setq undo-tree-auto-save-history t)
   (map! :leader "u" #'undo-tree-visualize))
 
+;;treesitter
+
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; treemacs
-
 (after! treemacs
   (setq treemacs-position 'left
         treemacs-git-mode 'deferred))
-
-;;treesitter
-;; (use-package! tree-sitter
-;;   :config
-;;   (require 'tree-sitter-langs)
-;;   (global-tree-sitter-mode)
-;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; vterm
 (after! vterm
   (set-popup-rule! "*doom:vterm-popup:main" :size 0.4 :select t :quit nil :side 'right)
   )
 
-;;flycheck
-;; (global-flycheck-mode)
-
 ;; yasnippets
-(setq yas-snippet-dirs '("~/.doom.d/snippets")
-      )
-
+(setq yas-snippet-dirs '("~/.doom.d/snippets"))
