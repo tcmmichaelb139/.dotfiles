@@ -33,6 +33,7 @@ vim.o.signcolumn = 'yes'
 
 vim.o.lazyredraw = true
 
-vim.cmd[[colorscheme onedark]]
-vim.cmd[[highlight NormalFloat guibg=#24283b]]
-vim.cmd[[highlight FloatBorder guifg=#a9b1d6 guibg=#24283b]]
+vim.g.tokyonight_style = "night"
+vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[highlight NormalFloat guibg=#1a1b26]]
+vim.cmd[[highlight FloatBorder guifg=#a9b1d6 guibg=#1a1b26]]

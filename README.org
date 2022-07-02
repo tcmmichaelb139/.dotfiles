@@ -1,0 +1,24 @@
+* .dotfiles - Macos
+
+Managed with stow
+
+* Packages/Applications
+I will write descriptions and installation details in the future.
+
+** alacritty
+
+** clang-format
+
+** emacs
+
+** neovim
+
+** scripts
+
+** Wallpaper
+
+[[https://ign.schrodinger-hat.it/color-schemes]] is amazing for converting wallpapers info a colorscheme.
+
+** yabai
+
+** zsh

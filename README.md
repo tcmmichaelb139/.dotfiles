@@ -1,3 +1,0 @@
-# .dotfiles
-
-Managed with stow

@@ -99,10 +99,10 @@ return require('packer').startup(function()
 		'rebelot/kanagawa.nvim',
 	})
 
-    use ({
-        'navarasu/onedark.nvim',
-        config = [[require('config.onedark')]],
-    })
+    -- use ({
+    --     'navarasu/onedark.nvim',
+    --     config = [[require('config.onedark')]],
+    -- })
 	
 	-- use ({
 	-- 	-- 'kyazdani42/nvim-palenight.lua'

@@ -146,9 +146,13 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 alias luamake=/Users/tcmb139/.config/nvim/lsps/lua-language-server/3rd/luamake/luamake
 
+#personal stuff
+alias braindump="cd ~/My\ Drive/Org/braindump/"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f "/Users/tcmb139/.ghcup/env" ] && source "/Users/tcmb139/.ghcup/env" # ghcup-env
+export PATH=$PATH:/Users/tcmb139/.spicetify

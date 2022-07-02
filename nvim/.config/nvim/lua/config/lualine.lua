@@ -5,18 +5,7 @@ local lualine = require 'lualine'
 
 -- Color table for highlights
 -- stylua: ignore
-local c = require('onedark.colors')
-local colors = {
-    bg = c.bg0,
-    fg = c.fg,
-    red = c.red,
-    green = c.green,
-    yellow = c.yellow,
-    blue = c.blue,
-    purple = c.purple,
-    cyan = c.cyan,
-    gray = c.grey
-}
+local colors = require('tokyonight.colors').setup()
 
 local conditions = {
   buffer_not_empty = function()

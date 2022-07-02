@@ -109,6 +109,10 @@
 
 (use-package! lsp-tailwindcss)
 
+;; js modes
+(add-hook 'rjsx-mode-hook
+          '(lambda()
+             (setq tab-width 2)))
 
 ;; ligatures
 ;; cause => is broken in js
@@ -144,22 +148,29 @@
 
 ;; org stuff
 
+(menu-bar-mode 1)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(add-hook! 'org-mode-hook (org-indent-mode 0))
+
+(menu-bar-mode 0)
+
 (setq org-directory "~/My Drive/Org"
       org-ellipsis " ▼ "
-      org-modern-star ["◉" "○" "✸" "✿" "✤" "✜" "◆" "▷"]
-      org-modern-table-vertical 1
-      org-modern-table-horizontal 0.2
-      org-modern-list '((43 . "➤")
-                        (45 . "–")
-                        (42 . "•"))
-      org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+") ("1." . "a."))
+      org-list-demote-modify-bullet '(("+" . "*") ("-" . "+") ("*" . "-") ("1." . "a."))
       inhibit-compacting-font-caches t
       org-element-use-cache nil
       org-log-done 'time
       org-startup-with-inline-images t
       org-hugo-base-dir "~/My Drive/Org/braindump"
-      org-hide-emphasis-markers t
       org-table-convert-region-max-lines 20000
+      org-auto-align-tags nil
+      org-tags-column 0
+      org-hide-emphasis-markers t
+      org-pretty-entities t
+      org-tags-column 0
+      org-catch-invisible-edits 'show-and-error
+      org-insert-heading-respect-content t
       org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
       '((sequence
          "TODO(t)"           ; A task that is ready to be tackled
@@ -172,18 +183,29 @@
          "DONE(d)"           ; Task has been completed
          "CANCELLED(c)" ))) ; Task has been cancelled
 
+(after! org-modern
+  (setq org-modern-star ["◉" "○" "✸" "✿" "✤" "✜" "◆" "▷"]
+        org-modern-table-vertical 1
+        org-modern-table-horizontal 0.2
+        ))
+
+(add-hook 'org-mode-hook #'org-modern-mode)
+
 (custom-set-faces
  '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
  '(org-level-2 ((t (:inherit outline-2 :height 1.4))))
  '(org-level-3 ((t (:inherit outline-3 :height 1.3))))
  '(org-level-4 ((t (:inherit outline-4 :height 1.2))))
  '(org-level-5 ((t (:inherit outline-5 :height 1.1))))
+ '(org-level-6 ((t (:inherit outline-6 :height 1.1))))
+ '(org-level-7 ((t (:inherit outline-7 :height 1.1))))
+ '(org-level-8 ((t (:inherit outline-8 :height 1.1))))
  )
 
 (use-package! org-roam
   :init
   (setq
-   org-roam-directory "~/My Drive/Org/braindump/org"
+   org-roam-directory "~/My Drive/Org/braindump/public"
    org-id-link-to-org-use-id t)
   (map! :leader
         (:prefix ("r" . "roam")
