@@ -62,3 +62,4 @@
 ;; removing packages
 
 (package! evil-escape :disable t)
+(package! evil-snipe :disable t)
