@@ -336,3 +336,9 @@
 
 ;; yasnippets
 (setq yas-snippet-dirs '("~/.doom.d/snippets"))
+
+;; grammar
+(setq langtool-java-bin "/usr/local/opt/openjdk/bin/java")
+(setq langtool-bin "/opt/homebrew/opt/languagetool/bin/languagetool")
+(setq langtool-mother-tongue "en")
+

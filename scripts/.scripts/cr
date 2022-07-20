@@ -11,9 +11,9 @@ filename="$1"
 filename="${filename%.*}"
 
 
-flag="-std=c++17 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal"
+flag="-std=c++17 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal"
 
-dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all"
+dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC"
 
 echo $2
 

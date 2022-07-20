@@ -11,6 +11,8 @@ I will write descriptions and installation details in the future.
 
 ** emacs
 
+*** Installation
+
 ** neovim
 
 ** scripts
