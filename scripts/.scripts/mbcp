@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import subprocess as sp
+
+args = sys.argv
+
+
+def git():
+    if len(args) < 5:
+        if len(args) == 2:
+            print("Failed to find the website name")
+        if len(args) == 3:
+            print("Failed to find the problem name")
+        if len(args) == 4:
+            print("Failed to find the source file")
+
+        exit()
+
+    website = args[2]
+    problemName = args[3]
+    sourceFile = args[4]
+
+    problemWebsites = ["Usaco", "Usaco-Training", "Kattis", "UVa", "CSES"]
+
+    if website in problemWebsites:
+        fileExtensionIndex = sourceFile.rfind(".")
+        if fileExtensionIndex == -1:
+            print("Failed to find file extension.")
+            exit()
+
+        fileExtension = sourceFile[fileExtensionIndex:]
+
+        pwd = os.getcwd()
+
+        # EDIT THIS TO CHANGE GIT DIRECTORY ---------------------------
+        gitDirectory = "/Users/tcmb139/programming/cp/Competitive-Programming/"
+
+        if website == "Usaco":
+            print("This hasn't been implemented. :/")
+        elif website == "Usaco-Training":
+            print("This hasn't been implemented. :/")
+        elif website == "Kattis":
+            sp.run(
+                [
+                    "cp",
+                    pwd + "/" + sourceFile,
+                    gitDirectory + website + "/" + problemName + fileExtension,
+                ]
+            )
+        elif website == "UVa":
+            print("This hasn't been implemented. :/")
+        elif website == "CSES":
+            print("This hasn't been implemented. :/")
+
+    else:
+        print(args[2], "is not a valid problem website")
+
+
+def main():
+
+    if len(args) == 1:
+        print("Failed to find a command.")
+        exit()
+
+    if args[1] == "git":
+        git()
+    else:
+        print("Failed to find valid command.")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except SystemExit:
+        pass
+    except:
+        print("An internal error occured. OH NO!")

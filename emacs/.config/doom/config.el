@@ -12,6 +12,7 @@
       truncate-string-ellipsis "…"                ; Unicode ellispis are nicer than "...", and also save /precious/ space
       undo-limit 80000000)                         ; Raise undo-limit to 80Mb
 
+
 ;; windows
 (setq evil-vsplit-window-right t
       evil-split-window-below t)
@@ -59,8 +60,29 @@
        (string-prefix-p "*doom" name)
        (string-prefix-p "*scratch*" name)
        (string-prefix-p "*Messages" name)
+
+       ;; cpp
        (string-prefix-p "*clangd" name)
        (string-prefix-p "*clangd::stderr" name)
+       (string-prefix-p "*ccls*" name)
+       (string-prefix-p "*ccls::stderr*" name)
+       (string-prefix-p "*format-all-errors*" name)
+
+       ;; bash
+       (string-prefix-p "*bash-ls*" name)
+       (string-prefix-p "*bash-ls::stderr*" name)
+
+       ;; org
+       (string-prefix-p "*Org Preview LaTeX Output*" name)
+       (string-prefix-p "*elfeed-log*" name)
+
+       ;; python
+       (string-prefix-p "*pyright*" name)
+       (string-prefix-p "*pyright::stderr*" name)
+
+       ;; other
+       (string-prefix-p "*Native-compile-Log*" name)
+       (string-prefix-p "*httpd*" name)
 
        ;; Is not magit buffer.
        (and (string-prefix-p "magit" name)
@@ -148,21 +170,17 @@
 
 ;; org stuff
 
-(menu-bar-mode 1)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
 (add-hook! 'org-mode-hook (org-indent-mode 0))
 
-(menu-bar-mode 0)
+(remove-hook 'org-mode-hook #'org-superstar-mode)
 
-(setq org-directory "~/My Drive/Org"
+(setq org-directory "~/programming/Org"
       org-ellipsis " ▼ "
       org-list-demote-modify-bullet '(("+" . "*") ("-" . "+") ("*" . "-") ("1." . "a."))
       inhibit-compacting-font-caches t
       org-element-use-cache nil
       org-log-done 'time
       org-startup-with-inline-images t
-      org-hugo-base-dir "~/My Drive/Org/braindump"
       org-table-convert-region-max-lines 20000
       org-auto-align-tags nil
       org-tags-column 0
@@ -205,7 +223,7 @@
 (use-package! org-roam
   :init
   (setq
-   org-roam-directory "~/My Drive/Org/braindump/public"
+   org-roam-directory "~/programming/Org/braindump/public"
    org-id-link-to-org-use-id t)
   (map! :leader
         (:prefix ("r" . "roam")
@@ -240,7 +258,7 @@
   :after org)
 
 (after! org
-  (setq org-agenda-files '("~/My Drive/Org/agenda.org")))
+  (setq org-agenda-files '("~/programming/Org/agenda.org")))
 ;; org-default-notes-file (expand-file-name "notes.org" org-directory)
 
 
@@ -265,9 +283,9 @@
 ;; (setq org-export-with-section-numbers nil)
 (setq org-publish-project-alist
       '(("org-notes"
-         :base-directory "~/My Drive/Org"
+         :base-directory "~/programming/Org"
          :base-extension "org"
-         :publishing-directory "~/My Drive/Org/html"
+         :publishing-directory "~/programming/Org/html"
          :recursive t
          :exclude "org-html-themes/.*"
          :publishing-function org-html-publish-to-htm

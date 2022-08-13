@@ -11,7 +11,13 @@ I will write descriptions and installation details in the future.
 
 ** emacs
 
-*** Installation
+=Installation=
+
+#+begin_src
+brew install emacs-plus --HEAD --with-modern-doom3-icon --with-no-titlebar
+#+end_src
+
+Native comp feels slower on M1 in my opinion.
 
 ** neovim
 
@@ -22,5 +28,24 @@ I will write descriptions and installation details in the future.
 [[https://ign.schrodinger-hat.it/color-schemes]] is amazing for converting wallpapers info a colorscheme.
 
 ** yabai
+
+=Installation=
+
+#+begin_src
+brew install koekeishiya/formulae/yabai
+brew services start yabai
+brew install koekeishiya/formulae/skhd
+brew services start skhd
+#+end_src
+
+(Copied from [[https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)][Yabai Wiki]] and [[https://github.com/koekeishiya/skhd][Skhd README]])
+
+*** Ubersicht
+
+=Installation=
+
+#+begin_src
+brew install ubersicht
+#+end_src
 
 ** zsh
