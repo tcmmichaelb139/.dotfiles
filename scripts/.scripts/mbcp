@@ -8,19 +8,27 @@ args = sys.argv
 
 
 def git():
+    def examples():
+        print("|---- Examples ----|")
+        print("Usaco:                mbcp git Usaco a.cpp 2015-2016 US-Open G 1\n")
+        print("Usaco-Traning:        mbcp git Usaco-Training a.cpp 1 namenum\n")
+        print("Kattis:               mbcp git Kattis a.cpp kutevi\n")
+        print("UVa:                  \n")
+        print("CSES:                 \n")
+
+    if len(args) == 3:
+        if args[2] == "examples":
+            examples()
+            exit()
+
     if len(args) < 5:
-        if len(args) == 2:
-            print("Failed to find the website name")
-        if len(args) == 3:
-            print("Failed to find the problem name")
-        if len(args) == 4:
-            print("Failed to find the source file")
+        print("Please check examples.")
+        print("mbcp git examples")
 
         exit()
 
     website = args[2]
-    problemName = args[3]
-    sourceFile = args[4]
+    sourceFile = args[3]
 
     problemWebsites = ["Usaco", "Usaco-Training", "Kattis", "UVa", "CSES"]
 
@@ -34,14 +42,104 @@ def git():
 
         pwd = os.getcwd()
 
-        # EDIT THIS TO CHANGE GIT DIRECTORY ---------------------------
+        # EDIT THIS TO CHANGE GIT DIRECTORY --------------------------------------------
         gitDirectory = "/Users/tcmb139/programming/cp/Competitive-Programming/"
 
         if website == "Usaco":
-            print("This hasn't been implemented. :/")
+            year = args[4]
+            month = args[5]
+            division = args[6]
+            problemNumber = args[7]
+
+            possibleYears = [
+                "2011-2012",
+                "2012-2013",
+                "2013-2014",
+                "2014-2015",
+                "2015-2016",
+                "2016-2017",
+                "2017-2018",
+                "2018-2019",
+                "2019-2020",
+                "2020-2021",
+                "2021-2022",
+                "2022-2023",
+                "2023-2024",
+            ]
+
+            possibleMonths = ["December", "January", "February", "US-Open"]
+            possibleMonthsEarly = [
+                "November",
+                "December",
+                "January",
+                "February",
+                "March",
+                "US-Open",
+            ]
+
+            possibleDivisons = ["B", "S", "G", "P"]
+            possibleDivisonsEarly = ["B", "S", "G"]
+            possibleProblemNumbers = ["1", "2", "3"]
+
+            if not (year in possibleYears):
+                print("Failed to find a valid year.")
+                exit()
+
+            if (not (month in possibleMonths) and int(year[3]) >= 4) and (
+                not (month in possibleMonthsEarly) and int(year[3]) < 4
+            ):
+                print("Failed to find a valid month.")
+                exit()
+
+            if (not (division in possibleDivisons) and int(year[3]) >= 5) and (
+                not (month in possibleDivisonsEarly) and int(year[3]) < 5
+            ):
+                print("Failed to find a valid division.")
+                exit()
+
+            if not (problemNumber in possibleProblemNumbers):
+                print("Failed to find a valid problem number.")
+                exit()
+
+            if division == "B":
+                division = "Bronze"
+            elif division == "S":
+                division = "Silver"
+            elif division == "G":
+                division = "Gold"
+            elif division == "P":
+                division = "Platinum"
+            else:
+                raise Exception()
+
+            fullPath = gitDirectory + website + "/" + year + "/" + month
+
+            if not os.path.isdir(fullPath):
+                sp.run(["mkdir", fullPath])
+
+            sp.run(
+                [
+                    "cp",
+                    pwd + "/" + sourceFile,
+                    gitDirectory
+                    + website
+                    + "/"
+                    + year
+                    + "/"
+                    + month
+                    + "/"
+                    + division
+                    + "P"
+                    + problemNumber
+                    + fileExtension,
+                ]
+            )
+
         elif website == "Usaco-Training":
             print("This hasn't been implemented. :/")
         elif website == "Kattis":
+            problemName = args[4]
+
             sp.run(
                 [
                     "cp",
@@ -49,6 +147,7 @@ def git():
                     gitDirectory + website + "/" + problemName + fileExtension,
                 ]
             )
+
         elif website == "UVa":
             print("This hasn't been implemented. :/")
         elif website == "CSES":

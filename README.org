@@ -2,10 +2,22 @@
 
 Managed with stow
 
+* Showcase
+
+[[file:assets/desktop-1.png]]
+
+[[file:assets/desktop-2.png]]
+
+[[file:assets/desktop-3.png]]
+
 * Packages/Applications
 I will write descriptions and installation details in the future.
 
 ** alacritty
+
+#+begin_src
+brew install alacritty
+#+end_src
 
 ** clang-format
 
