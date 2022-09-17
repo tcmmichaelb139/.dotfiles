@@ -4,28 +4,62 @@ import sys
 import os
 import subprocess as sp
 
+pwd = os.getcwd() + "/"
+
 args = sys.argv
 
+validHelperCommands = ["help", "examples"]
+validCommands = ["git", "stress"]
 
-def git():
-    def examples():
-        print("|---- Examples ----|")
+
+def help():
+    print("Valid Helper Commands\n")
+
+    for command in validHelperCommands:
+        print("\t", command)
+
+    print("\nValid Commands\n")
+
+    for command in validCommands:
+        print("\t", command)
+
+    print()
+
+
+def examples():
+    def git():
+        print()
         print("Usaco:                mbcp git Usaco a.cpp 2015-2016 US-Open G 1\n")
         print("Usaco-Traning:        mbcp git Usaco-Training a.cpp 1 namenum\n")
         print("Kattis:               mbcp git Kattis a.cpp kutevi\n")
         print("UVa:                  \n")
         print("CSES:                 \n")
+        print()
 
+    def stress():
+        print()
+        print("mbcp stress gen_file wrong_file correct_file")
+        print()
+
+    if len(args) >= 3:
+        if args[2] == "git":
+            git()
+        elif args[2] == "stress":
+            stress()
+        else:
+            print("Failed to find example for " + args[2])
+    else:
+        print("Failed to find a valid example")
+
+
+def git():
     if len(args) == 3:
         if args[2] == "examples":
             examples()
-            exit()
+            return
 
     if len(args) < 5:
-        print("Please check examples.")
-        print("mbcp git examples")
-
-        exit()
+        raise Exception
 
     website = args[2]
     sourceFile = args[3]
@@ -36,11 +70,9 @@ def git():
         fileExtensionIndex = sourceFile.rfind(".")
         if fileExtensionIndex == -1:
             print("Failed to find file extension.")
-            exit()
+            return
 
         fileExtension = sourceFile[fileExtensionIndex:]
-
-        pwd = os.getcwd()
 
         # EDIT THIS TO CHANGE GIT DIRECTORY --------------------------------------------
         gitDirectory = "/Users/tcmb139/programming/cp/Competitive-Programming/"
@@ -83,23 +115,23 @@ def git():
 
             if not (year in possibleYears):
                 print("Failed to find a valid year.")
-                exit()
+                return
 
             if (not (month in possibleMonths) and int(year[3]) >= 4) and (
                 not (month in possibleMonthsEarly) and int(year[3]) < 4
             ):
                 print("Failed to find a valid month.")
-                exit()
+                return
 
             if (not (division in possibleDivisons) and int(year[3]) >= 5) and (
                 not (month in possibleDivisonsEarly) and int(year[3]) < 5
             ):
                 print("Failed to find a valid division.")
-                exit()
+                return
 
             if not (problemNumber in possibleProblemNumbers):
                 print("Failed to find a valid problem number.")
-                exit()
+                return
 
             if division == "B":
                 division = "Bronze"
@@ -107,10 +139,8 @@ def git():
                 division = "Silver"
             elif division == "G":
                 division = "Gold"
-            elif division == "P":
-                division = "Platinum"
             else:
-                raise Exception()
+                division = "Platinum"
 
             fullPath = gitDirectory + website + "/" + year + "/" + month
 
@@ -120,7 +150,7 @@ def git():
             sp.run(
                 [
                     "cp",
-                    pwd + "/" + sourceFile,
+                    pwd + sourceFile,
                     gitDirectory
                     + website
                     + "/"
@@ -143,7 +173,7 @@ def git():
             sp.run(
                 [
                     "cp",
-                    pwd + "/" + sourceFile,
+                    pwd + sourceFile,
                     gitDirectory + website + "/" + problemName + fileExtension,
                 ]
             )
@@ -157,16 +187,104 @@ def git():
         print(args[2], "is not a valid problem website")
 
 
-def main():
+def stress():
+    if len(args) < 5:
+        raise Exception
 
+    genFile = pwd + args[2]
+    wrongFile = pwd + args[3]
+    correctFile = pwd + args[4]
+
+    intFile = pwd + "int"
+    out1File = pwd + "out1"
+    out2File = pwd + "out2"
+
+    i = 0
+    while True:
+        print("\rTest: " + str(i), end="")
+
+        genRun = genFile + " " + str(i)
+        wrongRun = wrongFile + " < " + intFile
+        correctRun = correctFile + " < " + intFile
+        diffRun = "diff -w " + out1File + " " + out2File
+
+        # genFile run
+        genOut = sp.run(genRun, capture_output=True, text=True, shell=True)
+
+        if genOut.stderr:
+            print("Error has occured while generating input.")
+            break
+
+        genOutFile = open(intFile, "w")
+
+        genOutFile.write(genOut.stdout)
+
+        genOutFile.close()
+
+        # wrongFile run
+        wrongOut = sp.run(wrongRun, capture_output=True, text=True, shell=True)
+
+        if wrongOut.stderr:
+            print("Error has occured while running " + args[3])
+            break
+
+        wrongOutFile = open(out1File, "w")
+
+        wrongOutFile.write(wrongOut.stdout)
+
+        wrongOutFile.close()
+
+        # correctFile run
+        correctOut = sp.run(correctRun, capture_output=True, text=True, shell=True)
+
+        if correctOut.stderr:
+            print("Error has occured while running " + args[4])
+            break
+
+        correctOutFile = open(out2File, "w")
+
+        correctOutFile.write(correctOut.stdout)
+
+        correctOutFile.close()
+
+        # compare difference
+        diffOut = sp.run(diffRun, capture_output=True, text=True, shell=True)
+
+        if diffOut.stderr:
+            print("Error has occured while comparing outputs.")
+            break
+
+        if diffOut.stdout:
+            print("\r", end="")
+            print("Test case:", i)
+            print("--------- Input ---------")
+            print(genOut.stdout)
+            print("--------- Outputs ---------")
+            print(wrongOut.stdout)
+            print("------")
+            print(correctOut.stdout)
+
+            return
+
+        i += 1
+
+
+def main():
     if len(args) == 1:
         print("Failed to find a command.")
-        exit()
+        return
 
-    if args[1] == "git":
+    if args[1] == "help":
+        help()
+    elif args[1] == "examples":
+        examples()
+    elif args[1] == "git":
         git()
+    elif args[1] == "stress":
+        stress()
     else:
         print("Failed to find valid command.")
+        print("mbcp help")
 
 
 if __name__ == "__main__":
@@ -174,5 +292,14 @@ if __name__ == "__main__":
         main()
     except SystemExit:
         pass
+    except Exception:
+        print("Please check examples.")
+        print("mbcp examples [", end="")
+        for i in range(len(validCommands)):
+            print(validCommands[i] + "", end="")
+            if i == len(validCommands) - 1:
+                print("]")
+            else:
+                print(", ", end="")
     except:
         print("An internal error occured. OH NO!")

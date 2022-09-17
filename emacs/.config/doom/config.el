@@ -26,8 +26,8 @@
   (setq centaur-tabs-style "wave"
         centaur-tabs-height 24
         centaur-tabs-set-icons t
-        centaur-tabs-gray-out-icons 'buffer
-        centaur-tabs-set-bar 'under
+        centaur-tabs-gray-out-icons #'buffer
+        centaur-tabs-set-bar #'under
         x-underline-at-descent-line t
         centaur-tabs-close-button "×"
         centaur-tabs-modified-marker "•"
@@ -96,6 +96,16 @@
         "t g n" #'centaur-tabs-forward-group
         "t g p" #'centaur-tabs-backward-group))
 
+(defun tdr/fix-centaur-tabs ()
+  (centaur-tabs-mode -1)
+  (centaur-tabs-mode)
+  (centaur-tabs-headline-match))
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (tdr/fix-centaur-tabs)))
+              (tdr/fix-centaur-tabs)))
 
 ;;evil keybinds
 
@@ -173,6 +183,7 @@
 (add-hook! 'org-mode-hook (org-indent-mode 0))
 
 (remove-hook 'org-mode-hook #'org-superstar-mode)
+(add-hook 'org-mode-hook #'org-modern-mode)
 
 (setq org-directory "~/programming/Org"
       org-ellipsis " ▼ "
@@ -182,32 +193,7 @@
       org-log-done 'time
       org-startup-with-inline-images t
       org-table-convert-region-max-lines 20000
-      org-auto-align-tags nil
-      org-tags-column 0
-      org-hide-emphasis-markers t
-      org-pretty-entities t
-      org-tags-column 0
-      org-catch-invisible-edits 'show-and-error
-      org-insert-heading-respect-content t
-      org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
-      '((sequence
-         "TODO(t)"           ; A task that is ready to be tackled
-         "BLOG(b)"           ; Blog writing assignments
-         "GYM(g)"            ; Things to accomplish at the gym
-         "PROJ(p)"           ; A project that contains other tasks
-         "VIDEO(v)"          ; Video assignments
-         "WAIT(w)"           ; Something is holding up this task
-         "|"                 ; The pipe necessary to separate "active" states and "inactive" states
-         "DONE(d)"           ; Task has been completed
-         "CANCELLED(c)" ))) ; Task has been cancelled
-
-(after! org-modern
-  (setq org-modern-star ["◉" "○" "✸" "✿" "✤" "✜" "◆" "▷"]
-        org-modern-table-vertical 1
-        org-modern-table-horizontal 0.2
-        ))
-
-(add-hook 'org-mode-hook #'org-modern-mode)
+      org-auto-align-tags nil)
 
 (custom-set-faces
  '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
@@ -348,9 +334,9 @@
         treemacs-git-mode 'deferred))
 
 ;; vterm
-(after! vterm
-  (set-popup-rule! "*doom:vterm-popup:main" :size 0.4 :select t :quit nil :side 'right)
-  )
+;; (after! vterm
+;;   (set-popup-rule! "*doom:vterm-popup:main" :size 0.4 :select t :quit nil :side 'right)
+;;   )
 
 ;; yasnippets
 (setq yas-snippet-dirs '("~/.doom.d/snippets"))
@@ -359,4 +345,3 @@
 (setq langtool-java-bin "/usr/local/opt/openjdk/bin/java")
 (setq langtool-bin "/opt/homebrew/opt/languagetool/bin/languagetool")
 (setq langtool-mother-tongue "en")
-

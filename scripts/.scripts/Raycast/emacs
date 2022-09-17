@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Emacsclient
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon https://raw.githubusercontent.com/eccentric-j/doom-icon/master/cute-doom/src/doom.iconset/icon_128x128.png
+
+# Documentation:
+# @raycast.description Launches Emacsclient
+# @raycast.author Michael Bao
+# @raycast.authorURL https://github.com/tcmmichaelb139
+
+emacsclient -c &
+emacsclient -e  "(select-frame-set-input-focus (selected-frame))"
+
+

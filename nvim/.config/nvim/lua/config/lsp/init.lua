@@ -35,7 +35,8 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 
 -- {{{ c++ lsp
-lspconfig.clangd.setup{ on_attach = on_attach }-- }}}
+-- lspconfig.clangd.setup{ on_attach = on_attach }
+require'lspconfig'.ccls.setup{on_attach = on_attach}-- }}}
 
 -- {{{ python lsp
 lspconfig.pyright.setup{ on_attach = on_attach }-- }}}

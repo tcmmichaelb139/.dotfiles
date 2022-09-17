@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Brave
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon ./icons/brave-icon.icns
+
+# Documentation:
+# @raycast.description Launches Brave Browser
+# @raycast.author Michael Bao
+# @raycast.authorURL https://github.com/tcmmichaelb139
+
+open -a "Brave Browser" -n
+

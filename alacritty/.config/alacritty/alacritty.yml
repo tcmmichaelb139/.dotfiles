@@ -14,8 +14,8 @@ window:
     y: 2
 
   dynamic_padding: false
-  decorations: full
-  opacity: 1
+  decorations: none
+  opacity: 0.9
 
 scrolling:
   history: 10000
@@ -34,19 +34,19 @@ font:
   # size: 7
 
   normal:
-    family: SauceCodePro Nerd Font
+    family: FiraCode Nerd Font
     # Style can be specified to pick a specific face.
     style: Regular
 
       #The bold font face
   bold:
-    family: SauceCodePro Nerd Font
+    family: FiraCode Nerd Font
     # Style can be specified to pick a specific face.
     style: Black
 
   # The italic font face
   italic:
-    family: SauceCodePro Nerd Font
+    family: FiraCode Nerd Font
     # Style can be specified to pick a specific face.
     style: Medium Italic
   size: 13.5
@@ -61,10 +61,10 @@ font:
 custom_cursor_colors: false
 
 colors:
-  # TOKYO-NIGHT-STORM
+  # TOKYO-NIGHT
   primary:
-    background: '0x24283b'
-    # background: '0x1a1b26'
+    # background: '0x24283b'
+    background: '0x1a1b26'
     foreground: '0xa9b1d6'
 
     # Normal colors
@@ -105,6 +105,11 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 hide_cursor_when_typing: false
+
+
+key_bindings:
+  - { key: N,        mods: Command,      action: SpawnNewInstance        }
+  - { key: Back,     mods: Control,    chars: "\u0017" }
 
 
 # Shell

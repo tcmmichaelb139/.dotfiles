@@ -1,0 +1,224 @@
+{
+    "colors": {
+        "BORDER": [
+            "Border",
+            "#aaa",
+            "#25283a",
+            "--border"
+        ],
+        "BURIED_FG": [
+            "Buried Foreground",
+            "#aaaa33",
+            "#886026",
+            "--buried-fg"
+        ],
+        "BUTTON_BG": [
+            "Button Background",
+            "#eff0f1",
+            "#25283a",
+            ""
+        ],
+        "CURRENT_DECK": [
+            "Selected Deck",
+            "#e7e7e7",
+            "#25283a",
+            "--current-deck"
+        ],
+        "DISABLED": [
+            "Disabled",
+            "#777",
+            "#585f86",
+            "--disabled"
+        ],
+        "FAINT_BORDER": [
+            "Faint Border",
+            "#e7e7e7",
+            "#25283a",
+            "--faint-border"
+        ],
+        "FLAG1_BG": [
+            "Flag1 (Browse Cards List)",
+            "#ff9b9b",
+            "#e77d8f",
+            "--flag1-bg"
+        ],
+        "FLAG1_FG": [
+            "Flag1 (Browse Sidebar)",
+            "#e25252",
+            "#e77d8f",
+            "--flag1-fg"
+        ],
+        "FLAG2_BG": [
+            "Flag2 (Browse Cards List)",
+            "#ffb347",
+            "#f1a26f",
+            "--flag2-bg"
+        ],
+        "FLAG2_FG": [
+            "Flag2 (Browse Sidebar)",
+            "#ffb347",
+            "#f1a26f",
+            "--flag2-fg"
+        ],
+        "FLAG3_BG": [
+            "Flag3 (Browse Cards List)",
+            "#93e066",
+            "#a8cd76",
+            "--flag3-bg"
+        ],
+        "FLAG3_FG": [
+            "Flag3 (Browse Sidebar)",
+            "#54c414",
+            "#a8cd76",
+            "--flag3-fg"
+        ],
+        "FLAG4_BG": [
+            "Flag4 (Browse Cards List)",
+            "#9dbcff",
+            "#82a1f1",
+            "--flag4-bg"
+        ],
+        "FLAG4_FG": [
+            "Flag4 (Browse Sidebar)",
+            "#578cff",
+            "#82a1f1",
+            "--flag4-fg"
+        ],
+        "FLAG5_BG": [
+            "Flag5 (Browse Cards List)",
+            "#f5a8eb",
+            "#60c0db",
+            "--flag5-bg"
+        ],
+        "FLAG5_FG": [
+            "Flag5 (Browse Sidebar)",
+            "#ff82ee",
+            "#60c0db",
+            "--flag5-fg"
+        ],
+        "FLAG6_BG": [
+            "Flag6 (Browse Cards List)",
+            "#7edbd7",
+            "#8dd8ca",
+            "--flag6-bg"
+        ],
+        "FLAG6_FG": [
+            "Flag6 (Browse Sidebar)",
+            "#00d1b5",
+            "#8dd8ca",
+            "--flag6-fg"
+        ],
+        "FLAG7_BG": [
+            "Flag7 (Browse Cards List)",
+            "#cca3f1",
+            "#b69bf1",
+            "--flag7-bg"
+        ],
+        "FLAG7_FG": [
+            "Flag7 (Browse Sidebar)",
+            "#9649dd",
+            "#b69bf1",
+            "--flag7-fg"
+        ],
+        "FRAME_BG": [
+            "Frame Background",
+            "white",
+            "#25283b",
+            "--frame-bg"
+        ],
+        "HIGHLIGHT_BG": [
+            "Highlighted Background",
+            "#3daee9",
+            "#7aa2f7",
+            "--highlight-bg"
+        ],
+        "HIGHLIGHT_FG": [
+            "Highlighted Text",
+            "white",
+            "#a9b1d6",
+            "--highlight-fg"
+        ],
+        "LEARN_COUNT": [
+            "Learn Count",
+            "#c35617",
+            "#f1a26f",
+            "--learn-count"
+        ],
+        "LINK": [
+            "Hyperlink",
+            "#00a",
+            "#c3f7f7",
+            "--link"
+        ],
+        "MARKED_BG": [
+            "Marked Background",
+            "#cce",
+            "#b69bf1",
+            "--marked-bg"
+        ],
+        "MEDIUM_BORDER": [
+            "Medium Border",
+            "#b6b6b6",
+            "#25283a",
+            "--medium-border"
+        ],
+        "NEW_COUNT": [
+            "New Count",
+            "#00a",
+            "#82a1f1",
+            "--new-count"
+        ],
+        "REVIEW_COUNT": [
+            "Review Count",
+            "#0a0",
+            "#a8cd76",
+            "--review-count"
+        ],
+        "SLIGHTLY_GREY_TEXT": [
+            "Switch Text",
+            "#333",
+            "#a6adcf",
+            "--slightly-grey-text"
+        ],
+        "SUSPENDED_BG": [
+            "Suspended Background",
+            "#ffffb2",
+            "#d8b172",
+            "--suspended-bg"
+        ],
+        "SUSPENDED_FG": [
+            "Suspended Foreground",
+            "#dd0",
+            "#a6adcf",
+            "--suspended-fg"
+        ],
+        "TEXT_FG": [
+            "Text Foreground",
+            "black",
+            "#a6adcf",
+            "--text-fg"
+        ],
+        "TOOLTIP_BG": [
+            "Tooltip Background",
+            "#fcfcfc",
+            "#272727",
+            "--tooltip-bg"
+        ],
+        "WINDOW_BG": [
+            "Window Background",
+            "#ececec",
+            "#1a1c26",
+            "--window-bg"
+        ],
+        "ZERO_COUNT": [
+            "Zero Count",
+            "#ddd",
+            "#585f86",
+            "--zero-count"
+        ]
+    },
+    "version": {
+        "major": 1,
+        "minor": 8
+    }
+}

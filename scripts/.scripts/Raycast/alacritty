@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Alacritty
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon 🤖
+
+# Documentation:
+# @raycast.description Launches Alacritty
+# @raycast.author Michael Bao
+# @raycast.authorURL https://github.com/tcmmichaelb139
+
+open -a "Alacritty" -n
+

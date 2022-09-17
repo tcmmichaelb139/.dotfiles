@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 yabai -m space 1 --label "1"
 yabai -m space 2 --label "2"
 yabai -m space 3 --label "3"
@@ -30,6 +32,7 @@ yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Path Finder$" manage=off
 yabai -m rule --add app="^console$" manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
+yabai -m rule --add app="Pomotroid" manage=off
 
 ## Some random global settings
 # yabai -m config focus_follows_mouse          autofocus
@@ -40,8 +43,8 @@ yabai -m config window_topmost off
 yabai -m config window_opacity off
 yabai -m config window_opacity_duration 0.00
 yabai -m config active_window_opacity 1.0
+yabai -m config window_shadow off
 
-yabai -m config external_bar all:0:0
 yabai -m config window_border on
 yabai -m config window_border_width 1
 yabai -m config active_window_border_color 0xFFbb9af8

@@ -19,6 +19,22 @@ I will write descriptions and installation details in the future.
 brew install alacritty
 #+end_src
 
+** ccls
+
+#+begin_src
+gcc-12 -E -v -xc++ /dev/null
+#+end_src
+
+or
+
+#+begin_src
+gcc -E -v -xc++ /dev/null
+#+end_src
+
+Find the part following "#include <...> search starts here:"
+
+And put that in the ccls wrapper script with -isystem prepended
+
 ** clang-format
 
 ** emacs
@@ -31,7 +47,18 @@ brew install emacs-plus --HEAD --with-modern-doom3-icon --with-no-titlebar
 
 Native comp feels slower on M1 in my opinion.
 
+=Post Installation=
+
+#+begin_src
+stow ~/.dotfiles/emacs
+launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+#+end_src
+
 ** neovim
+
+#+begin_src
+stow nvim
+#+end_src
 
 ** scripts
 
