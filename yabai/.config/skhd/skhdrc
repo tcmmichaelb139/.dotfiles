@@ -61,3 +61,7 @@ ctrl + alt - k : window=$(yabai -m query --windows --window | jq -r '.id') && ya
 ctrl + alt - l : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
 
 # applications
+
+alt - e : emacsclient -c -e  "(select-frame-set-input-focus (selected-frame))" &
+alt - b : open -a "Brave Browser" -n
+alt - return : open -a "Alacritty" -n

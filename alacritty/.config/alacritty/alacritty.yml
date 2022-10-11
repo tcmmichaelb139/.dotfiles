@@ -14,7 +14,7 @@ window:
     y: 2
 
   dynamic_padding: false
-  decorations: none
+  decorations: buttonless
   opacity: 0.9
 
 scrolling:

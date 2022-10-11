@@ -22,7 +22,8 @@ vim.api.nvim_set_keymap('v', 'J', ':m \'>+1<CR>gv=gv', opts)
 vim.api.nvim_set_keymap('v', 'K', ':m \'<-2<CR>gv=gv', opts)
 
 -- undotree
-vim.api.nvim_set_keymap('n', '<Leader>u', ':UndotreeShow<CR>', opts)
+
+vim.api.nvim_set_keymap('n', '<Leader>u', ':UndotreeShow<CR>', { noremap = true, silent = true })
 
 -- resizing
 vim.api.nvim_set_keymap('n', '<Leader>-', ':vertical resize -5<CR>', opts)

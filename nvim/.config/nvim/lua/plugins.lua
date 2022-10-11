@@ -71,6 +71,7 @@ return require('packer').startup(function()
 	})
 
 	-- undotree
+    
 	use ({ 
 		'mbbill/undotree',
 		cmd = { 'UndotreeShow', 'UndotreeToggle', 'UndotreeHide', 'UndotreeFocus' }
@@ -78,6 +79,7 @@ return require('packer').startup(function()
 
  	-- comments
  	-- use 'tpope/vim-commentary'          
+
  	use ({
  		'terrortylor/nvim-comment',
  		config = [[require('config.comment')]]

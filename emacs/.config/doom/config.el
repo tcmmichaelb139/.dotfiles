@@ -83,6 +83,7 @@
        ;; other
        (string-prefix-p "*Native-compile-Log*" name)
        (string-prefix-p "*httpd*" name)
+       (string-prefix-p "*Shell Command Output" name)
 
        ;; Is not magit buffer.
        (and (string-prefix-p "magit" name)
@@ -120,7 +121,11 @@
 
 (after! company
   (setq company-idle-delay 0.0
-        company-minimum-prefix-length 1)
+        company-minimum-prefix-length 1
+        +lsp-company-backends '(company-tabnine :separate company-yasnippet)
+        ;; +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet)
+        ;; company-show-quick-access t
+        )
 
   (map! "C-." #'+company/complete))
 
@@ -138,6 +143,7 @@
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t))
         ccls-executable "~/.dotfiles/scripts/.scripts/ccls")
   (set-lsp-priority! 'ccls 0)) ; optional as ccls is the default in Doom
+
 
 (use-package! lsp-tailwindcss)
 
@@ -190,7 +196,6 @@
       org-list-demote-modify-bullet '(("+" . "*") ("-" . "+") ("*" . "-") ("1." . "a."))
       inhibit-compacting-font-caches t
       org-element-use-cache nil
-      org-log-done 'time
       org-startup-with-inline-images t
       org-table-convert-region-max-lines 20000
       org-auto-align-tags nil)
@@ -240,18 +245,18 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
-(use-package! ox-hugo
-  :after org)
-
 (after! org
-  (setq org-agenda-files '("~/programming/Org/agenda.org")))
+  (setq org-agenda-files '("~/programming/Org/sync/agenda.org")
+        org-log-done 'time
+        org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "CANCELLED(c)"))))
 ;; org-default-notes-file (expand-file-name "notes.org" org-directory)
 
 
 (after! org
   (setq org-startup-with-latex-preview t
         org-preview-latex-default-process 'dvisvgm
-        org-format-latex-options (plist-put org-format-latex-options :scale 1.75)))
+        org-format-latex-options (plist-put org-format-latex-options :scale 1.75)
+        org-fold-core-style 'overlays))
 
 
 (add-hook 'org-mode-hook 'org-fragtog-mode)

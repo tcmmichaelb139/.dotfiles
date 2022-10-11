@@ -6,10 +6,6 @@ Managed with stow
 
 [[file:assets/desktop-1.png]]
 
-[[file:assets/desktop-2.png]]
-
-[[file:assets/desktop-3.png]]
-
 * Packages/Applications
 I will write descriptions and installation details in the future.
 
@@ -54,13 +50,25 @@ stow ~/.dotfiles/emacs
 launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
 #+end_src
 
+** karabiner
+
 ** neovim
+
+#+begin_src
+brew install lua-language-server
+#+end_src
 
 #+begin_src
 stow nvim
 #+end_src
 
 ** scripts
+
+** sketchybar
+
+#+begin_src
+stow sketchybar
+#+end_src
 
 ** Wallpaper
 
@@ -78,13 +86,5 @@ brew services start skhd
 #+end_src
 
 (Copied from [[https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)][Yabai Wiki]] and [[https://github.com/koekeishiya/skhd][Skhd README]])
-
-*** Ubersicht
-
-=Installation=
-
-#+begin_src
-brew install ubersicht
-#+end_src
 
 ** zsh

@@ -59,6 +59,8 @@
 
 (package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
 
+(package! company-tabnine)
+
 ;; removing packages
 
 (package! evil-escape :disable t)
