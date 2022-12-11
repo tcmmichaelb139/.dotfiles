@@ -2,6 +2,7 @@
 
 import sys
 import os
+from rich import *
 import subprocess as sp
 
 pwd = os.getcwd() + "/"
@@ -10,6 +11,9 @@ args = sys.argv
 
 validHelperCommands = ["help", "examples"]
 validCommands = ["git", "stress"]
+problemWebsites = ["Usaco", "Usaco-Training", "Kattis", "UVa", "CSES"]
+# EDIT THIS TO CHANGE GIT DIRECTORY --------------------------------------------
+gitDirectory = "/Users/tcmb139/programming/cp/Competitive-Programming/"
 
 
 def help():
@@ -27,13 +31,19 @@ def help():
 
 
 def examples():
+    def validOptions():
+        print("Valid Examples Options\n")
+        print("\tgit")
+        print("\tstress")
+        print()
+
     def git():
         print()
-        print("Usaco:                mbcp git Usaco a.cpp 2015-2016 US-Open G 1\n")
-        print("Usaco-Traning:        mbcp git Usaco-Training a.cpp 1 namenum\n")
-        print("Kattis:               mbcp git Kattis a.cpp kutevi\n")
-        print("UVa:                  \n")
-        print("CSES:                 \n")
+        print("Usaco:                mbcp git Usaco a.cpp 2015-2016 US-Open G 1")
+        print("Usaco-Traning:        mbcp git Usaco-Training a.cpp 1 namenum")
+        print("Kattis:               mbcp git Kattis a.cpp kutevi")
+        print("UVa:                  ")
+        print("CSES:                 ")
         print()
 
     def stress():
@@ -49,22 +59,15 @@ def examples():
         else:
             print("Failed to find example for " + args[2])
     else:
-        print("Failed to find a valid example")
+        validOptions()
 
 
 def git():
-    if len(args) == 3:
-        if args[2] == "examples":
-            examples()
-            return
-
     if len(args) < 5:
         raise Exception
 
     website = args[2]
     sourceFile = args[3]
-
-    problemWebsites = ["Usaco", "Usaco-Training", "Kattis", "UVa", "CSES"]
 
     if website in problemWebsites:
         fileExtensionIndex = sourceFile.rfind(".")
@@ -73,9 +76,6 @@ def git():
             return
 
         fileExtension = sourceFile[fileExtensionIndex:]
-
-        # EDIT THIS TO CHANGE GIT DIRECTORY --------------------------------------------
-        gitDirectory = "/Users/tcmb139/programming/cp/Competitive-Programming/"
 
         if website == "Usaco":
             year = args[4]
@@ -142,28 +142,29 @@ def git():
             else:
                 division = "Platinum"
 
-            fullPath = gitDirectory + website + "/" + year + "/" + month
+            fullPath = gitDirectory + website + "/" + year
 
             if not os.path.isdir(fullPath):
                 sp.run(["mkdir", fullPath])
 
-            sp.run(
-                [
-                    "cp",
-                    pwd + sourceFile,
-                    gitDirectory
-                    + website
-                    + "/"
-                    + year
-                    + "/"
-                    + month
-                    + "/"
-                    + division
-                    + "P"
-                    + problemNumber
-                    + fileExtension,
-                ]
-            )
+            fullPath += "/" + month
+
+            if not os.path.isdir(fullPath):
+                sp.run(["mkdir", fullPath])
+
+            fullPath += "/" + division + "P" + problemNumber + fileExtension
+
+            copy = False
+            if os.path.isfile(fullPath):
+                print(
+                    "Would you like to overwrite the file at " + fullPath + " \[y/N]: ",
+                    end="",
+                )
+                response = input()
+                if response == "y" or response == "Y":
+                    copy = True
+
+            sp.run("cp " + pwd + sourceFile + " " + fullPath, shell=True)
 
         elif website == "Usaco-Training":
             print("This hasn't been implemented. :/")
@@ -201,7 +202,7 @@ def stress():
 
     i = 0
     while True:
-        print("\rTest: " + str(i), end="")
+        print("Test: " + str(i), end="\r")
 
         genRun = genFile + " " + str(i)
         wrongRun = wrongFile + " < " + intFile
@@ -255,7 +256,6 @@ def stress():
             break
 
         if diffOut.stdout:
-            print("\r", end="")
             print("Test case:", i)
             print("--------- Input ---------")
             print(genOut.stdout)
@@ -271,7 +271,7 @@ def stress():
 
 def main():
     if len(args) == 1:
-        print("Failed to find a command.")
+        help()
         return
 
     if args[1] == "help":
@@ -302,4 +302,4 @@ if __name__ == "__main__":
             else:
                 print(", ", end="")
     except:
-        print("An internal error occured. OH NO!")
+        print("[red]An internal error occured. OH NO![/red]")

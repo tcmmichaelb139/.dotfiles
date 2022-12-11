@@ -16,7 +16,7 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       ;; (emoji +unicode)  ; 🙂
+       (emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
@@ -64,7 +64,7 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       (spell +hunspell)   ; tasing you for misspelling mispelling
+       (spell +aspell)   ; tasing you for misspelling mispelling
        ;; grammar                ; tasing grammar mistake every you make
 
        :tools
@@ -122,7 +122,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
-       ;;(java +lsp +meghanada) ; the poster child for carpal tunnel syndrome
+       (java +lsp) ; the poster child for carpal tunnel syndrome
        (javascript +lsp)      ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        (kotlin +lsp)           ; a better, slicker Java(Script)

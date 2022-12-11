@@ -80,6 +80,11 @@ _G.packer_plugins = {
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -99,6 +104,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["impatient.nvim"] = {
     config = { "require('config.impatient')" },
@@ -121,6 +131,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "require('config.autopairs')" },
@@ -154,13 +169,10 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
-    commands = { "NvimTreeClipboard", "NvimTreeClose", "NvimTreeFindFile", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeToggle" },
     config = { "require('config.tree')" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
+    loaded = true,
+    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "require('config.treesitter')" },
@@ -171,7 +183,7 @@ _G.packer_plugins = {
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -182,11 +194,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["startuptime.vim"] = {
     loaded = true,
@@ -228,68 +235,90 @@ _G.packer_plugins = {
     path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
-  vimwiki = {
-    config = { "require('config.vimwiki')" },
+  ["which-key.nvim"] = {
+    config = { "require('config.which-key')" },
     loaded = true,
-    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
+    path = "/Users/tcmb139/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: impatient.nvim
-time([[Config for impatient.nvim]], true)
-require('config.impatient')
-time([[Config for impatient.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('config.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: vimwiki
-time([[Config for vimwiki]], true)
-require('config.vimwiki')
-time([[Config for vimwiki]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-comment
-time([[Config for nvim-comment]], true)
-require('config.comment')
-time([[Config for nvim-comment]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require('config.toggleterm')
-time([[Config for toggleterm.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('config.lualine')
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lsp')
-time([[Config for nvim-lspconfig]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('config.cmp')
-time([[Config for nvim-cmp]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
 require('config.bufferline')
 time([[Config for bufferline.nvim]], false)
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+require('config.comment')
+time([[Config for nvim-comment]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require('config.which-key')
+time([[Config for which-key.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('config.toggleterm')
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('config.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('config.cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('config.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: impatient.nvim
+time([[Config for impatient.nvim]], true)
+require('config.impatient')
+time([[Config for impatient.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeClipboard lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeClipboard", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeShow lua require("packer.load")({'undotree'}, { cmd = "UndotreeShow", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeToggle lua require("packer.load")({'undotree'}, { cmd = "UndotreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeHide lua require("packer.load")({'undotree'}, { cmd = "UndotreeHide", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeFocus lua require("packer.load")({'undotree'}, { cmd = "UndotreeFocus", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeFindFile lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeFindFile", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeOpen lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeOpen", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeRefresh lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeRefresh", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeClose lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeClose", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.api.nvim_create_user_command, 'UndotreeToggle', function(cmdargs)
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeToggle' }, _G.packer_plugins)
+          return vim.fn.getcompletion('UndotreeToggle ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'UndotreeHide', function(cmdargs)
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeHide', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeHide' }, _G.packer_plugins)
+          return vim.fn.getcompletion('UndotreeHide ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'UndotreeFocus', function(cmdargs)
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeFocus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeFocus' }, _G.packer_plugins)
+          return vim.fn.getcompletion('UndotreeFocus ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'UndotreeShow', function(cmdargs)
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeShow', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'undotree'}, { cmd = 'UndotreeShow' }, _G.packer_plugins)
+          return vim.fn.getcompletion('UndotreeShow ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

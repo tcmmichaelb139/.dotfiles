@@ -1,38 +1,42 @@
+local o = vim.o
+
 -- settings
+o.softtabstop = 4
+o.shiftwidth = 4
+o.tabstop = 4
+o.expandtab = true
+o.joinspaces = false
+o.number = true
+o.relativenumber = true
+o.hlsearch = false
+o.incsearch = true
+o.smartcase = true
+o.scrolloff = 15
+o.hidden = true
+o.wrap = false
+o.swapfile = false
+o.backup = false
+o.undofile = true
+o.undodir = '/Users/tcmb139/.cache/nvim/undodir'
+o.backspace = 'indent,eol,start'
+o.foldmethod = 'marker'
+o.title = true
+o.errorbells = false
+o.cursorline = false
+o.cursorcolumn = false
+o.splitright = true
+o.splitbelow = true
+o.completeopt = 'menuone,noselect,noinsert'
+o.shortmess = 'c'
+o.clipboard = 'unnamedplus'
+o.updatetime = 50
+o.signcolumn = 'yes'
+o.lazyredraw = true
+o.timeoutlen = 250
+o.showmode = false
 
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
-vim.o.expandtab = true
-vim.o.joinspaces = false
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.hlsearch = false
-vim.o.incsearch = true
-vim.o.smartcase = true
-vim.o.scrolloff = 15
-vim.o.hidden = true
-vim.o.wrap = false
-vim.o.swapfile = false
-vim.o.backup = false
-vim.o.undofile = true
-vim.o.undodir = '/Users/tcmb139/.cache/nvim/undodir'
-vim.o.backspace = 'indent,eol,start'
-vim.o.foldmethod = 'marker'
-vim.o.title = true
-vim.o.errorbells = false
-vim.o.cursorline = false
-vim.o.cursorcolumn = false
-vim.o.splitright = true
-vim.o.splitbelow = true
-vim.o.completeopt = 'menuone,noselect,noinsert'
-vim.o.shortmess = 'c'
-vim.o.clipboard = 'unnamedplus'
-vim.o.updatetime = 50
-vim.o.signcolumn = 'yes'
-
-vim.o.lazyredraw = true
-
-vim.cmd[[colorscheme tokyonight-night]]
-vim.cmd[[highlight NormalFloat guibg=#1a1b26]]
-vim.cmd[[highlight FloatBorder guifg=#a9b1d6 guibg=#1a1b26]]
+vim.cmd("colorscheme tokyonight-night")
+-- vim.cmd("colorscheme kanagawa")
+-- vim.cmd("colorscheme catppuccin-mocha")
+-- vim.cmd("colorscheme nightfox")
+-- vim.cmd("colorscheme gruvbox")

@@ -186,15 +186,20 @@
 
 ;; org stuff
 
-(add-hook! 'org-mode-hook (org-indent-mode 0))
+;; (add-hook! 'org-mode-hook (org-indent-mode 0))
 
 (remove-hook 'org-mode-hook #'org-superstar-mode)
 (add-hook 'org-mode-hook #'org-modern-mode)
 
 (setq org-directory "~/programming/Org"
+      org-modern-star '("◉" "○" "●" "◈" "◇")
       org-ellipsis " ▼ "
       org-list-demote-modify-bullet '(("+" . "*") ("-" . "+") ("*" . "-") ("1." . "a."))
       inhibit-compacting-font-caches t
+      org-tags-column 0
+      org-auto-align-tags nil
+      org-pretty-entities t
+      org-hide-emphasis-markers t
       org-element-use-cache nil
       org-startup-with-inline-images t
       org-table-convert-region-max-lines 20000
@@ -209,7 +214,9 @@
  '(org-level-6 ((t (:inherit outline-6 :height 1.1))))
  '(org-level-7 ((t (:inherit outline-7 :height 1.1))))
  '(org-level-8 ((t (:inherit outline-8 :height 1.1))))
+
  )
+
 
 (use-package! org-roam
   :init
@@ -346,7 +353,5 @@
 ;; yasnippets
 (setq yas-snippet-dirs '("~/.doom.d/snippets"))
 
-;; grammar
-(setq langtool-java-bin "/usr/local/opt/openjdk/bin/java")
-(setq langtool-bin "/opt/homebrew/opt/languagetool/bin/languagetool")
-(setq langtool-mother-tongue "en")
+(setq ispell-program-name "aspell"
+      ispell-dictionary "english")

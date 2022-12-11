@@ -45,9 +45,17 @@ Native comp feels slower on M1 in my opinion.
 
 =Post Installation=
 
+Emacs client
+
 #+begin_src
 stow ~/.dotfiles/emacs
 launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+#+end_src
+
+Aspell
+#+begin_src
+mkdir -p ~/.emacs.d/.local/etc/ispell && touch ~/.emacs.d/.local/etc/ispell/english.pws
+echo "personal_ws-1.1 en 0" > ~/.emacs.d/.local/etc/ispell/english.pws
 #+end_src
 
 ** karabiner
