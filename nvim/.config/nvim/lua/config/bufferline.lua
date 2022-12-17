@@ -1,7 +1,6 @@
 require("bufferline").setup({
 	options = {
 		diagnostics = "nvim_lsp",
-		numbers = "ordinal",
 		separator_style = "thick",
 		diagnostics_indicator = function(_, _, diagnostics_dict)
 			local s = " "
@@ -11,6 +10,13 @@ require("bufferline").setup({
 			end
 			return s
 		end,
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "Nvim Tree",
+				highlight = "Directory",
+				text_align = "left",
+			},
+		},
 	},
 })
-

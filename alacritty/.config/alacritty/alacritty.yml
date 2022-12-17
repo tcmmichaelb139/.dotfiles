@@ -13,7 +13,7 @@ window:
 
   dynamic_padding: false
   decorations: buttonless
-  opacity: 0.9
+  opacity: 1
 
 scrolling:
   history: 10000

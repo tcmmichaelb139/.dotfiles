@@ -32,4 +32,4 @@ require("tokyonight").setup({
 	end,
 })
 
-vim.cmd("colorscheme tokyonight")
+vim.cmd.colorscheme("tokyonight")

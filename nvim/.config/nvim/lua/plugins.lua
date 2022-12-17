@@ -8,24 +8,32 @@ if fn.empty(fn.glob(install_path)) > 0 then packer_bootstrap = fn.system({ 'git'
 end
 
 local disabled_built_ins = {
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-    "gzip",
-    "zip",
-    "zipPlugin",
-    "tar",
-    "tarPlugin",
-    "getscript",
-    "getscriptPlugin",
-    "vimball",
-    "vimballPlugin",
-    "2html_plugin",
-    "logipat",
-    "rrhelper",
-    "spellfile_plugin",
-    "matchit"
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
@@ -42,6 +50,11 @@ return require('packer').startup(function()
         config = [[require('config.lsp')]],
     })
 
+    use ({
+        "mhartington/formatter.nvim",
+        config = [[require('config.formatter')]]
+    })
+
     -- completion
     use({
         "hrsh7th/nvim-cmp",
@@ -51,7 +64,7 @@ return require('packer').startup(function()
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lua",
-            -- "L3MON4D3/LuaSnip",
+            "L3MON4D3/LuaSnip",
             "onsails/lspkind-nvim",
         }
     })
@@ -96,9 +109,25 @@ return require('packer').startup(function()
         config = [[require('config.which-key')]]
     })
 
+    use({
+        "folke/noice.nvim",
+        config = [[require('config.notify')]],
+        disable = true,
+        requires = {
+            "MunifTanjim/nui.nvim"
+        }
+    })
+
+    -- gitsigns
+    use({
+        'lewis6991/gitsigns.nvim',
+        config = [[require('config.gitsigns')]]
+    })
+
     -- colorscheme
     use({
         'folke/tokyonight.nvim',
+        config = [[require('config.tokyonight')]]
     })
 
     use({
@@ -144,10 +173,11 @@ return require('packer').startup(function()
         config = [[require('config.toggleterm')]]
     })
 
-    -- use ({
-    -- 	'lukas-reineke/indent-blankline.nvim',
-    -- 	config = [[require('config.indent-blankline')]]
-    -- })
+    -- indent-blankline
+    use ({
+    	'lukas-reineke/indent-blankline.nvim',
+    	config = [[require('config.indent-blankline')]]
+    })
 
     -- ccs colors
     use({

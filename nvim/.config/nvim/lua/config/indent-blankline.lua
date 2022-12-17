@@ -3,9 +3,18 @@ vim.opt.list = true
 -- vim.opt.listchars:append("eol:↴")
 
 require("indent_blankline").setup {
-    show_end_of_line = true,
-    show_current_context = true,
-    use_treesitter = true,
-    buftype_exclude = {'terminal'}
-    -- show_current_context_start = true,
-}
+    filetype_exclude = {
+      "help",
+      "terminal",
+      "alpha",
+      "packer",
+      "lspinfo",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "mason",
+      "",
+      "NvimTree",
+    },
+    buftype_exclude = { "terminal" },
+    show_trailing_blankline_indent = false,
+    }

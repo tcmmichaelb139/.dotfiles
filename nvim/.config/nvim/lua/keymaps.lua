@@ -1,70 +1,80 @@
 function Map(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend('force', options, opts)
-    end
-    vim.keymap.set(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- better moving keys
-Map('n', '<leader>wh', ':wincmd h<CR>', { silent = true })
-Map('n', '<leader>wj', ':wincmd j<CR>', { silent = true })
-Map('n', '<leader>wk', ':wincmd k<CR>', { silent = true })
-Map('n', '<leader>wl', ':wincmd l<CR>', { silent = true })
+Map("n", "<C-h>", "<C-w>h")
+Map("n", "<C-j>", "<C-w>j")
+Map("n", "<C-k>", "<C-w>k")
+Map("n", "<C-l>", "<C-w>l")
 
-Map('t', '<ESC>', '<C-\\><C-n><CR>')
+Map("t", "<ESC>", "<C-\\><C-n>")
+
+Map("n", "<C-s>", "<cmd> w <CR>")
+
+Map("i", "<C-z>", "<C-O>u")
 
 -- better indentation
-Map('v', '<', '<gv')
-Map('v', '>', '>gv')
+Map("v", "<", "<gv")
+Map("v", ">", ">gv")
 
 -- better moving lines
-Map('v', 'J', ':m \'>+1<CR>gv=gv')
-Map('v', 'K', ':m \'<-2<CR>gv=gv')
+Map("v", "J", ":m '>+1<CR>gv=gv")
+Map("v", "K", ":m '<-2<CR>gv=gv")
 
 -- undotree
-Map('n', '<Leader>u', ':UndotreeShow<CR>')
+Map("n", "<Leader>u", ":UndotreeShow<CR>")
 
 -- resizing
-Map('n', '<Leader>-', ':vertical resize -5<CR>')
-Map('n', '<Leader>=', ':vertical resize +5<CR>')
-
--- ctrl+backspace
--- api.nvim_set_keyMap('i', '<C-h>', '<C-w>', opts)
+Map("n", "<C-Up>", ":resize -2<CR>")
+Map("n", "<C-Down>", ":resize +2<CR>")
+Map("n", "<C-Left>", ":vertical resize -2<CR>")
+Map("n", "<C-Right>", ":vertical resize +2<CR>")
 
 -- U = redo
-Map('n', 'U', '<C-r>')
+Map("n", "U", "<C-r>")
 
 -- tab movements
-Map('n', '<leader>n', ':bn<CR>')
-Map('n', '<leader>p', ':bp<CR>')
-Map('n', '<leader>tn', ':tabnew<Space>')
-Map('n', '<leader>tm', ':tabmove<Space>')
-Map('n', '<leader>tc', ':tabclose<CR>')
-Map('n', '<leader>to', ':tabonly<CR>')
-
--- quickfix
-Map('n', '<leader>j', ':cnext<CR>')
-Map('n', '<leader>k', ':cprev<CR>')
+Map("n", "<leader>n", ":bn<CR>")
+Map("n", "<leader>p", ":bp<CR>")
+Map("n", "<leader>tn", ":tabnew<Space>")
+Map("n", "<leader>tm", ":tabmove<Space>")
+Map("n", "<leader>tc", ":tabclose<CR>")
+Map("n", "<leader>to", ":tabonly<CR>")
 
 -- file tree
-Map('n', '<leader>f', ':NvimTreeToggle<CR>')
+Map("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- lsp
-Map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>')
-Map('n', '<leader>gi', ':lua vim.lsp.buf.implementation()<CR>')
-Map('n', 'K', ':lua vim.lsp.buf.hover()<CR>')
-Map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
-Map('n', '<leader>gr', ':lua vim.lsp.buf.references()<CR>')
-
+Map("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>")
+Map("n", "<leader>gi", ":lua vim.lsp.buf.implementation()<CR>")
+Map("n", "K", ":lua vim.lsp.buf.hover()<CR>")
+Map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
+Map("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>")
 
 -- telescope
-local builtin = require('telescope.builtin')
-Map('n', '<leader>.', builtin.find_files)
+Map("n", "<leader>ff", "<cmd> Telescope find_files <CR>")
+Map("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
+Map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
+Map("n", "<leader>fb", "<cmd> Telescope buffers <CR>")
+Map("n", "<leader>fh", "<cmd> Telescope help_tags <CR>")
+Map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
+Map("n", "<leader>fc", "<cmd> Telescope colorschemes <CR>")
 
 -- toggleterm
-Map('n', '<leader>ot', ':ToggleTerm<CR>')
+Map("n", "<leader>ot", ":ToggleTerm size=20<CR>")
 
--- vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.format()')
+Map("t", "<C-h>", "<cmd>wincmd h<CR>")
+Map("t", "<C-j>", "<cmd>wincmd j<CR>")
+Map("t", "<C-k>", "<cmd>wincmd k<CR>")
+Map("t", "<C-l>", "<cmd>wincmd l<CR>")
+
+-- format
+Map("n", "<C-f>", ":FormatWrite<CR>")
+vim.api.nvim_create_autocmd("BufWritePost", { command = "FormatWrite" })
