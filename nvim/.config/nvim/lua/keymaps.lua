@@ -20,6 +20,13 @@ Map("n", "<C-s>", "<cmd> w <CR>")
 
 Map("i", "<C-z>", "<C-O>u")
 
+-- nitpicky stuff
+Map("n", "J", "mzJ`z")
+Map("n", "<C-d>", "<C-d>zz")
+Map("n", "<C-u>", "<C-u>zz")
+Map("n", "n", "nzzzv")
+Map("n", "N", "Nzzzv")
+
 -- better indentation
 Map("v", "<", "<gv")
 Map("v", ">", ">gv")
@@ -41,12 +48,13 @@ Map("n", "<C-Right>", ":vertical resize +2<CR>")
 Map("n", "U", "<C-r>")
 
 -- tab movements
-Map("n", "<leader>n", ":bn<CR>")
-Map("n", "<leader>p", ":bp<CR>")
-Map("n", "<leader>tn", ":tabnew<Space>")
-Map("n", "<leader>tm", ":tabmove<Space>")
-Map("n", "<leader>tc", ":tabclose<CR>")
-Map("n", "<leader>to", ":tabonly<CR>")
+Map("n", "<TAB>", ":bn<CR>")
+Map("n", "<S-TAB>", ":bp<CR>")
+Map("n", "<leader>bd", ":bd<CR>")
+-- Map("n", "<leader>tn", ":tabnew<Space>")
+-- Map("n", "<leader>tm", ":tabmove<Space>")
+-- Map("n", "<leader>tc", ":tabclose<CR>")
+-- Map("n", "<leader>to", ":tabonly<CR>")
 
 -- file tree
 Map("n", "<leader>e", ":NvimTreeToggle<CR>")
@@ -61,6 +69,7 @@ Map("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>")
 -- telescope
 Map("n", "<leader>ff", "<cmd> Telescope find_files <CR>")
 Map("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
+Map("n", "<leader>fe", "<cmd> Telescope file_browser <CR>")
 Map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
 Map("n", "<leader>fb", "<cmd> Telescope buffers <CR>")
 Map("n", "<leader>fh", "<cmd> Telescope help_tags <CR>")
@@ -74,6 +83,11 @@ Map("t", "<C-h>", "<cmd>wincmd h<CR>")
 Map("t", "<C-j>", "<cmd>wincmd j<CR>")
 Map("t", "<C-k>", "<cmd>wincmd k<CR>")
 Map("t", "<C-l>", "<cmd>wincmd l<CR>")
+
+Map("t", "<C-Up>", "<cmd>resize -2<CR>")
+Map("t", "<C-Down>", "<cmd>resize +2<CR>")
+Map("t", "<C-Left>", "<cmd>vertical resize -2<CR>")
+Map("t", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- format
 Map("n", "<C-f>", ":FormatWrite<CR>")

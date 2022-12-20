@@ -158,3 +158,6 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f "/Users/tcmb139/.ghcup/env" ] && source "/Users/tcmb139/.ghcup/env" # ghcup-env
 export PATH=$PATH:/Users/tcmb139/.spicetify
+
+# fuck
+eval $(thefuck --alias)

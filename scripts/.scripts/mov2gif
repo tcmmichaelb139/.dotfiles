@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+ffmpeg -i "$1" -r 5 -vf "scale=1000:-2" "tmp.gif"
+
+gifsicle -i "tmp.gif" -O3 -o "$2"
+
+rm "tmp.gif"

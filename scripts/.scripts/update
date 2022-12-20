@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+export YABAI_CERT='yabai-cert'
+
+# stop yabai
+brew services stop koekeishiya/formulae/yabai
+
+# reinstall yabai
+brew reinstall koekeishiya/formulae/yabai
+codesign -fs "${YABAI_CERT:-yabai-cert}" "$(brew --prefix yabai)/bin/yabai"
+
+# finally, start yabai
+brew services start koekeishiya/formulae/yabai
+
+sudo bash -c "cat << EOF > /private/etc/sudoers.d/yabai \
+    $(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 "$(brew --prefix yabai)"/bin/yabai) --load-sa \
+    EOF"
+
+brew upgrade

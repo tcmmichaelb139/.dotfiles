@@ -7,8 +7,8 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 #
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 #
 
 # global settings
@@ -19,11 +19,11 @@ yabai -m config \
     window_placement second_child \
     window_topmost off \
     window_shadow off \
-    window_animation_duration 0.0 \
+    window_animation_duration 0.1 \
     window_opacity_duration 0.0 \
     active_window_opacity 1.0 \
     normal_window_opacity 0.90 \
-    window_opacity off \
+    window_opacity on \
     insert_feedback_color 0x00d75f5f \
     active_window_border_color 0xff7aa2f7 \
     normal_window_border_color 0x80565f89 \
@@ -47,14 +47,13 @@ yabai -m config \
     mouse_drop_action swap \
     external_bar all:35:0
 
-yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="Stats" sticky=on layer=above manage=off
-yabai -m rule --add app="Calculator" sticky=on layer=above manage=off
-yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
-yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Path Finder$" manage=off
+yabai -m rule --add app="^System Settings$" sticky=on manage=off
+yabai -m rule --add app="Stats" sticky=on manage=off
+yabai -m rule --add app="Calculator" sticky=on manage=off
+yabai -m rule --add app="^Finder$" sticky=on manage=off
+yabai -m rule --add app="^Disk Utility$" sticky=on manage=off
+yabai -m rule --add app="^System Information$" sticky=on  manage=off
+yabai -m rule --add app="^Activity Monitor$" sticky=on manage=off
 yabai -m rule --add app="^console$" manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 yabai -m rule --add app="Pomotroid" manage=off
