@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup({
 		"python",
 		"svelte",
 		"typescript",
+		"yaml",
 	},
 
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)

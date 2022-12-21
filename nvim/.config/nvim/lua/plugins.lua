@@ -51,6 +51,11 @@ return require("packer").startup(function()
 		config = [[require('config.lsp')]],
 	})
 
+	-- copilot
+	use({
+		"github/copilot.vim",
+	})
+
 	use({
 		"mhartington/formatter.nvim",
 		config = [[require('config.formatter')]],
@@ -184,6 +189,12 @@ return require("packer").startup(function()
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = [[require('config.indent-blankline')]],
+	})
+
+	-- scroll
+	use({
+		"karb94/neoscroll.nvim",
+		config = [[require('config.scroll')]],
 	})
 
 	-- ccs colors
