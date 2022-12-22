@@ -1,5 +1,7 @@
 local o = vim.o
 
+vim.g.mapleader = " "
+
 -- settings
 o.softtabstop = 4
 o.shiftwidth = 4
@@ -34,10 +36,12 @@ o.shortmess = "c"
 o.clipboard = "unnamedplus"
 o.updatetime = 50
 o.signcolumn = "yes"
-o.lazyredraw = true
+o.lazyredraw = false
 o.timeoutlen = 250
 o.showmode = false
 
 o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldlevel = 6
 o.foldmethod = "expr"
+
+vim.opt.list = true

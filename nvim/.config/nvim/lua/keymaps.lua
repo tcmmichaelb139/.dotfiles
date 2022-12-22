@@ -6,8 +6,6 @@ function Map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
-vim.g.mapleader = " "
-
 -- better moving keys
 Map("n", "<C-h>", "<C-w>h")
 Map("n", "<C-j>", "<C-w>j")
@@ -74,7 +72,7 @@ Map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
 Map("n", "<leader>fb", "<cmd> Telescope buffers <CR>")
 Map("n", "<leader>fh", "<cmd> Telescope help_tags <CR>")
 Map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
-Map("n", "<leader>fc", "<cmd> Telescope colorschemes <CR>")
+Map("n", "<leader>fc", "<cmd> Telescope colorscheme <CR>")
 
 -- toggleterm
 Map("n", "<leader>ot", ":ToggleTerm size=20<CR>")
@@ -91,4 +89,3 @@ Map("t", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- format
 Map("n", "<C-f>", ":FormatWrite<CR>")
-vim.api.nvim_create_autocmd("BufWritePost", { command = "FormatWrite" })
