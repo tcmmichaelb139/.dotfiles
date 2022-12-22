@@ -79,20 +79,24 @@ return require("packer").startup(function()
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		config = [[require('config.treesitter')]],
+		run = ":TSUpdate",
+		event = "BufRead",
 	})
 
 	-- telescope
 	use({ "nvim-lua/plenary.nvim" })
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "nvim-telescope/telescope-file-browser.nvim", opt = true })
 	use({
 		"nvim-telescope/telescope.nvim",
 		config = [[require('config.telescope')]],
 		requires = "nvim-lua/plenary.nvim",
+		cmd = "Telescope",
 	})
 
 	-- undotree
 	use({
 		"mbbill/undotree",
+		opt = true,
 		cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" },
 	})
 
@@ -100,6 +104,7 @@ return require("packer").startup(function()
 	use({
 		"terrortylor/nvim-comment",
 		config = [[require('config.comment')]],
+		keys = { "gcc", "gc" },
 	})
 
 	-- autopairs
@@ -134,6 +139,10 @@ return require("packer").startup(function()
 	use({
 		"TimUntersberger/neogit",
 		config = [[require('config.neogit')]],
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+		},
 	})
 
 	-- colorscheme
@@ -177,6 +186,19 @@ return require("packer").startup(function()
 		"nvim-tree/nvim-tree.lua",
 		config = [[require('config.tree')]],
 		requires = "nvim-tree/nvim-web-devicons",
+		cmd = {
+			"NvimTreeClipboard",
+			"NvimTreeClose",
+			"NvimTreeCollapse",
+			"NvimTreeCollapseKeepBuffers",
+			"NvimTreeFindFile",
+			"NvimTreeFindFileToggle",
+			"NvimTreeFocus",
+			"NvimTreeOpen",
+			"NvimTreeRefresh",
+			"NvimTreeResize",
+			"NvimTreeToggle",
+		},
 	})
 
 	-- toggle term
@@ -195,15 +217,18 @@ return require("packer").startup(function()
 	use({
 		"karb94/neoscroll.nvim",
 		config = [[require('config.scroll')]],
+		opt = true,
 	})
 
 	-- ccs colors
 	use({
 		"norcalli/nvim-colorizer.lua",
+		opt = true,
 	})
 
 	use({
 		"ThePrimeagen/vim-be-good",
+		opt = true,
 	})
 
 	-- startup time
@@ -212,5 +237,7 @@ return require("packer").startup(function()
 		config = [[require('config.impatient')]],
 	})
 
-	use({ "tweekmonster/startuptime.vim" })
+	-- test startuptime
+	use({ "dstein64/vim-startuptime" })
+	-- use({ "tweekmonster/startuptime.vim" })
 end)

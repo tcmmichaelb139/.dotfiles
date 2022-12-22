@@ -36,7 +36,7 @@ Map("v", "J", ":m '>+1<CR>gv=gv")
 Map("v", "K", ":m '<-2<CR>gv=gv")
 
 -- undotree
-Map("n", "<Leader>u", ":UndotreeShow<CR>")
+Map("n", "<Leader>u", ":UndotreeToggle<CR>")
 
 -- resizing
 Map("n", "<C-Up>", ":resize -2<CR>")
