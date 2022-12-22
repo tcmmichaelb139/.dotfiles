@@ -4,7 +4,7 @@ Managed with stow
 
 # Showcase
 
-[desktop-1](file:assets/desktop1.png)
+![desktop-1](./assets/desktop1.png)
 
 # Packages/Applications
 I will write descriptions and installation details in the future.
@@ -93,6 +93,6 @@ brew install koekeishiya/formulae/skhd
 brew services start skhd
 ```
 
-(Copied from [yabai GitHub](ghttps://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)) and [skhd GitHub](https://github.com/koekeishiya/skhd]))
+(Copied from [yabai GitHub](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)) and [skhd GitHub](https://github.com/koekeishiya/skhd))
 
 ## zsh
