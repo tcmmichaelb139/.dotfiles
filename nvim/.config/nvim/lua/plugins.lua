@@ -3,14 +3,14 @@ return {
 	"nvim-lua/plenary.nvim",
 	{ "github/copilot.vim", lazy = false },
 
-	{ "rebelot/kanagawa.nvim", lazy = false },
+	{ "rebelot/kanagawa.nvim", event = "VeryLazy" },
 	{
 		"catppuccin/nvim",
-		as = "catppuccin",
-		lazy = false,
+		name = "catppuccin",
+		event = "VeryLazy",
 	},
-	{ "EdenEast/nightfox.nvim", lazy = false },
-	{ "ellisonleao/gruvbox.nvim", lazy = false },
+	{ "EdenEast/nightfox.nvim", event = "VeryLazy" },
+	{ "ellisonleao/gruvbox.nvim", event = "VeryLazy" },
 	{
 		"mbbill/undotree",
 		cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" },
@@ -19,8 +19,8 @@ return {
 	{
 		"dstein64/vim-startuptime",
 		cmd = "StartupTime",
-		config = function()
-			vim.g.startuptime_tries = 10
-		end,
+		-- config = function()
+		-- 	vim.g.startuptime_tries = 10
+		-- end,
 	},
 }
