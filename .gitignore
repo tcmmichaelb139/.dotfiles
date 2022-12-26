@@ -2,3 +2,6 @@
 .idea
 *.log
 tmp/
+.zsh_sessions/
+.zsh_history
+.zcompdump

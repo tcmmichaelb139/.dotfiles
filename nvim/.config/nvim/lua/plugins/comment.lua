@@ -1,6 +1,6 @@
 return {
 	"terrortylor/nvim-comment",
-	keys = { "gc", "gcc" },
+	keys = { { "gc", mode = { "n", "v" }, "gcc" } },
 
 	config = function()
 		require("nvim_comment").setup({

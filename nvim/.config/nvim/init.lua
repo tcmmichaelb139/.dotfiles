@@ -35,7 +35,7 @@ require("lazy").setup("plugins", {
 			},
 		},
 	},
-	debug = true,
+	-- debug = true,
 })
 
 vim.api.nvim_create_autocmd("User", {

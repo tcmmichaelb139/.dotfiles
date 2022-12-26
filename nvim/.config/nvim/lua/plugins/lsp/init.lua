@@ -47,7 +47,7 @@ function M.config()
 		init_options = {
 			index = {
 				threads = 0,
-				initialWhitelist = { "." },
+				initialBlacklist = { ".*" },
 			},
 			cache = {
 				directory = "/Users/tcmb139/.cache/ccls",

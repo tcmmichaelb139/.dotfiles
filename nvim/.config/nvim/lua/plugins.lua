@@ -1,8 +1,8 @@
 return {
 	"MunifTanjim/nui.nvim",
 	"nvim-lua/plenary.nvim",
-	{ "github/copilot.vim", lazy = false },
-
+	"folke/which-key.nvim",
+	-- { "github/copilot.vim", lazy = false },
 	{ "rebelot/kanagawa.nvim", event = "VeryLazy" },
 	{
 		"catppuccin/nvim",
@@ -19,8 +19,8 @@ return {
 	{
 		"dstein64/vim-startuptime",
 		cmd = "StartupTime",
-		-- config = function()
-		-- 	vim.g.startuptime_tries = 10
-		-- end,
+		config = function()
+			vim.g.startuptime_tries = 10
+		end,
 	},
 }

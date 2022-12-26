@@ -1,10 +1,19 @@
-function keymap(mode, lhs, rhs, opts)
+local function keymap(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
 	vim.keymap.set(mode, lhs, rhs, options)
 end
+
+local wk = require("which-key")
+
+vim.o.timeoutlen = 250
+
+wk.setup({
+	show_help = false,
+	key_labels = { ["<leader>"] = "SPC" },
+})
 
 -- better moving keys
 keymap("n", "<C-h>", "<C-w>h")
@@ -20,8 +29,8 @@ keymap("i", "<C-z>", "<C-O>u")
 
 -- nitpicky stuff
 keymap("n", "J", "mzJ`z")
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
+-- keymap("n", "<C-d>", "<C-d>zz")
+-- keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
@@ -34,7 +43,6 @@ keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "K", ":m '<-2<CR>gv=gv")
 
 -- undotree
-keymap("n", "<Leader>u", ":UndotreeToggle<CR>")
 
 -- resizing
 keymap("n", "<C-Up>", ":resize -2<CR>")
@@ -48,34 +56,12 @@ keymap("n", "U", "<C-r>")
 -- tab movements
 keymap("n", "<TAB>", ":bn<CR>")
 keymap("n", "<S-TAB>", ":bp<CR>")
-keymap("n", "<leader>bd", ":bd<CR>")
 -- Map("n", "<leader>tn", ":tabnew<Space>")
 -- Map("n", "<leader>tm", ":tabmove<Space>")
 -- Map("n", "<leader>tc", ":tabclose<CR>")
 -- Map("n", "<leader>to", ":tabonly<CR>")
 
--- file tree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>")
-
--- lsp
-keymap("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>")
-keymap("n", "<leader>gi", ":lua vim.lsp.buf.implementation()<CR>")
 keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>")
-keymap("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
-keymap("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>")
-
--- telescope
-keymap("n", "<leader>ff", "<cmd> Telescope find_files <CR>")
-keymap("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
-keymap("n", "<leader>fe", "<cmd> Telescope file_browser <CR>")
-keymap("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
-keymap("n", "<leader>fb", "<cmd> Telescope buffers <CR>")
-keymap("n", "<leader>fh", "<cmd> Telescope help_tags <CR>")
-keymap("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
-keymap("n", "<leader>fc", "<cmd> Telescope colorscheme <CR>")
-
--- toggleterm
-keymap("n", "<leader>ot", ":ToggleTerm size=20<CR>")
 
 keymap("t", "<C-h>", "<cmd>wincmd h<CR>")
 keymap("t", "<C-j>", "<cmd>wincmd j<CR>")
@@ -89,3 +75,40 @@ keymap("t", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- format
 keymap("n", "<C-f>", ":FormatWrite<CR>")
+
+local leader = {
+	["f"] = {
+		name = "+telescope",
+		["f"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
+		["a"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All Files" },
+		["e"] = { "<cmd> Telescope file_browser <CR>", "File Browser" },
+		["w"] = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
+		["b"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
+		["h"] = { "<cmd> Telescope help_tags <CR>", "Help Tags" },
+		["o"] = { "<cmd> Telescope oldfiles <CR>", "Old Files" },
+		["c"] = { "<cmd> Telescope colorscheme <CR>", "Colorschemes" },
+	},
+	["b"] = {
+		name = "+buffer",
+		["d"] = { "<cmd>bd<CR>", "Delete Buffer" },
+	},
+	["o"] = {
+		name = "+open",
+		["t"] = { "<cmd> ToggleTerm size=20<CR>", "Terminal" },
+		["f"] = { "<cmd> NvimTreeToggle<CR>", "File Explorer" },
+		["d"] = { "<cmd> DiffviewOpen<CR>", "DiffView" },
+	},
+	["u"] = { "<cmd> UndotreeToggle<CR>", "Undo Tree" },
+	["g"] = {
+		name = "+goto",
+		["d"] = { "<cmd> Telescope lsp_definitions<CR>", "Definition" },
+		["i"] = { "<cmd> Telescope lsp_implementation<CR>", "Implementation" },
+		["r"] = { "<cmd> Telescope lsp_references<CR>", "References" },
+	},
+	["c"] = {
+		name = "+code",
+		["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+	},
+}
+
+wk.register(leader, { prefix = "<leader>" })

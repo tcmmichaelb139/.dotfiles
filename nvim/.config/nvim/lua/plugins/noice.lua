@@ -4,20 +4,15 @@ local M = {
 }
 
 function M.config()
-	local focused = true
-	vim.api.nvim_create_autocmd("FocusGained", {
-		callback = function()
-			focused = true
-		end,
-	})
-	vim.api.nvim_create_autocmd("FocusLost", {
-		callback = function()
-			focused = false
-		end,
-	})
 	require("noice").setup({
-		debug = false,
+		presets = {
+			command_palette = true,
+			long_message_to_split = true,
+			cmdline_output_to_split = false,
+			inc_rename = true,
+		},
 		lsp = {
+			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 				["vim.lsp.util.stylize_markdown"] = true,
@@ -27,34 +22,18 @@ function M.config()
 		routes = {
 			{
 				filter = {
-					cond = function()
-						return not focused
-					end,
+					event = "msg_show",
+					kind = "",
+					find = "written",
 				},
-				view = "notify_send",
-				opts = { stop = false },
+				opts = { skip = true },
 			},
 			{
 				filter = {
 					event = "msg_show",
-					find = "%d+L, %d+B",
+					kind = "search_count",
 				},
-				view = "mini",
-			},
-		},
-		presets = {
-			bottom_search = true,
-			command_palette = true,
-			long_message_to_split = true,
-			inc_rename = true,
-			cmdline_output_to_split = false,
-		},
-		commands = {
-			all = {
-				-- options for the message history that you get with `:Noice`
-				view = "split",
-				opts = { enter = true, format = "details" },
-				filter = {},
+				opts = { skip = true },
 			},
 		},
 	})

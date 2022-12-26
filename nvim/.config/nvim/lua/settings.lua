@@ -40,8 +40,8 @@ o.lazyredraw = false
 o.timeoutlen = 250
 o.showmode = false
 
-o.foldexpr = "nvim_treesitter#foldexpr()"
-o.foldlevel = 6
-o.foldmethod = "expr"
+-- o.foldexpr = "nvim_treesitter#foldexpr()"
+-- o.foldlevel = 6
+-- o.foldmethod = "expr"
 
 vim.opt.list = true

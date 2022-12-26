@@ -19,14 +19,21 @@ function M.config()
 			"javascript",
 			"json",
 			"lua",
+			"markdown",
+			"markdown_inline",
 			"python",
+			"regex",
 			"svelte",
 			"typescript",
+			"vim",
 			"yaml",
 		},
 
 		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 		-- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+		autopairs = {
+			enable = true,
+		},
 		highlight = {
 			enable = true, -- false will disable the whole extension
 			-- disable = { "c", "rust" },  -- list of language that will be disabled
