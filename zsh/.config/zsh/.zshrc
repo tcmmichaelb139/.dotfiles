@@ -125,7 +125,7 @@ alias vim='nvim'
 alias deleteDS_Store="find . -name .DS_Store -delete"
 
 export EDITOR='nvim'
-export PATH=$PATH:~/.scripts:/opt/homebrew/bin
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts
 export PATH=$HOME/.emacs.d/bin:$PATH
 
 # music

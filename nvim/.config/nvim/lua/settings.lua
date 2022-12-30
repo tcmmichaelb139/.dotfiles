@@ -39,6 +39,7 @@ o.signcolumn = "yes"
 o.lazyredraw = false
 o.timeoutlen = 250
 o.showmode = false
+o.shortmess = "filnxtToOFWIcC"
 
 -- o.foldexpr = "nvim_treesitter#foldexpr()"
 -- o.foldlevel = 6

@@ -29,8 +29,8 @@ keymap("i", "<C-z>", "<C-O>u")
 
 -- nitpicky stuff
 keymap("n", "J", "mzJ`z")
--- keymap("n", "<C-d>", "<C-d>zz")
--- keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
@@ -53,14 +53,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>")
 -- U = redo
 keymap("n", "U", "<C-r>")
 
--- tab movements
-keymap("n", "<TAB>", ":bn<CR>")
-keymap("n", "<S-TAB>", ":bp<CR>")
--- Map("n", "<leader>tn", ":tabnew<Space>")
--- Map("n", "<leader>tm", ":tabmove<Space>")
--- Map("n", "<leader>tc", ":tabclose<CR>")
--- Map("n", "<leader>to", ":tabonly<CR>")
-
+-- lsp
 keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>")
 
 keymap("t", "<C-h>", "<cmd>wincmd h<CR>")
@@ -91,12 +84,21 @@ local leader = {
 	["b"] = {
 		name = "+buffer",
 		["d"] = { "<cmd>bd<CR>", "Delete Buffer" },
+		["n"] = { "<cmd>BufferLineCycleNext<CR>", "Next Buffer" },
+		["p"] = { "<cmd>BufferLineCyclePrev<CR>", "Prev Buffer" },
+		["c"] = { "<cmd>BufferLinePickClose<CR>", "Close Buffer" },
+		["m"] = {
+			name = "+move",
+			["n"] = { "<cmd>BufferLineMoveNext<CR>", "Next Buffer" },
+			["p"] = { "<cmd>BufferLineMovePrev<CR>", "Prev Buffer" },
+		},
 	},
 	["o"] = {
 		name = "+open",
 		["t"] = { "<cmd> ToggleTerm size=20<CR>", "Terminal" },
 		["f"] = { "<cmd> NvimTreeToggle<CR>", "File Explorer" },
 		["d"] = { "<cmd> DiffviewOpen<CR>", "DiffView" },
+		["g"] = { "<cmd> Neogit<CR>", "Neogit" },
 	},
 	["u"] = { "<cmd> UndotreeToggle<CR>", "Undo Tree" },
 	["g"] = {
@@ -108,6 +110,7 @@ local leader = {
 	["c"] = {
 		name = "+code",
 		["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+		["f"] = { "<cmd> FormatWrite<CR>", "Format Document" },
 	},
 }
 

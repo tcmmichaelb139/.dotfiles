@@ -2,6 +2,7 @@ return {
 	"karb94/neoscroll.nvim",
 	-- event = "VeryLazy",
 	keys = { "<C-u>", "<C-d>", "gg", "G" },
+	enabled = false,
 	config = function()
 		require("neoscroll").setup({
 			mappings = { "<C-u>", "<C-d>", "zt", "zz", "zb" },

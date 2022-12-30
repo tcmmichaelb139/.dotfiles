@@ -7,7 +7,7 @@ ITEM_DIR="$HOME/.config/sketchybar/items"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
 FONT="FiraCode Nerd Font"
-SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
+# SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
 
 PADDINGS=3 # All paddings use this value (icon, label, background)
 
@@ -25,8 +25,8 @@ sketchybar --bar height=30 \
     shadow=$SHADOW \
     position=top \
     sticky=on \
-    padding_right=$((10 - $PADDINGS)) \
-    padding_left=20 \
+    padding_right=0 \
+    padding_left=3 \
     corner_radius=$CORNER_RADIUS \
     y_offset=5 \
     margin=5 \
@@ -50,17 +50,19 @@ sketchybar --bar height=30 \
     popup.background.shadow.drawing=$SHADOW
 
 # Left
+source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
-# source "$ITEM_DIR/spotify.sh"
 
 # Center
 
 # Right
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/spotify.sh"
 
 #################### Finalizing Setup ####################
 

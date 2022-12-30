@@ -10,7 +10,7 @@ CYAN=0xff7dcfff
 YELLOW=0xffe0af68
 ORANGE=0xffff9e64
 MAGENTA=0xffbb9af7
-# GREY=0xff939ab7
+GREY=0xff939ab7
 TRANSPARENT=0x00000000
 
 # General bar colors

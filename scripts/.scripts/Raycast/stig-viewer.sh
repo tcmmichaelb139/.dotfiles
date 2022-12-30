@@ -13,4 +13,4 @@
 # @raycast.author Michael Bao
 # @raycast.authorURL https://github.com/tcmmichaelb139
 
-~/programming/cyberbot/All/STIG/U_STIGViewer_2-14_Mac/STIGViewer &
+~/programming/cyberpatriot/All/STIG/U_STIGViewer_2-14_Mac/STIGViewer &

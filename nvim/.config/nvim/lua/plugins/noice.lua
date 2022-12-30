@@ -9,7 +9,6 @@ function M.config()
 			command_palette = true,
 			long_message_to_split = true,
 			cmdline_output_to_split = false,
-			inc_rename = true,
 		},
 		lsp = {
 			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -24,7 +23,6 @@ function M.config()
 				filter = {
 					event = "msg_show",
 					kind = "",
-					find = "written",
 				},
 				opts = { skip = true },
 			},

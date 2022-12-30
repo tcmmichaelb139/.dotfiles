@@ -41,7 +41,7 @@ function M.config()
 			hide_root_folder = true,
 		},
 		git = {
-			enable = false,
+			enable = true,
 			ignore = true,
 		},
 		filesystem_watchers = {
