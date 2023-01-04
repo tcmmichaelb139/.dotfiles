@@ -58,11 +58,12 @@ source "$ITEM_DIR/front_app.sh"
 
 # Right
 source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/cpu.sh"
-source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/brew.sh"
 source "$ITEM_DIR/spotify.sh"
+source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/network.sh"
 
 #################### Finalizing Setup ####################
 

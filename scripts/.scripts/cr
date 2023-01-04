@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-    echo "Please give a file to compile and run."
-    exit
+	echo "Please give a file to compile and run."
+	exit
 fi
 
 filename="$1"
@@ -13,30 +13,29 @@ flag="-std=c++20 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wl,-stac
 
 dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -g"
 
-echo $2
-
 if [ "$2" == "-d" ]; then
-    printf "Sorry, but sanitizer isn't supported yet..."
-    # printf "g++-12 $1 -o $filename $flag $dbgFlag"
-    #
-    # printf "\n\nCompiled with DEBUG flags enabled, code may be slower than normal"
-    # printf "\n|---- \e[0;34mCompilation output\e[m ----|\n\n"
-    #
-    # g++-12 $1 -o $filename $flag $dbgFlag
+	printf "Using lldb (use r (run) and bt (backtrace))"
+
+	printf "g++-12 $1 -o $filename $flag && lldb $filename"
+
+	# printf "\n\nCompiled with DEBUG flags enabled, code may be slower than normal"
+	printf "\n\n|---- \e[0;34mDebugging\e[m ----|\n\n"
+
+	g++-12 $1 -o $filename $flag && lldb $filename
 else
-    printf "g++-12 $1 -o $filename $flag"
+	printf "g++-12 $1 -g -o $filename $flag"
 
-    printf "\n\n|----\e[0;34m Compilation output \e[m----|\n\n"
+	printf "\n\n|----\e[0;34m Compilation output \e[m----|\n\n"
 
-    g++-12 $1 -o $filename $flag
+	g++-12 $1 -o $filename $flag
+
+	if [ $? -ne 0 ]; then
+		printf "\n\n|----\e[0;31m\033[1m Errors found \e[m----|\n\n"
+		exit
+	fi
+
+	printf "\n|----\e[0;34m Running \e[m----|\n\n"
+
+	# replace gtime with time on linux operating systems
+	gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' ./$filename
 fi
-
-if [ $? -ne 0 ]; then
-    printf "\n\n|----\e[0;31m\033[1m Errors found \e[m----|\n\n"
-    exit
-fi
-
-printf "\n|----\e[0;34m Running \e[m----|\n\n"
-
-# replace gtime with time on linux operating systems
-gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' ./$filename

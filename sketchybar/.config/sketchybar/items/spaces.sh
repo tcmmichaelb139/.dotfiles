@@ -20,6 +20,8 @@ for i in "${!SPACE_ICONS[@]}"; do
         background.corner_radius=$CORNER_RADIUS \
         background.color=$BLACK \
         background.drawing=on \
+        label.font="sketchybar-app-font:Regular:16.0" \
+        label.background.drawing=on \
         label.padding_right=20 \
         label.drawing=off \
         script="$PLUGIN_DIR/space.sh" \

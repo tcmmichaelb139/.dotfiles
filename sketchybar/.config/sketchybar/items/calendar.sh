@@ -2,7 +2,7 @@
 
 sketchybar --add item calendar right \
     --set calendar update_freq=15 \
-    icon=cal \
+    icon= \
     icon.color=$MAGENTA \
     icon.font="$FONT:Bold:12.0" \
     icon.padding_left=5 \
@@ -13,6 +13,7 @@ sketchybar --add item calendar right \
     width=150 \
     align=center \
     script="$PLUGIN_DIR/time.sh" \
-    background.color=$BLACK \
     background.height=26 \
-    background.corner_radius=$CORNER_RADIUS
+    background.corner_radius=$CORNER_RADIUS \
+    background.padding_left \
+    background.padding_right=2

@@ -10,9 +10,12 @@ sketchybar --add event spotify_change $SPOTIFY_EVENT \
     popup.horizontal=on \
     popup.align=center \
     popup.height=120 \
-    icon=􁁒 \
+    icon= \
     icon.color=$GREEN \
     icon.font="$FONT:Regular:25.0" \
+    background.color=$BLACK \
+    background.height=26 \
+    background.corner_radius=$CORNER_RADIUS \
     label.drawing=off \
     drawing=off \
     y_offset=0 \

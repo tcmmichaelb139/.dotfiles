@@ -4,8 +4,8 @@
 # e.g. via function in .zshrc
 
 sketchybar -m --add item network_up right \
-    --set network_up label.font="$FONT:Bold:11.0" \
-    icon.font="$FONT:Bold:11.0" \
+    --set network_up label.font="$FONT:Semibold:10.0" \
+    icon.font="$FONT:Bold:10.0" \
     icon=􀆇 \
     icon.highlight_color=$BLUE \
     y_offset=5 \
@@ -14,8 +14,8 @@ sketchybar -m --add item network_up right \
     script="$PLUGIN_DIR/network.sh" \
     \
     --add item network_down right \
-    --set network_down label.font="$FONT:Bold:11.0" \
-    icon.font="$FONT:Bold:11.0" \
+    --set network_down label.font="$FONT:Semibold:10.0" \
+    icon.font="$FONT:Bold:10.0" \
     icon=􀆈 \
     icon.highlight_color=$YELLOW \
     y_offset=-5 \

@@ -7,12 +7,26 @@ Managed with stow
 ![desktop-1](./assets/desktop1.png)
 
 # Packages/Applications
+
 I will write descriptions and installation details in the future.
 
 ## alacritty
 
 ```bash
 brew install alacritty
+```
+
+## brew
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+Use `ibrew` to install packages with Rosetta 2
+
+```bash
+ibrew install gcc --HEAD
 ```
 
 ## ccls
@@ -30,6 +44,18 @@ gcc -E -v -xc++ /dev/null
 Find the part following "#include <...> search starts here:"
 
 And put that in the ccls wrapper script with -isystem prepended
+
+## clang
+
+If you are getting the response: `In included file: __float128 is not supported on this target`
+
+Comment out the lines in `/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include/stddef.h`
+
+```cpp
+#if defined(__i386__) || (__APPLE__ && __aarch64__)
+  __float128 __max_align_f128 __attribute__((__aligned__(__alignof(__float128))));
+#endif
+```
 
 ## clang-format
 
@@ -53,6 +79,7 @@ launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
 ```
 
 ### Aspell
+
 ```bash
 mkdir -p ~/.emacs.d/.local/etc/ispell && touch ~/.emacs.d/.local/etc/ispell/english.pws
 echo "personal_ws-1.1 en 0" > ~/.emacs.d/.local/etc/ispell/english.pws
@@ -63,11 +90,17 @@ echo "personal_ws-1.1 en 0" > ~/.emacs.d/.local/etc/ispell/english.pws
 ## neovim
 
 ```bash
-brew install lua-language-server
+stow nvim
 ```
 
 ```bash
-stow nvim
+brew install neovim --HEAD
+
+brew install tree-sitter node git
+
+# null-ls stuff
+brew install eslint cppcheck jsonlint ktlint markdownlint-cli pylint selene shellcheck stylelint zsh black clang-format prettier shfmt stylua yamlfmt
+
 ```
 
 ## scripts
@@ -93,6 +126,6 @@ brew install koekeishiya/formulae/skhd
 brew services start skhd
 ```
 
-(Copied from [yabai GitHub](https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)) and [skhd GitHub](https://github.com/koekeishiya/skhd))
+(Copied from [yabai GitHub](<https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)>) and [skhd GitHub](https://github.com/koekeishiya/skhd))
 
 ## zsh

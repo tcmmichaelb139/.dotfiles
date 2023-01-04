@@ -161,3 +161,5 @@ export PATH=$PATH:/Users/tcmb139/.spicetify
 
 # fuck
 eval $(thefuck --alias)
+
+alias ibrew="arch -x86_64 /usr/local/bin/brew"

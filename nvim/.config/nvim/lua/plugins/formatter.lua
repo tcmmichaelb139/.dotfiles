@@ -1,6 +1,7 @@
 local M = {
 	"mhartington/formatter.nvim",
 	event = "VeryLazy",
+	enabled = false,
 }
 
 function M.config()

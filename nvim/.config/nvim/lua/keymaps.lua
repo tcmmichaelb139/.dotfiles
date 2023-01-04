@@ -12,6 +12,7 @@ vim.o.timeoutlen = 250
 
 wk.setup({
 	show_help = false,
+	show_keys = false,
 	key_labels = { ["<leader>"] = "SPC" },
 })
 
@@ -89,8 +90,8 @@ local leader = {
 		["c"] = { "<cmd>BufferLinePickClose<CR>", "Close Buffer" },
 		["m"] = {
 			name = "+move",
-			["n"] = { "<cmd>BufferLineMoveNext<CR>", "Next Buffer" },
-			["p"] = { "<cmd>BufferLineMovePrev<CR>", "Prev Buffer" },
+			["n"] = { "<cmd>BufferLineMoveNext", "Next Buffer" },
+			["p"] = { "<cmd>BufferLineMovePrev", "Prev Buffer" },
 		},
 	},
 	["o"] = {
