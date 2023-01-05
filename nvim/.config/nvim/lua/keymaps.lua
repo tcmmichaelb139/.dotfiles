@@ -67,9 +67,6 @@ keymap("t", "<C-Down>", "<cmd>resize +2<CR>")
 keymap("t", "<C-Left>", "<cmd>vertical resize -2<CR>")
 keymap("t", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
--- format
-keymap("n", "<C-f>", ":FormatWrite<CR>")
-
 local leader = {
 	["f"] = {
 		name = "+telescope",

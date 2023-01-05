@@ -36,8 +36,9 @@ function M.config()
 		},
 		sources = {
 			{ name = "nvim_lsp" },
-			-- { name = "luasnip" },
+			{ name = "luasnip" },
 			{ name = "buffer" },
+			{ name = "path" },
 		},
 		mapping = {
 			["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),

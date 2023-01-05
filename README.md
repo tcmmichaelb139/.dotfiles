@@ -98,6 +98,10 @@ brew install neovim --HEAD
 
 brew install tree-sitter node git
 
+# lsp
+brew install lua-language-server llvm
+npm i -g bash-language-server yaml-language-server
+
 # null-ls stuff
 brew install eslint cppcheck jsonlint ktlint markdownlint-cli pylint selene shellcheck stylelint zsh black clang-format prettier shfmt stylua yamlfmt
 

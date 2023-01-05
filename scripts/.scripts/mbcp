@@ -154,8 +154,9 @@ def git():
 
             fullPath += "/" + division + "P" + problemNumber + fileExtension
 
-            copy = False
+            copy = True
             if os.path.isfile(fullPath):
+                copy = False
                 print(
                     "Would you like to overwrite the file at " + fullPath + " \[y/N]: ",
                     end="",
@@ -164,7 +165,8 @@ def git():
                 if response == "y" or response == "Y":
                     copy = True
 
-            sp.run("cp " + pwd + sourceFile + " " + fullPath, shell=True)
+            if copy:
+                sp.run("cp " + pwd + sourceFile + " " + fullPath, shell=True)
 
         elif website == "Usaco-Training":
             print("This hasn't been implemented. :/")
