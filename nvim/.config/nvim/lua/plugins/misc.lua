@@ -1,15 +1,5 @@
 return {
-    "MunifTanjim/nui.nvim",
-    "nvim-lua/plenary.nvim",
     "folke/which-key.nvim",
-    { "rebelot/kanagawa.nvim", event = "VeryLazy" },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        event = "VeryLazy",
-    },
-    { "EdenEast/nightfox.nvim", event = "VeryLazy" },
-    { "ellisonleao/gruvbox.nvim", event = "VeryLazy" },
     {
         "mbbill/undotree",
         cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" },

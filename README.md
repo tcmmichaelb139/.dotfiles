@@ -47,6 +47,10 @@ And put that in the ccls wrapper script with -isystem prepended
 
 ## clang
 
+```bash
+stow clang
+```
+
 If you are getting the response: `In included file: __float128 is not supported on this target`
 
 Comment out the lines in `/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include/stddef.h`
@@ -56,8 +60,6 @@ Comment out the lines in `/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current
   __float128 __max_align_f128 __attribute__((__aligned__(__alignof(__float128))));
 #endif
 ```
-
-## clang-format
 
 ## emacs
 
@@ -96,18 +98,14 @@ stow nvim
 ```bash
 brew install neovim --HEAD
 
-brew install tree-sitter node git
-
-# lsp
-brew install lua-language-server llvm
-npm i -g bash-language-server yaml-language-server
-
-# null-ls stuff
-brew install eslint cppcheck jsonlint ktlint markdownlint-cli pylint selene shellcheck stylelint zsh black clang-format prettier shfmt stylua yamlfmt
-
+brew install tree-sitter node git llvm gcc@12
 ```
 
 ## scripts
+
+```bash
+stow scripts
+```
 
 ## sketchybar
 

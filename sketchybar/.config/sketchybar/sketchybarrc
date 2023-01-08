@@ -21,33 +21,33 @@ SHADOW=on
 # General bar and defaults
 
 sketchybar --bar height=30 \
-    color=$BAR_COLOR \
-    shadow=$SHADOW \
-    position=top \
-    sticky=on \
-    padding_right=0 \
-    padding_left=3 \
-    corner_radius=$CORNER_RADIUS \
-    y_offset=5 \
-    margin=5 \
-    blur_radius=20 \
-    notch_width=200 \
-    --default updates=when_shown \
-    icon.font="$FONT:Bold:14.0" \
-    icon.color=$ICON_COLOR \
-    icon.padding_left=$PADDINGS \
-    icon.padding_right=$PADDINGS \
-    label.font="$FONT:SemiBold:13.0" \
-    label.color=$LABEL_COLOR \
-    label.padding_left=$PADDINGS \
-    label.padding_right=$PADDINGS \
-    background.padding_right=$PADDINGS \
-    background.padding_left=$PADDINGS \
-    popup.background.border_width=2 \
-    popup.background.corner_radius=11 \
-    popup.background.border_color=$POPUP_BORDER_COLOR \
-    popup.background.color=$POPUP_BACKGROUND_COLOR \
-    popup.background.shadow.drawing=$SHADOW
+	color=$BAR_COLOR \
+	shadow=$SHADOW \
+	position=top \
+	sticky=on \
+	padding_right=0 \
+	padding_left=3 \
+	corner_radius=$CORNER_RADIUS \
+	y_offset=5 \
+	margin=5 \
+	blur_radius=20 \
+	notch_width=200 \
+	--default updates=when_shown \
+	icon.font="$FONT:Bold:14.0" \
+	icon.color=$ICON_COLOR \
+	icon.padding_left=$PADDINGS \
+	icon.padding_right=$PADDINGS \
+	label.font="$FONT:SemiBold:13.0" \
+	label.color=$LABEL_COLOR \
+	label.padding_left=$PADDINGS \
+	label.padding_right=$PADDINGS \
+	background.padding_right=$PADDINGS \
+	background.padding_left=$PADDINGS \
+	popup.background.border_width=2 \
+	popup.background.corner_radius=11 \
+	popup.background.border_color=$POPUP_BORDER_COLOR \
+	popup.background.color=$POPUP_BACKGROUND_COLOR \
+	popup.background.shadow.drawing=$SHADOW
 
 # Left
 source "$ITEM_DIR/apple.sh"
@@ -60,7 +60,7 @@ source "$ITEM_DIR/front_app.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
-source "$ITEM_DIR/brew.sh"
+# source "$ITEM_DIR/brew.sh"
 source "$ITEM_DIR/spotify.sh"
 source "$ITEM_DIR/cpu.sh"
 source "$ITEM_DIR/network.sh"

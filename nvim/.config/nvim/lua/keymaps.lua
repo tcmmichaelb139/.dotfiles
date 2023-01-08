@@ -1,9 +1,9 @@
 local function keymap(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.keymap.set(mode, lhs, rhs, options)
 end
 
 local wk = require("which-key")
@@ -11,9 +11,9 @@ local wk = require("which-key")
 vim.o.timeoutlen = 250
 
 wk.setup({
-	show_help = false,
-	show_keys = false,
-	key_labels = { ["<leader>"] = "SPC" },
+    show_help = false,
+    show_keys = false,
+    key_labels = { ["<leader>"] = "SPC" },
 })
 
 -- better moving keys
@@ -68,48 +68,55 @@ keymap("t", "<C-Left>", "<cmd>vertical resize -2<CR>")
 keymap("t", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 local leader = {
-	["f"] = {
-		name = "+telescope",
-		["f"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
-		["a"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All Files" },
-		["e"] = { "<cmd> Telescope file_browser <CR>", "File Browser" },
-		["w"] = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
-		["b"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
-		["h"] = { "<cmd> Telescope help_tags <CR>", "Help Tags" },
-		["o"] = { "<cmd> Telescope oldfiles <CR>", "Old Files" },
-		["c"] = { "<cmd> Telescope colorscheme <CR>", "Colorschemes" },
-	},
-	["b"] = {
-		name = "+buffer",
-		["d"] = { "<cmd>bd<CR>", "Delete Buffer" },
-		["n"] = { "<cmd>BufferLineCycleNext<CR>", "Next Buffer" },
-		["p"] = { "<cmd>BufferLineCyclePrev<CR>", "Prev Buffer" },
-		["c"] = { "<cmd>BufferLinePickClose<CR>", "Close Buffer" },
-		["m"] = {
-			name = "+move",
-			["n"] = { "<cmd>BufferLineMoveNext", "Next Buffer" },
-			["p"] = { "<cmd>BufferLineMovePrev", "Prev Buffer" },
-		},
-	},
-	["o"] = {
-		name = "+open",
-		["t"] = { "<cmd> ToggleTerm size=20<CR>", "Terminal" },
-		["f"] = { "<cmd> NvimTreeToggle<CR>", "File Explorer" },
-		["d"] = { "<cmd> DiffviewOpen<CR>", "DiffView" },
-		["g"] = { "<cmd> Neogit<CR>", "Neogit" },
-	},
-	["u"] = { "<cmd> UndotreeToggle<CR>", "Undo Tree" },
-	["g"] = {
-		name = "+goto",
-		["d"] = { "<cmd> Telescope lsp_definitions<CR>", "Definition" },
-		["i"] = { "<cmd> Telescope lsp_implementation<CR>", "Implementation" },
-		["r"] = { "<cmd> Telescope lsp_references<CR>", "References" },
-	},
-	["c"] = {
-		name = "+code",
-		["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-		["f"] = { "<cmd> FormatWrite<CR>", "Format Document" },
-	},
+    ["f"] = {
+        name = "+telescope",
+        ["f"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
+        ["a"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All Files" },
+        ["e"] = { "<cmd> Telescope file_browser <CR>", "File Browser" },
+        ["w"] = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
+        ["b"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
+        ["h"] = { "<cmd> Telescope help_tags <CR>", "Help Tags" },
+        ["o"] = { "<cmd> Telescope oldfiles <CR>", "Old Files" },
+        ["c"] = { "<cmd> Telescope colorscheme <CR>", "Colorschemes" },
+    },
+    ["<TAB>"] = {
+        name = "+tab",
+        ["<tab>"] = { "<cmd>tabnew<CR>", "New Tab" },
+        ["n"] = { "<cmd>tabnext<CR>", "Next" },
+        ["d"] = { "<cmd>tabclose<CR>", "Close" },
+        ["p"] = { "<cmd>tabprevious<CR>", "Previous" },
+    },
+    ["b"] = {
+        name = "+buffer",
+        ["d"] = { "<cmd>bd<CR>", "Delete Buffer" },
+        ["n"] = { "<cmd>BufferLineCycleNext<CR>", "Next Buffer" },
+        ["p"] = { "<cmd>BufferLineCyclePrev<CR>", "Prev Buffer" },
+        ["c"] = { "<cmd>BufferLinePickClose<CR>", "Close Buffer" },
+        ["m"] = {
+            name = "+move",
+            ["n"] = { "<cmd>BufferLineMoveNext", "Next Buffer" },
+            ["p"] = { "<cmd>BufferLineMovePrev", "Prev Buffer" },
+        },
+    },
+    ["o"] = {
+        name = "+open",
+        ["t"] = { "<cmd> ToggleTerm size=20<CR>", "Terminal" },
+        ["f"] = { "<cmd> NvimTreeToggle<CR>", "File Explorer" },
+        ["d"] = { "<cmd> DiffviewOpen<CR>", "DiffView" },
+        ["g"] = { "<cmd> Neogit<CR>", "Neogit" },
+    },
+    ["u"] = { "<cmd> UndotreeToggle<CR>", "Undo Tree" },
+    ["g"] = {
+        name = "+goto",
+        ["d"] = { "<cmd> Telescope lsp_definitions<CR>", "Definition" },
+        ["i"] = { "<cmd> Telescope lsp_implementation<CR>", "Implementation" },
+        ["r"] = { "<cmd> Telescope lsp_references<CR>", "References" },
+    },
+    ["c"] = {
+        name = "+code",
+        ["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+        ["f"] = { "<cmd> FormatWrite<CR>", "Format Document" },
+    },
 }
 
 wk.register(leader, { prefix = "<leader>" })
