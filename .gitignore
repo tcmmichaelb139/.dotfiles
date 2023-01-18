@@ -5,3 +5,4 @@ tmp/
 .zsh_sessions/
 .zsh_history
 .zcompdump
+.zcompcache/

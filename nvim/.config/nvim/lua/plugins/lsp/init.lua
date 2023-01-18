@@ -54,7 +54,6 @@ return {
                     nls.builtins.formatting.prettier,
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.stylua,
-                    nls.builtins.formatting.yamlfmt,
                 },
 
                 on_attach = function(client, bufnr)

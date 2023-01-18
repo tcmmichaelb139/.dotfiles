@@ -13,46 +13,46 @@ sudo yabai --load-sa
 
 # global settings
 yabai -m config \
-    mouse_follows_focus off \
-    focus_follows_mouse off \
-    window_origin_display default \
-    window_placement second_child \
-    window_topmost off \
-    window_shadow off \
-    window_animation_duration 0.1 \
-    window_opacity_duration 0.0 \
-    active_window_opacity 1.0 \
-    normal_window_opacity 0.90 \
-    window_opacity on \
-    insert_feedback_color 0x00d75f5f \
-    active_window_border_color 0xff7aa2f7 \
-    normal_window_border_color 0x80565f89 \
-    window_border_width 3 \
-    window_border_radius 12 \
-    window_border_blur on \
-    window_border_hidpi on \
-    window_border on \
-    split_ratio 0.50 \
-    split_type auto \
-    auto_balance off \
-    top_padding 12 \
-    bottom_padding 12 \
-    left_padding 12 \
-    right_padding 12 \
-    window_gap 06 \
-    layout bsp \
-    mouse_modifier fn \
-    mouse_action1 move \
-    mouse_action2 resize \
-    mouse_drop_action swap \
-    external_bar all:35:0
+	mouse_follows_focus off \
+	focus_follows_mouse off \
+	window_origin_display default \
+	window_placement second_child \
+	window_topmost off \
+	window_shadow off \
+	window_animation_duration 0.1 \
+	window_opacity_duration 0.0 \
+	active_window_opacity 1.0 \
+	normal_window_opacity 0.90 \
+	window_opacity on \
+	insert_feedback_color 0x00d75f5f \
+	active_window_border_color 0xff7aa2f7 \
+	normal_window_border_color 0x80565f89 \
+	window_border_width 3 \
+	window_border_radius 12 \
+	window_border_blur on \
+	window_border_hidpi on \
+	window_border on \
+	split_ratio 0.50 \
+	split_type auto \
+	auto_balance off \
+	top_padding 12 \
+	bottom_padding 12 \
+	left_padding 12 \
+	right_padding 12 \
+	window_gap 06 \
+	layout bsp \
+	mouse_modifier fn \
+	mouse_action1 move \
+	mouse_action2 resize \
+	mouse_drop_action swap \
+	external_bar all:35:0
 
 yabai -m rule --add app="^System Settings$" sticky=on manage=off
 yabai -m rule --add app="Stats" sticky=on manage=off
 yabai -m rule --add app="Calculator" sticky=on manage=off
 yabai -m rule --add app="^Finder$" sticky=on manage=off
 yabai -m rule --add app="^Disk Utility$" sticky=on manage=off
-yabai -m rule --add app="^System Information$" sticky=on  manage=off
+yabai -m rule --add app="^System Information$" sticky=on manage=off
 yabai -m rule --add app="^Activity Monitor$" sticky=on manage=off
 yabai -m rule --add app="^console$" manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off

@@ -12,4 +12,5 @@ return {
     sumneko_lua = {},
     yamlls = {},
     tailwindcss = {},
+    texlab = {},
 }
