@@ -3,13 +3,13 @@
 # Color Palette
 BLACK=0xff24283b
 WHITE=0xffa9b1d6
-RED=0xfff7768e
-GREEN=0xff9ece6a
+MAGENTA=0xffbb9af7
 BLUE=0xff7aa2f7
 CYAN=0xff7dcfff
+GREEN=0xff9ece6a
 YELLOW=0xffe0af68
 ORANGE=0xffff9e64
-MAGENTA=0xffbb9af7
+RED=0xfff7768e
 GREY=0xff939ab7
 TRANSPARENT=0x00000000
 
