@@ -4,6 +4,7 @@ return {
         lazy = false,
         config = function()
             local tokyonight = require("tokyonight")
+
             tokyonight.setup({
                 style = "night",
                 terminal_colors = true,

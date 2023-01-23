@@ -120,7 +120,7 @@ local function get_statuscol_diag(bufnum, lnum)
     if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "DiagnosticSign") then
         return mk_hl(cur_sign_nm, diag_signs_icons[cur_sign_nm])
     else
-        return " "
+        return "  "
     end
 end
 
