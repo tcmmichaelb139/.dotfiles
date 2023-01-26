@@ -47,113 +47,44 @@ o.shortmess = "filnxtToOFWIcC"
 
 vim.opt.list = true
 
-local gitsigns_bar = "▌"
+-- credit folke
+local M = {}
+_G.Status = M
 
-local gitsigns_hl_pool = {
-    GitSignsAdd = "GitSignsAdd",
-    GitSignsChange = "GitSignsChange",
-    GitSignsChangedelete = "GitSignsChange",
-    GitSignsDelete = "GitSignsDelete",
-    GitSignsTopdelete = "GitSignsDelete",
-    GitSignsUntracked = "GitSignsAdd",
-}
-
-local diag_signs_icons = {
-    DiagnosticSignError = " ",
-    DiagnosticSignWarn = " ",
-    DiagnosticSignHint = " ",
-    DiagnosticSignInfo = " ",
-}
-
-local function get_sign_name(cur_sign)
-    if cur_sign == nil then
-        return nil
-    end
-
-    cur_sign = cur_sign[1]
-
-    if cur_sign == nil then
-        return nil
-    end
-
-    cur_sign = cur_sign.signs
-
-    if cur_sign == nil then
-        return nil
-    end
-
-    cur_sign = cur_sign[1]
-
-    if cur_sign == nil then
-        return nil
-    end
-
-    return cur_sign["name"]
+---@return {name:string, text:string, texthl:string}[]
+function M.get_signs()
+    local buf = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+    return vim.tbl_map(function(sign)
+        return vim.fn.sign_getdefined(sign.name)[1]
+    end, vim.fn.sign_getplaced(buf, { group = "*", lnum = vim.v.lnum })[1].signs)
 end
 
-local function mk_hl(group, sym)
-    return table.concat({ "%#", group, "#", sym, "%*" })
-end
-
-local function get_name_from_group(bufnum, lnum, group)
-    local cur_sign_tbl = vim.fn.sign_getplaced(bufnum, {
-        group = group,
-        lnum = lnum,
-    })
-
-    return get_sign_name(cur_sign_tbl)
-end
-
-local function get_statuscol_gitsign(bufnum, lnum)
-    local cur_sign_nm = get_name_from_group(bufnum, lnum, "gitsigns_vimfn_signs_")
-
-    if cur_sign_nm ~= nil then
-        return mk_hl(gitsigns_hl_pool[cur_sign_nm], gitsigns_bar)
-    else
-        return " "
+function M.column()
+    local sign, git_sign
+    for _, s in ipairs(M.get_signs()) do
+        if s.name:find("GitSign") then
+            git_sign = s
+        else
+            sign = s
+        end
     end
-end
 
-local function get_statuscol_diag(bufnum, lnum)
-    local cur_sign_nm = get_name_from_group(bufnum, lnum, "*")
-
-    if cur_sign_nm ~= nil and vim.startswith(cur_sign_nm, "DiagnosticSign") then
-        return mk_hl(cur_sign_nm, diag_signs_icons[cur_sign_nm])
-    else
-        return "  "
+    local nu = " "
+    local number = vim.api.nvim_win_get_option(vim.g.statusline_winid, "number")
+    if number and vim.wo.relativenumber and vim.v.virtnum == 0 then
+        nu = vim.v.relnum == 0 and vim.v.lnum or vim.v.relnum
     end
-end
-
-_G.get_statuscol = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    local lnum = vim.v.lnum
-    local str_table = {}
-
-    local parts = {
-        ["diagnostics"] = get_statuscol_diag(bufnr, lnum),
-        ["fold"] = "%C",
-        ["gitsigns"] = get_statuscol_gitsign(bufnr, lnum),
-        ["num"] = "%{v:relnum?v:relnum:v:lnum}",
-        ["sep"] = "%=",
-        ["signcol"] = "%s",
-        ["space"] = " ",
+    local components = {
+        sign and ("%#" .. sign.texthl .. "#" .. sign.text .. "%*") or " ",
+        [[%=]],
+        nu .. " ",
+        git_sign and ("%#" .. git_sign.texthl .. "#" .. git_sign.text .. "%*") or "  ",
     }
-
-    local order = {
-        "diagnostics",
-        "fold",
-        "sep",
-        "num",
-        "space",
-        "gitsigns",
-        "space",
-    }
-
-    for _, val in ipairs(order) do
-        table.insert(str_table, parts[val])
-    end
-
-    return table.concat(str_table)
+    return table.concat(components, "")
 end
 
-vim.o.statuscolumn = "%!v:lua.get_statuscol()"
+if vim.fn.has("nvim-0.9.0") == 1 then
+    vim.opt.statuscolumn = [[%!v:lua.Status.column()]]
+end
+
+return M

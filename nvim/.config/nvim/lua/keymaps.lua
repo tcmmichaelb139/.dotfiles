@@ -94,8 +94,8 @@ local leader = {
         ["c"] = { "<cmd>BufferLinePickClose<CR>", "Close Buffer" },
         ["m"] = {
             name = "+move",
-            ["n"] = { "<cmd>BufferLineMoveNext", "Next Buffer" },
-            ["p"] = { "<cmd>BufferLineMovePrev", "Prev Buffer" },
+            ["n"] = { "<cmd>BufferLineMoveNext<CR>", "Next Buffer" },
+            ["p"] = { "<cmd>BufferLineMovePrev<CR>", "Prev Buffer" },
         },
     },
     ["o"] = {
