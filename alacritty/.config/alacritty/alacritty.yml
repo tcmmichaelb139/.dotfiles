@@ -25,33 +25,16 @@ draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
-  # normal:
-  #   family: Fixedsys Excelsior
-  #   style: Regular
-  # size: 7
-
   normal:
-    family: FiraCode Nerd Font
-    # Style can be specified to pick a specific face.
-    style:
-      Regular
+    family: JetBrainsMono Nerd Font
+    style: Light
 
-      #The bold font face
   bold:
-    family: FiraCode Nerd Font
-    # Style can be specified to pick a specific face.
-    style: Black
+    family: JetBrainsMono Nerd Font
+    style: SemiBold
 
-  # The italic font face
-  italic:
-    family: FiraCode Nerd Font
-    # Style can be specified to pick a specific face.
-    style: Medium Italic
-  size:
-    13.5
+  size: 13.5
 
-    # Point size of the font
-    #
   scale_with_dpi: true
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground

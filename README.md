@@ -87,6 +87,13 @@ mkdir -p ~/.emacs.d/.local/etc/ispell && touch ~/.emacs.d/.local/etc/ispell/engl
 echo "personal_ws-1.1 en 0" > ~/.emacs.d/.local/etc/ispell/english.pws
 ```
 
+## Fonts
+
+```bash
+brew tap homebrew/cask-fonts
+brew install font-jetbrains-mono-nerd-font
+```
+
 ## karabiner
 
 ## neovim
