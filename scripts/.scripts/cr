@@ -36,6 +36,12 @@ else
 
 	printf "\n|----\e[0;34m Running \e[m----|\n\n"
 
+	# if the filename is not equal to a slash then add a ./ in front
+
+	if [ "${filename:0:1}" != "/" ]; then
+		filename="./$filename"
+	fi
+
 	# replace gtime with time on linux operating systems
-	gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' ./$filename
+	gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' $filename
 fi

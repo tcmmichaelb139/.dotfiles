@@ -139,8 +139,11 @@ def git():
                 division = "Silver"
             elif division == "G":
                 division = "Gold"
-            else:
+            elif division == "P":
                 division = "Platinum"
+            else:
+                print("Failed to find a valid division.")
+                return
 
             fullPath = gitDirectory + website + "/" + year
 

@@ -51,7 +51,7 @@ return {
                     nls.builtins.formatting.black,
                     nls.builtins.formatting.clang_format,
                     nls.builtins.formatting.eslint,
-                    nls.builtins.formatting.prettier,
+                    nls.builtins.formatting.prettierd,
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.stylua,
                 },

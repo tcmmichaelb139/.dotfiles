@@ -93,8 +93,42 @@ return {
         end,
     },
     {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        event = "BufReadPre",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        config = function()
+            require("barbecue").setup({
+                create_autocmd = false, -- prevent barbecue from updating itself automatically
+            })
+
+            vim.api.nvim_create_autocmd({
+                "WinResized",
+                "BufWinEnter",
+                "CursorHold",
+                "InsertLeave",
+
+                -- include these if you have set `show_modified` to `true`
+                "BufWritePost",
+                "TextChanged",
+                "TextChangedI",
+            }, {
+                group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+                callback = function()
+                    require("barbecue.ui").update()
+                end,
+            })
+        end,
+        -- opts = {
+        --     -- configurations go here
+        -- },
+    },
+    {
         "folke/noice.nvim",
-        enabled = false,
         event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
@@ -199,5 +233,15 @@ return {
                 desc = "Previous todo comment",
             },
         },
+    },
+    {
+        "tzachar/local-highlight.nvim",
+        event = "BufReadPost",
+        config = function()
+            vim.api.nvim_set_hl(0, "TSDefinitionUsage", { bg = "#2f334d" })
+            require("local-highlight").setup({
+                file_types = { "*" },
+            })
+        end,
     },
 }
