@@ -14,6 +14,7 @@ I will write descriptions and installation details in the future.
 
 ```bash
 brew install alacritty
+stow alacritty
 ```
 
 ## brew
@@ -24,10 +25,6 @@ arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebr
 ```
 
 Use `ibrew` to install packages with Rosetta 2
-
-```bash
-ibrew install gcc --HEAD
-```
 
 ## ccls
 
@@ -51,6 +48,9 @@ And put that in the ccls wrapper script with -isystem prepended
 stow clang
 ```
 
+<details>
+<summary> Extra Setup for M1 </summary>
+
 If you are getting the response: `In included file: __float128 is not supported on this target`
 
 Comment out the lines in `/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include/stddef.h`
@@ -60,6 +60,8 @@ Comment out the lines in `/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current
   __float128 __max_align_f128 __attribute__((__aligned__(__alignof(__float128))));
 #endif
 ```
+
+</details>
 
 ## emacs
 
@@ -96,6 +98,16 @@ brew install font-jetbrains-mono-nerd-font
 
 ## karabiner
 
+Settings:
+
+- cmd + hjkl (arrow keys)
+- cmd + h (disables the default action)
+- cmd + m (disables the default action)
+
+```bash
+stow karabiner
+```
+
 ## neovim
 
 ```bash
@@ -105,7 +117,7 @@ stow nvim
 ```bash
 brew install neovim --HEAD
 
-brew install tree-sitter node git llvm gcc@12
+brew install tree-sitter node git llvm gcc@12 deno
 ```
 
 ## scripts
@@ -122,7 +134,7 @@ stow sketchybar
 
 ## Wallpaper
 
-[](https://ign.schrodinger-hat.it/color-schemes) is amazing for converting wallpapers info a colorscheme.
+https://ign.schrodinger-hat.it/color-schemes is amazing for converting wallpapers info a colorscheme.
 
 ## yabai
 
@@ -138,3 +150,7 @@ brew services start skhd
 (Copied from [yabai GitHub](<https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)>) and [skhd GitHub](https://github.com/koekeishiya/skhd))
 
 ## zsh
+
+```bash
+stow zsh
+```

@@ -1,4 +1,5 @@
 return {
+    astro = {},
     bashls = {},
     clangd = {},
     jdtls = {},
@@ -6,11 +7,21 @@ return {
     dockerls = {},
     tsserver = {},
     svelte = {},
-    eslint = {},
+    eslint = {
+        filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+        },
+    },
     html = {},
     pyright = {},
     sumneko_lua = {},
     yamlls = {},
     tailwindcss = {},
     texlab = {},
+    volar = {},
 }

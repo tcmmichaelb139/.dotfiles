@@ -51,8 +51,10 @@ return {
                 sources = {
                     nls.builtins.formatting.black,
                     nls.builtins.formatting.clang_format,
-                    nls.builtins.formatting.eslint,
-                    nls.builtins.formatting.prettierd,
+                    nls.builtins.formatting.eslint_d,
+                    nls.builtins.formatting.prettierd.with({
+                        extra_filetypes = { "svelte" },
+                    }),
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.stylua,
                 },

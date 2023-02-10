@@ -137,10 +137,7 @@ alias playall="mpv --no-video --shuffle --volume=50 ~/Music/playlists/*"
 
 # for cp
 ulimit -s unlimited
-alias cdcp="cd ~/My\ Drive/programming/Competitive\ Programming/"
-
-# google drive
-alias drive="cd ~/My\ Drive/"
+alias cdcp="cd ~/programming/Competitive\ Programming/"
 
 #syntax highlighting
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null

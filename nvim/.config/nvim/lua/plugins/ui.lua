@@ -83,7 +83,7 @@ return {
                     offsets = {
                         {
                             filetype = "NvimTree",
-                            text = "Nvim Tree",
+                            text = "Explorer",
                             highlight = "Directory",
                             text_align = "left",
                         },
@@ -212,27 +212,6 @@ return {
                 show_trailing_blankline_indent = false,
             })
         end,
-    },
-    {
-        "folke/todo-comments.nvim",
-        event = "BufReadPost",
-        opts = {},
-        keys = {
-            {
-                "]t",
-                function()
-                    require("todo-comments").jump_next()
-                end,
-                desc = "Next todo comment",
-            },
-            {
-                "[t",
-                function()
-                    require("todo-comments").jump_prev()
-                end,
-                desc = "Previous todo comment",
-            },
-        },
     },
     {
         "folke/todo-comments.nvim",
