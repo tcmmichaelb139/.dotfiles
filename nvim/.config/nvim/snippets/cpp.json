@@ -13,6 +13,51 @@
       "}"
     ]
   },
+  "Fenwick Tree": {
+    "prefix": "<fenwick",
+    "body": [
+      "template <class T>",
+      "struct BIT {",
+      "    vector<T> v;",
+      "    int n;",
+      "    void init(int _n) {",
+      "        n = _n;",
+      "        v.resize(n + 1);",
+      "    }",
+      "    void add(int p, T val) {",
+      "        for (; p <= n; p += p & -p) v[p] += val;",
+      "    }",
+      "    T sum(int l, int r) {",
+      "        return sum(r) - sum(l - 1);",
+      "    }",
+      "    T sum(int k) {",
+      "        T sum = 0;",
+      "        for (; k; k -= k & -k) sum += v[k];",
+      "        return sum;",
+      "    }",
+      "};"
+    ]
+  },
+  "Disjoint Set Union": {
+    "prefix": "<dsu",
+    "body": [
+      "struct DSU {",
+      "    vector<int> v;",
+      "    void init(int n) { v = vector<int>(n, -1); }",
+      "    int sameSet(int a, int b) { return get(a) == get(b); }",
+      "    int get(int a) { return v[a] < 0 ? a : v[a] = get(v[a]); }",
+      "    int size(int a) { return -v[get(a)]; }",
+      "    int unite(int a, int b) {",
+      "        a = get(a), b = get(b);",
+      "        if (a == b) return false;",
+      "        if (v[a] > v[b]) swap(a, b);",
+      "        v[a] += v[b];",
+      "        v[b] = a;",
+      "        return true;",
+      "    }",
+      "};"
+    ]
+  },
   "Segment Tree": {
     "prefix": "<seg",
     "body": [

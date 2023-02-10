@@ -124,7 +124,7 @@ return {
             {
                 "<s-tab>",
                 function()
-                    require("luasnip").jump(-1)
+                    require("luasnip").jump( -1)
                 end,
                 mode = { "i", "s" },
             },
