@@ -13,8 +13,8 @@
       "}"
     ]
   },
-  "Fenwick Tree": {
-    "prefix": "<fenwick",
+  "Binary Index Tree (Fenwick Tree)": {
+    "prefix": "<bit",
     "body": [
       "template <class T>",
       "struct BIT {",
@@ -72,7 +72,7 @@
       "        seg.assign(2*N, ID);",
       "    }",
       "    void pull(int p) { seg[p] = cmb(seg[2 * p], seg[2 * p + 1]); }",
-      "    void upd(int p, int val) {",
+      "    void upd(int p, T val) {",
       "        seg[p += N] = val;",
       "        for (p /= 2; p; p /= 2) pull(p);",
       "    }",
@@ -134,6 +134,16 @@
       "        return cmb(query(lo, hi, 2 * p, L, M), query(lo, hi, 2 * p + 1, M + 1, R));",
       "    }",
       "};"
+    ]
+  },
+  "Indexed Set": {
+    "prefix": "<indset",
+    "body": [
+      "#include <ext/pb_ds/assoc_container.hpp>",
+      "using namespace __gnu_pbds;",
+      "",
+      "template <class T>",
+      "using IndSet = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;"
     ]
   }
 }

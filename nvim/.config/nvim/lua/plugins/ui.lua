@@ -237,7 +237,6 @@ return {
         "tzachar/local-highlight.nvim",
         event = "BufReadPost",
         config = function()
-            vim.api.nvim_set_hl(0, "TSDefinitionUsage", { bg = "#2f334d" })
             require("local-highlight").setup({
                 file_types = { "*" },
             })

@@ -19,7 +19,7 @@ return {
     },
     html = {},
     pyright = {},
-    sumneko_lua = {},
+    lua_ls = {},
     yamlls = {},
     tailwindcss = {},
     texlab = {},

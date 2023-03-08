@@ -48,6 +48,9 @@ return {
             local nls = require("null-ls")
 
             nls.setup({
+                on_init = function(new_client, _)
+                    new_client.offset_encoding = "utf-8"
+                end,
                 sources = {
                     nls.builtins.formatting.black,
                     nls.builtins.formatting.clang_format,

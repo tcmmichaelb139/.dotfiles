@@ -18,7 +18,7 @@ for i in "${!SPACE_ICONS[@]}"; do
 		background.padding_right=-11 \
 		background.height=26 \
 		background.corner_radius=$CORNER_RADIUS \
-		background.color=$BLACK \
+		background.color=$BAR_COLOR \
 		background.drawing=on \
 		label.background.drawing=on \
 		label.padding_right=20 \

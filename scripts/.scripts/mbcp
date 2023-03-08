@@ -10,8 +10,7 @@ pwd = os.getcwd() + "/"
 args = sys.argv
 
 validHelperCommands = ["help", "examples"]
-validCommands = ["git", "stress"]
-problemWebsites = ["Usaco", "Usaco-Training", "Kattis", "UVa", "CSES"]
+validCommands = ["stress"]
 # EDIT THIS TO CHANGE GIT DIRECTORY --------------------------------------------
 gitDirectory = "/Users/tcmb139/programming/cp/Competitive-Programming/"
 
@@ -33,17 +32,7 @@ def help():
 def examples():
     def validOptions():
         print("Valid Examples Options\n")
-        print("\tgit")
         print("\tstress")
-        print()
-
-    def git():
-        print()
-        print("Usaco:                mbcp git Usaco a.cpp 2015-2016 US-Open G 1")
-        print("Usaco-Traning:        mbcp git Usaco-Training a.cpp 1 namenum")
-        print("Kattis:               mbcp git Kattis a.cpp kutevi")
-        print("UVa:                  ")
-        print("CSES:                 ")
         print()
 
     def stress():
@@ -52,145 +41,12 @@ def examples():
         print()
 
     if len(args) >= 3:
-        if args[2] == "git":
-            git()
-        elif args[2] == "stress":
+        if args[2] == "stress":
             stress()
         else:
             print("Failed to find example for " + args[2])
     else:
         validOptions()
-
-
-def git():
-    if len(args) < 5:
-        raise Exception
-
-    website = args[2]
-    sourceFile = args[3]
-
-    if website in problemWebsites:
-        fileExtensionIndex = sourceFile.rfind(".")
-        if fileExtensionIndex == -1:
-            print("Failed to find file extension.")
-            return
-
-        fileExtension = sourceFile[fileExtensionIndex:]
-
-        if website == "Usaco":
-            year = args[4]
-            month = args[5]
-            division = args[6]
-            problemNumber = args[7]
-
-            possibleYears = [
-                "2011-2012",
-                "2012-2013",
-                "2013-2014",
-                "2014-2015",
-                "2015-2016",
-                "2016-2017",
-                "2017-2018",
-                "2018-2019",
-                "2019-2020",
-                "2020-2021",
-                "2021-2022",
-                "2022-2023",
-                "2023-2024",
-            ]
-
-            possibleMonths = ["December", "January", "February", "US-Open"]
-            possibleMonthsEarly = [
-                "November",
-                "December",
-                "January",
-                "February",
-                "March",
-                "US-Open",
-            ]
-
-            possibleDivisons = ["B", "S", "G", "P"]
-            possibleDivisonsEarly = ["B", "S", "G"]
-            possibleProblemNumbers = ["1", "2", "3"]
-
-            if not (year in possibleYears):
-                print("Failed to find a valid year.")
-                return
-
-            if (not (month in possibleMonths) and int(year[3]) >= 4) and (
-                not (month in possibleMonthsEarly) and int(year[3]) < 4
-            ):
-                print("Failed to find a valid month.")
-                return
-
-            if (not (division in possibleDivisons) and int(year[3]) >= 5) and (
-                not (month in possibleDivisonsEarly) and int(year[3]) < 5
-            ):
-                print("Failed to find a valid division.")
-                return
-
-            if not (problemNumber in possibleProblemNumbers):
-                print("Failed to find a valid problem number.")
-                return
-
-            if division == "B":
-                division = "Bronze"
-            elif division == "S":
-                division = "Silver"
-            elif division == "G":
-                division = "Gold"
-            elif division == "P":
-                division = "Platinum"
-            else:
-                print("Failed to find a valid division.")
-                return
-
-            fullPath = gitDirectory + website + "/" + year
-
-            if not os.path.isdir(fullPath):
-                sp.run(["mkdir", fullPath])
-
-            fullPath += "/" + month
-
-            if not os.path.isdir(fullPath):
-                sp.run(["mkdir", fullPath])
-
-            fullPath += "/" + division + "P" + problemNumber + fileExtension
-
-            copy = True
-            if os.path.isfile(fullPath):
-                copy = False
-                print(
-                    "Would you like to overwrite the file at " + fullPath + " \[y/N]: ",
-                    end="",
-                )
-                response = input()
-                if response == "y" or response == "Y":
-                    copy = True
-
-            if copy:
-                sp.run("cp " + pwd + sourceFile + " " + fullPath, shell=True)
-
-        elif website == "Usaco-Training":
-            print("This hasn't been implemented. :/")
-        elif website == "Kattis":
-            problemName = args[4]
-
-            sp.run(
-                [
-                    "cp",
-                    pwd + sourceFile,
-                    gitDirectory + website + "/" + problemName + fileExtension,
-                ]
-            )
-
-        elif website == "UVa":
-            print("This hasn't been implemented. :/")
-        elif website == "CSES":
-            print("This hasn't been implemented. :/")
-
-    else:
-        print(args[2], "is not a valid problem website")
 
 
 def stress():
@@ -283,8 +139,6 @@ def main():
         help()
     elif args[1] == "examples":
         examples()
-    elif args[1] == "git":
-        git()
     elif args[1] == "stress":
         stress()
     else:
