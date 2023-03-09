@@ -42,12 +42,12 @@ return {
             tokyonight.load()
         end,
     },
-    { "rebelot/kanagawa.nvim", event = "VeryLazy" },
+    { "rebelot/kanagawa.nvim",    event = "VeryLazy" },
     {
         "catppuccin/nvim",
         name = "catppuccin",
         event = "VeryLazy",
     },
-    { "EdenEast/nightfox.nvim", event = "VeryLazy" },
+    { "EdenEast/nightfox.nvim",   event = "VeryLazy" },
     { "ellisonleao/gruvbox.nvim", event = "VeryLazy" },
 }

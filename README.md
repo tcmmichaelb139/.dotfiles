@@ -120,11 +120,19 @@ brew install neovim --HEAD
 brew install tree-sitter node git llvm gcc@12 deno
 ```
 
+## Obsidian
+
+Theme: [tcmmichaelb139/obsidian-tokyonight](https://github.com/tcmmichaelb139/obsidian-tokyonight)
+
 ## scripts
 
 ```bash
 stow scripts
 ```
+
+- `mdbg` Scrapes [mdbg.net](https://www.mdbg.net/chinese/dictionary) for the strokes and puts them into Anki
+- `cr` Compiles and runs cpp
+- `ccls` ccls helper
 
 ## sketchybar
 

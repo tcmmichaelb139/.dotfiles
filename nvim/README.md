@@ -65,8 +65,25 @@ Neovim Config
 
 </details>
 
+<details> 
+<summary> Telescope </summary>
+
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [nvim-lua/plenary.nvim](nvim-lua/plenary.nvim)
+- [nvim-telescope/telescope-file-browser.nvim](nvim-telescope/telescope-file-browser.nvim)
+- [nvim-telescope/telescope-z.nvim](nvim-telescope/telescope-z.nvim)
+- [nvim-telescope/telescope-symbols.nvim](nvim-telescope/telescope-symbols.nvim)
+- [nvim-telescope/telescope-fzf-native.nvim](nvim-telescope/telescope-fzf-native.nvim)
+
+</details>
+
+<details> 
+<summary> Treesitter </summary>
+
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/playground](nvim-treesitter/playground)
+
+</details>
 
 <details>
 <summary> UI </summary>
