@@ -2,7 +2,6 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "BufReadPre",
-
         config = function()
             local npairs = require("nvim-autopairs")
 
@@ -14,7 +13,6 @@ return {
     {
         "terrortylor/nvim-comment",
         keys = { { "gc", mode = { "n", "v" }, "gcc" } },
-
         config = function()
             require("nvim_comment").setup({
                 -- Linters prefer comment and line to have a space in between markers
@@ -68,18 +66,11 @@ return {
             "NvimTreeResize",
             "NvimTreeToggle",
         },
-
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("nvim-tree").setup({
-                filters = {
-                    dotfiles = false,
-                    exclude = { vim.fn.stdpath("config") .. "/lua/custom" },
-                },
                 disable_netrw = true,
                 hijack_netrw = true,
-                open_on_setup = false,
-                ignore_ft_on_setup = { "alpha" },
                 hijack_cursor = true,
                 hijack_unnamed_buffer_when_opening = false,
                 update_cwd = true,
@@ -108,11 +99,9 @@ return {
                 renderer = {
                     highlight_git = false,
                     highlight_opened_files = "none",
-
                     indent_markers = {
                         enable = false,
                     },
-
                     icons = {
                         show = {
                             file = true,
@@ -120,7 +109,6 @@ return {
                             folder_arrow = true,
                             git = false,
                         },
-
                         glyphs = {
                             default = "",
                             symlink = "",
@@ -222,7 +210,7 @@ return {
             {
                 "<s-tab>",
                 function()
-                    require("luasnip").jump( -1)
+                    require("luasnip").jump(-1)
                 end,
                 mode = { "i", "s" },
             },

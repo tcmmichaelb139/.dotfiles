@@ -22,6 +22,8 @@ return {
                 function()
                     local capabilities =
                         require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+                    capabilities.offsetEncoding = { "utf-16" }
+
                     local servers = require("plugins.lsp.servers")
 
                     for server, opts in pairs(servers) do
@@ -49,7 +51,7 @@ return {
 
             nls.setup({
                 on_init = function(new_client, _)
-                    new_client.offset_encoding = "utf-8"
+                    new_client.offset_encoding = "utf-16"
                 end,
                 sources = {
                     nls.builtins.formatting.black,

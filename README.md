@@ -4,7 +4,9 @@ Managed with stow
 
 # Showcase
 
-![desktop-1](./assets/desktop1.png)
+![Obsidian, Neovim, Neofetch Desktop](./assets/desktop-full.png)
+![Neovim Desktop](./assets/desktop-nvim.png)
+![Blank Desktop](./assets/desktop-blank.png)
 
 # Packages/Applications
 
