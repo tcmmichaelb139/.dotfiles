@@ -98,5 +98,6 @@ Neovim Config
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [tzachar/local-highlight.nvim](https://github.com/tzachar/local-highlight.nvim)
+- [petertriho/nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar)
 
 </details>

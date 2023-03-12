@@ -33,6 +33,7 @@ return {
                     untracked = { hl = "GitSignsAdd", text = "▌", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
                 },
             })
+            require("scrollbar.handlers.gitsigns").setup()
         end,
     },
     {

@@ -110,16 +110,22 @@ Settings:
 stow karabiner
 ```
 
-## neovim
+## Music
 
 ```bash
-stow nvim
+brew install spotify
 ```
+
+## neovim
 
 ```bash
 brew install neovim --HEAD
 
 brew install tree-sitter node git llvm gcc@12 deno
+```
+
+```bash
+stow nvim
 ```
 
 ## Obsidian

@@ -29,7 +29,7 @@ function M.config()
             "vim",
             "yaml",
         },
-        sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+        sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
         -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
         autopairs = {
             enable = true,
