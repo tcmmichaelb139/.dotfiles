@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import pinyin
+import pinyin.cedict
+import os
+import sys
+
+sys.path.insert(1, sys.path[0] + "/anki-chinese")
+
+from mdbg import findStrokes
+
+# get the first argument and make sure it exists, then open it and for each line append
+# a period then the pinyin and definition and finally another period
+
+if len(sys.argv) < 2:
+    print("Please provide a file name")
+    sys.exit(1)
+
+if not os.path.exists(sys.argv[1]):
+    print("File does not exist")
+    sys.exit(1)
+
+lines = []
+with open(sys.argv[1], "r") as f:
+    lines = f.readlines()
+
+new_lines = ["#separator:|\n#html:true\n#tags column:7"]
+
+for line in lines:
+    line = line.strip()
+
+    if pinyin.cedict.translate_word(line) == None:
+        print("No definition for " + line)
+        continue
+    if line:
+        new_line = line + "|(" + pinyin.get(line) + ") "
+        if pinyin.cedict.translate_word(line) == None:
+            print("No definition for " + line)
+            continue
+
+        for definition in pinyin.cedict.translate_word(line):
+            if (
+                definition.startswith("variant of")
+                or definition.startswith("CL:")
+                or definition.startswith("abbr.")
+                or definition.startswith("see ")
+            ):
+                continue
+            new_line += definition + " / "
+
+        new_line = new_line[:-3]
+
+        new_line += '|"'
+
+        new_line += findStrokes(line)
+
+        new_line += '"||||'
+
+        new_lines.append(new_line)
+
+with open(sys.argv[1], "w") as f:
+    f.write("\n".join(new_lines))

@@ -132,6 +132,12 @@ stow nvim
 
 Theme: [tcmmichaelb139/obsidian-tokyonight](https://github.com/tcmmichaelb139/obsidian-tokyonight)
 
+## OpenOffice
+
+```bash
+brew install --cask openoffice
+```
+
 ## scripts
 
 ```bash
