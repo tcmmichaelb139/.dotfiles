@@ -40,7 +40,6 @@ return {
 
             "onsails/lspkind-nvim",
         },
-
         config = function()
             local cmp = require("cmp")
             local lspkind = require("lspkind")
@@ -59,9 +58,17 @@ return {
                     end,
                 },
                 window = {
-                    -- completion = cmp.config.window.bordered(),
-                    -- documentation = cmp.config.window.bordered(),
-                    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    completion = cmp.config.window.bordered({
+                        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        scrollbar = false,
+                        -- border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+                        border = "single",
+                    }),
+                    documentation = cmp.config.window.bordered({
+                        -- border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+                        border = "single",
+                        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+                    }),
                 },
                 sources = {
                     { name = "luasnip" },

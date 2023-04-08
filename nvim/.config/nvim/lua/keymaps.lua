@@ -22,6 +22,9 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
+-- keymap("n", "<C-;>", "<cmd>tabnext<CR>")
+-- keymap("n", "<C-.>", "<cmd>tabprevious<CR>")
+
 keymap("t", "<ESC>", "<C-\\><C-n>")
 
 keymap("n", "<C-s>", "<cmd> w <CR>")

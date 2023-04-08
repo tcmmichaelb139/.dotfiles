@@ -36,7 +36,7 @@ def findStrokes(inp):
     # service = Service("./chromedriver")
     options = webdriver.ChromeOptions()
     options.binary_location = (
-        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        "/Applications/Brave Browser Nightly.app/Contents/MacOS/Brave Browser Nightly"
     )
     options.add_argument("--headless")
 
@@ -118,6 +118,9 @@ def findStrokes(inp):
         strokeAndCharacters.append((rowText, strokes))
         charsAdded.append(rowText)
 
+        if rowText == inp:
+            break
+
     print(".")
 
     driver.quit()
@@ -155,19 +158,19 @@ def findStrokes(inp):
 
 
 def main():
-    try:
-        allStrokes = ""
-        for i in range(1, len(sys.argv)):
-            if sys.argv[i] != "":
-                allStrokes += findStrokes(sys.argv[i])
-        if allStrokes == "":
-            inp = input("Enter pinyin/characters: ")
-            inp = inp.split(" ")
-            for i in inp:
-                if i != "":
-                    allStrokes += findStrokes(i)
-        print()
-        print(allStrokes)
-        write_to_clipboard(allStrokes)
-    except:
-        print("Something went wrong")
+    # try:
+    allStrokes = ""
+    for i in range(1, len(sys.argv)):
+        if sys.argv[i] != "":
+            allStrokes += findStrokes(sys.argv[i])
+    if allStrokes == "":
+        inp = input("Enter pinyin/characters: ")
+        inp = inp.split(" ")
+        for i in inp:
+            if i != "":
+                allStrokes += findStrokes(i)
+    print()
+    print(allStrokes)
+    write_to_clipboard(allStrokes)
+    # except:
+    #     print("Something went wrong")

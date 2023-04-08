@@ -30,13 +30,13 @@ shift + alt - 8 : yabai -m window --space  8; yabai -m space --focus 8
 shift + alt - 9 : yabai -m window --space  9; yabai -m space --focus 9
 
 # focus monitor
-alt - z  : yabai -m display --focus prev
-alt - c  : yabai -m display --focus next
+alt - 0x2B : yabai -m display --focus prev
+alt - 0x29 : yabai -m display --focus next
 # ctrl + alt - 3  : yabai -m display --focus 3
 
 # send window to monitor and follow focus
-shift + alt - z  : yabai -m window --display prev; yabai -m display --focus prev
-shift + alt - c  : yabai -m window --display next; yabai -m display --focus next
+shift + alt - 0x2B : yabai -m window --display prev; yabai -m display --focus prev
+shift + alt - 0x29 : yabai -m window --display next; yabai -m display --focus next
 # ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
 
 # toggle window zoom
@@ -44,9 +44,7 @@ shift + alt - c  : yabai -m window --display next; yabai -m display --focus next
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # float / unfloat window and center on screen
-shift + alt - space : yabai -m window --toggle float;\
-#           yabai -m window --grid 4:4:1:1:2:2
-
+shift + alt - space : yabai -m window --toggle float
 
 # Focus window up/down in stack
 alt - n : yabai -m window --focus stack.next
@@ -55,10 +53,10 @@ alt - p : yabai -m window --focus stack.prev
 # Add the active window  to the window or stack to the {direction}
 # Note that this only works when the active window does *not* already belong to a stack
 
-ctrl + alt - h : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window west --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
-ctrl + alt - j : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window south --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
-ctrl + alt - k : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window north --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
-ctrl + alt - l : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+# ctrl + alt - h : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window west --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+# ctrl + alt - j : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window south --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+# ctrl + alt - k : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window north --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+# ctrl + alt - l : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
 
 # applications
 

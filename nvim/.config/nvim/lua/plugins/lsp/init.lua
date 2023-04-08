@@ -26,8 +26,16 @@ return {
 
                     local servers = require("plugins.lsp.servers")
 
+                    local handlers = {
+                        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+                        ["textDocument/signatureHelp"] = vim.lsp.with(
+                            vim.lsp.handlers.signature_help,
+                            { border = "single" }
+                        ),
+                    }
                     for server, opts in pairs(servers) do
                         opts.capabilities = capabilities
+                        opts.handlers = handlers
                         require("lspconfig")[server].setup(opts)
                     end
                 end,

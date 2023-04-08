@@ -14,6 +14,13 @@ return {
                 return vim.ui.input(...)
             end
         end,
+        config = function()
+            require("dressing").setup({
+                input = {
+                    border = "single",
+                },
+            })
+        end,
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -139,6 +146,7 @@ return {
                     long_message_to_split = true,
                     cmdline_output_to_split = false,
                     inc_rename = true,
+                    lsp_doc_border = true,
                 },
                 lsp = {
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -167,6 +175,18 @@ return {
                         opts = { skip = true },
                     },
                 },
+                views = {
+                    cmdline_popup = {
+                        border = {
+                            style = "single",
+                        },
+                        -- border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+                        filter_options = {},
+                        win_options = {
+                            winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                        },
+                    },
+                },
             })
         end,
     },
@@ -185,6 +205,11 @@ return {
                 end,
                 render = "minimal",
                 stages = "static",
+                on_open = function(win)
+                    if vim.api.nvim_win_is_valid(win) then
+                        vim.api.nvim_win_set_config(win, { border = "single" })
+                    end
+                end,
             })
         end,
     },
@@ -243,6 +268,7 @@ return {
     },
     {
         "petertriho/nvim-scrollbar",
+        enabled = false,
         event = "BufReadPost",
         config = function()
             local colors = require("tokyonight.colors").setup()

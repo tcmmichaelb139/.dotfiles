@@ -9,33 +9,37 @@ return {
                 style = "night",
                 terminal_colors = true,
                 on_highlights = function(hl, c)
-                    local prompt = "#2d3149"
                     hl.TelescopeNormal = {
-                        bg = c.bg_dark,
-                        fg = c.fg_dark,
+                        bg = c.bg,
+                        fg = c.fg,
                     }
                     hl.TelescopeBorder = {
-                        bg = c.bg_dark,
-                        fg = c.bg_dark,
-                    }
-                    hl.TelescopePromptNormal = {
-                        bg = prompt,
+                        bg = c.bg,
+                        fg = c.comment,
                     }
                     hl.TelescopePromptBorder = {
-                        bg = prompt,
-                        fg = prompt,
+                        bg = c.bg,
+                        fg = c.comment,
                     }
                     hl.TelescopePromptTitle = {
-                        bg = prompt,
-                        fg = prompt,
+                        bg = c.bg,
+                        fg = c.cyan,
                     }
                     hl.TelescopePreviewTitle = {
-                        bg = c.bg_dark,
-                        fg = c.bg_dark,
+                        bg = c.bg,
+                        fg = c.cyan,
                     }
                     hl.TelescopeResultsTitle = {
-                        bg = c.bg_dark,
-                        fg = c.bg_dark,
+                        bg = c.bg,
+                        fg = c.cyan,
+                    }
+                    hl.FloatBorder = {
+                        bg = c.bg,
+                        fg = c.border_highlight,
+                    }
+                    hl.NormalFloat = {
+                        bg = c.bg,
+                        fg = c.border_highlight,
                     }
                 end,
             })
