@@ -109,35 +109,20 @@ alias ytdl-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias ytdl-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytdl-best="youtube-dl -f bestvideo+bestaudio "
 
-# get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
-
-alias vpnup="sudo wg-quick up wg1"
-alias vpndown="sudo wg-quick down wg1"
-alias vpnrestart="vpndown && vpnup"
-alias vpnstat="nmcli connection"
-
 alias vim='nvim'
 
 alias deleteDS_Store="find . -name .DS_Store -delete"
 
 export EDITOR='nvim'
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts
-export PATH=$HOME/.emacs.d/bin:$PATH
 
-# music
-alias listall="ls ~/Music/playlists/idk"
-alias playlists="ls ~/Music/playlists"
-play() { clear; mpv --no-video --loop --volume=50 "`find ~/Music/playlists/ | grep \"$@\"`"}
-playlist() { clear; mpv --no-video --shuffle --loop-playlist=inf --volume=50 ~/Music/playlists/"$@" }
-alias playall="mpv --no-video --shuffle --volume=50 ~/Music/playlists/*"
+# brew stuff
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
+
+export PATH=$HOME/.emacs.d/bin:$PATH
 
 # for cp
 ulimit -s unlimited
-alias cdcp="cd ~/programming/Competitive\ Programming/"
 
 #syntax highlighting
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
@@ -145,18 +130,5 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 alias luamake=/Users/tcmb139/.config/nvim/lsps/lua-language-server/3rd/luamake/luamake
 
-#personal stuff
-alias braindump="cd ~/My\ Drive/Org/braindump/"
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f "/Users/tcmb139/.ghcup/env" ] && source "/Users/tcmb139/.ghcup/env" # ghcup-env
-export PATH=$PATH:/Users/tcmb139/.spicetify
-
 # fuck
 eval $(thefuck --alias)
-
-alias ibrew="arch -x86_64 /usr/local/bin/brew"
