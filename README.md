@@ -154,6 +154,15 @@ stow scripts
 stow sketchybar
 ```
 
+## tmux
+
+I don't really use tmux :/
+
+```bash
+brew install tmux
+stow tmux
+```
+
 ## Wallpaper
 
 https://ign.schrodinger-hat.it/color-schemes is amazing for converting wallpapers info a colorscheme.

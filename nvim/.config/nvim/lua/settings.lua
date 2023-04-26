@@ -41,6 +41,8 @@ o.timeoutlen = 250
 o.showmode = false
 o.shortmess = "filnxtToOFWIcC"
 
+o.termguicolors = true
+
 -- o.foldexpr = "nvim_treesitter#foldexpr()"
 -- o.foldlevel = 6
 -- o.foldmethod = "expr"
