@@ -63,6 +63,7 @@ colors:
   indexed_colors:
     - { index: 16, color: "0xffa066" }
     - { index: 17, color: "0xff5d62" }
+    - { index: 18, color: "0x16161e" } # tmux (from folke)
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
