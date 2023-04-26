@@ -156,7 +156,7 @@ stow sketchybar
 
 ## tmux
 
-I don't really use tmux :/
+I don't really use tmux :/ (im trying to use it more tho)
 
 ```bash
 brew install tmux
