@@ -160,6 +160,8 @@ I don't really use tmux :/ (im trying to use it more tho)
 
 ```bash
 brew install tmux
+mkdir -p ~/.config/tmux/plugins/
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 stow tmux
 ```
 
