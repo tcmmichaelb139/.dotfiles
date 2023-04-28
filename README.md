@@ -12,6 +12,10 @@ Managed with stow
 
 I will write descriptions and installation details in the future.
 
+```bash
+brew install fzf
+```
+
 ## alacritty
 
 ```bash
