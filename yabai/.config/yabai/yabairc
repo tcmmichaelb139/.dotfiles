@@ -59,5 +59,6 @@ yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on manage=off
 yabai -m rule --add app="Pomotroid" manage=off
 yabai -m rule --add app="Anki" opacity=0.90
 yabai -m rule --add app="Raycast" sticky=on manage=off
+yabai -m rule --add app="OpenVPN Connect" manage=off
 
 echo "yabai configuration loaded.."

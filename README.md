@@ -12,10 +12,6 @@ Managed with stow
 
 I will write descriptions and installation details in the future.
 
-```bash
-brew install fzf
-```
-
 ## alacritty
 
 ```bash
@@ -33,6 +29,10 @@ arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebr
 Use `ibrew` to install packages with Rosetta 2
 
 ## ccls
+
+```bash
+brew install ccls
+```
 
 ```bash
 gcc-12 -E -v -xc++ /dev/null
@@ -57,7 +57,7 @@ stow clang
 <details>
 <summary> Extra Setup for M1 </summary>
 
-If you are getting the response: `In included file: __float128 is not supported on this target`
+If you are getting the response (in nvim): `In included file: __float128 is not supported on this target`
 
 Comment out the lines in `/opt/homebrew/Cellar/gcc/12.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/12/include/stddef.h`
 
@@ -84,7 +84,7 @@ Native comp feels slower on M1 in my opinion.
 Emacs client
 
 ```bash
-stow ~/.dotfiles/emacs
+stow emacs
 launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
 ```
 
@@ -106,7 +106,7 @@ brew install font-jetbrains-mono-nerd-font
 
 Settings:
 
-- cmd + hjkl (arrow keys)
+- (right) cmd + hjkl (arrow keys)
 - cmd + h (disables the default action)
 - cmd + m (disables the default action)
 
@@ -163,7 +163,7 @@ stow sketchybar
 I don't really use tmux :/ (im trying to use it more tho)
 
 ```bash
-brew install tmux
+brew install tmux fzf
 mkdir -p ~/.config/tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 stow tmux
@@ -190,4 +190,10 @@ brew services start skhd
 
 ```bash
 stow zsh
+```
+
+## misc
+
+```bash
+brew install gifski
 ```
