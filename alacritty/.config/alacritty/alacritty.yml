@@ -142,4 +142,4 @@ shell:
   args:
     - -l
     - -c
-    - "source ~/.config/zsh/.zshrc; tmux attach 2> /dev/null || tmux"
+    - "source ~/.config/zsh/.zshrc; ~/.scripts/tmux-sessionizer"

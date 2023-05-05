@@ -8,6 +8,14 @@ Managed with stow
 ![Neovim Desktop](./assets/desktop-nvim.png)
 ![Blank Desktop](./assets/desktop-blank.png)
 
+# Macos Settings
+
+## Permanently Hide Dock
+
+```bash
+defaults write com.apple.dock autohide-delay -float 9999; killall Dock
+```
+
 # Packages/Applications
 
 I will write descriptions and installation details in the future.
@@ -162,6 +170,8 @@ stow sketchybar
 
 I don't really use tmux :/ (im trying to use it more tho)
 
+Prefix: `C-\`
+
 ```bash
 brew install tmux fzf
 mkdir -p ~/.config/tmux/plugins/
@@ -190,10 +200,4 @@ brew services start skhd
 
 ```bash
 stow zsh
-```
-
-## misc
-
-```bash
-brew install gifski
 ```

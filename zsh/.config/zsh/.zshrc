@@ -132,3 +132,7 @@ alias luamake=/Users/tcmb139/.config/nvim/lsps/lua-language-server/3rd/luamake/l
 
 # fuck
 eval $(thefuck --alias)
+
+# fzf
+export FZF_DEFAULT_OPTS='--color=bg+:#292e42,bg:#16161e,border:#1f2335,hl:#ff9e64,fg:#a9b1d6,header:#292e42,pointer:#bb9af7,fg+:#a9b1d6,preview-bg:#24283b,prompt:#7dcfff,hl+:#7aa2f7,info:#e0af68'
+
