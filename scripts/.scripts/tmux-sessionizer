@@ -5,7 +5,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/.dotfiles ~/programming ~ -mindepth 0 -maxdepth 2 -type d | sort | uniq | fzf)
+	selected=$(find ~/.dotfiles ~/programming ~ ~/.config -mindepth 0 -maxdepth 2 -type d | sort | uniq | fzf)
 fi
 
 if [[ -z $selected ]]; then
