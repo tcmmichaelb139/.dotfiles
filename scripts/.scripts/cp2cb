@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+	selected=$1
+else
+	selected=$(cd ~/programming/cp/Competitive-Programming/Implementations && find . -type f | sort | uniq | fzf)
+fi
+
+if [[ -z $selected ]]; then
+	exit 0
+fi
+
+selected=${selected:2}
+
+cat ~/programming/cp/Competitive-Programming/Implementations/"$selected" | pbcopy
+
+printf "$selected\n"

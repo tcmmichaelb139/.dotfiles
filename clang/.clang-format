@@ -1,5 +1,14 @@
-BasedOnStyle: Google
-IndentWidth: 4
-
-Standard: Latest
+# BasedOnStyle: Google
+# IndentWidth: 4
+#
+# Standard: Latest
 ColumnLimit: 0
+TabWidth: 4
+IndentWidth: 4
+UseTab: ForIndentation
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: All
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: true
+SpacesBeforeTrailingComments: 2

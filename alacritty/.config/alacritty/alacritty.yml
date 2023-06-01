@@ -33,6 +33,10 @@ font:
     family: JetBrainsMono Nerd Font
     style: SemiBold
 
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Light Italic
+
   size: 14
 
 colors:

@@ -43,6 +43,10 @@ o.shortmess = "filnxtToOFWIcC"
 
 o.termguicolors = true
 
+o.foldmethod = "indent"
+o.nofoldenable = true
+o.foldlevel = 99
+
 -- o.foldexpr = "nvim_treesitter#foldexpr()"
 -- o.foldlevel = 6
 -- o.foldmethod = "expr"

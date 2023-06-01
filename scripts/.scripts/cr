@@ -16,18 +16,18 @@ dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero
 if [ "$2" == "-d" ]; then
 	printf "Using lldb (use r (run) and bt (backtrace))"
 
-	printf "g++-12 $1 -o $filename $flag && lldb $filename"
+	printf "g++-13 $1 -o $filename $flag && lldb $filename"
 
 	# printf "\n\nCompiled with DEBUG flags enabled, code may be slower than normal"
 	printf "\n\n|---- \e[0;34mDebugging\e[m ----|\n\n"
 
-	g++-12 $1 -o $filename $flag && lldb $filename
+	g++-13 $1 -o $filename $flag && lldb $filename
 else
-	printf "g++-12 $1 -g -o $filename $flag"
+	printf "g++-13 $1 -g -o $filename $flag"
 
 	printf "\n\n|----\e[0;34m Compilation output \e[m----|\n\n"
 
-	g++-12 $1 -o $filename $flag
+	g++-13 $1 -o $filename $flag
 
 	if [ $? -ne 0 ]; then
 		printf "\n\n|----\e[0;31m\033[1m Errors found \e[m----|\n\n"
