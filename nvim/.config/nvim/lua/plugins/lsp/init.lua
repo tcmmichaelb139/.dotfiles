@@ -70,6 +70,10 @@ return {
                     }),
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.stylua,
+                    nls.builtins.diagnostics.chktex,
+                    nls.builtins.formatting.latexindent.with({
+                        extra_args = { "-g", "/dev/null" },
+                    }),
                 },
                 on_attach = function(client, bufnr)
                     if client.supports_method("textDocument/formatting") then

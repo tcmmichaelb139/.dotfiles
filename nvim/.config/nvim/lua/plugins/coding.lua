@@ -188,6 +188,7 @@ return {
         },
         opts = {
             history = true,
+            enable_autosnippets = true,
             delete_check_events = "TextChanged",
         },
         keys = {
@@ -226,5 +227,11 @@ return {
             vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
         end,
         ft = "markdown",
+    },
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        ---@type Flash.Config
+        opts = {},
     },
 }

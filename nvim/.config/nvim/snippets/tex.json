@@ -1,0 +1,10 @@
+{
+  "Begin Align*": {
+    "prefix": "ba",
+    "body": ["\\begin{align*}", "    $0", "\\end{align*}"]
+  },
+  "Summation": {
+    "prefix": "sum",
+    "body": ["\\sum_{${1:i=1}}^{${2:n}} $0"]
+  }
+}

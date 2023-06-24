@@ -14,6 +14,7 @@ Neovim Config
 - [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [toppair/peek.nvim](https://github.com/toppair/peek.nvim)
+- [folke/flash.nvim](https://github.com/folke/flash.nvim)
 
 </details>
 

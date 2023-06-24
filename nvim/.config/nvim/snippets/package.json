@@ -2,7 +2,12 @@
   "name": "snippets",
   "contributes": {
     "snippets": [
-      {}
+      {
+        "language": [
+          "tex"
+        ],
+        "path": "./tex.json"
+      }
     ]
   }
 }

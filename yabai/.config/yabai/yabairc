@@ -22,7 +22,7 @@ yabai -m config \
 	window_animation_duration 0.1 \
 	window_opacity_duration 0.0 \
 	active_window_opacity 1.0 \
-	normal_window_opacity 0.80 \
+	normal_window_opacity 1.0 \
 	window_opacity on \
 	insert_feedback_color 0x00d75f5f \
 	active_window_border_color 0xff7aa2f7 \
