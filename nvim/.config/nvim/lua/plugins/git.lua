@@ -41,7 +41,7 @@ return {
         cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     },
     {
-        "TimUntersberger/neogit",
+        "NeogitOrg/neogit",
         cmd = "Neogit",
         dependencies = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
         config = function()
