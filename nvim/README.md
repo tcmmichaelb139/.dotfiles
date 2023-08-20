@@ -52,7 +52,7 @@ Neovim Config
 
 - [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- [nvimdev/guard.nvim](https://github.com/nvimdev/guard.nvim)
 
 </details>
 
