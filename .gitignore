@@ -6,3 +6,4 @@ tmp/
 .zsh_history
 .zcompdump
 .zcompcache/
+__pycache__/
