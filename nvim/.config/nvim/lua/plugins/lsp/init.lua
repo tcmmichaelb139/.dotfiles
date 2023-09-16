@@ -57,7 +57,7 @@ return {
 			local ft = require("guard.filetype")
 
 			ft("lua"):fmt("stylua")
-			ft("c,cpp,json"):fmt("clang-format")
+			ft("c,cpp"):fmt("clang-format")
 			ft("python"):fmt({ cmd = "black", args = { "--quiet", "-" }, stdin = true })
 			ft("sh"):fmt("shfmt")
 			ft("javascript,typescript,javascriptreact,typescriptreact,json"):fmt("prettierd")

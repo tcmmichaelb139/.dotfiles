@@ -36,7 +36,7 @@ def findStrokes(inp):
     # service = Service("./chromedriver")
     options = webdriver.ChromeOptions()
     options.binary_location = (
-        "/Applications/Brave Browser Nightly.app/Contents/MacOS/Brave Browser Nightly"
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
     )
     options.add_argument("--headless")
 
