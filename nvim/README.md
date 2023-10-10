@@ -52,7 +52,7 @@ Neovim Config
 
 - [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [nvimdev/guard.nvim](https://github.com/nvimdev/guard.nvim)
+- [conform.nvim](https://github.com/stevearc/conform.nvim)
 
 </details>
 
@@ -66,7 +66,7 @@ Neovim Config
 
 </details>
 
-<details> 
+<details>
 <summary> Telescope </summary>
 
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -78,7 +78,7 @@ Neovim Config
 
 </details>
 
-<details> 
+<details>
 <summary> Treesitter </summary>
 
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
