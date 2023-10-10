@@ -216,24 +216,15 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPre",
+		main = "ibl",
 		config = function()
-			require("indent_blankline").setup({
-				space_char_blankline = " ",
-				show_current_context = true,
-				buftype_exclude = { "terminal", "nofile" },
-				filetype_exclude = {
-					"help",
-					"terminal",
-					"alpha",
-					"packer",
-					"lspinfo",
-					"TelescopePrompt",
-					"TelescopeResults",
-					"mason",
-					"",
-					"NvimTree",
+			require("ibl").setup({
+				indent = {
+					char = "│",
+					tab_char = "│",
+					smart_indent_cap = true,
+					priority = 2,
 				},
-				show_trailing_blankline_indent = false,
 			})
 		end,
 	},

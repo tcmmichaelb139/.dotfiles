@@ -181,7 +181,7 @@ stow tmux
 
 ## Wallpaper
 
-https://ign.schrodinger-hat.it/color-schemes is amazing for converting wallpapers info a colorscheme.
+<https://ign.schrodinger-hat.it/color-schemes> is amazing for converting wallpapers info a colorscheme.
 
 ## yabai
 

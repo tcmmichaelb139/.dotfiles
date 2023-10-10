@@ -51,24 +51,26 @@ return {
 		dependencies = { "hrsh7th/cmp-nvim-lsp" },
 	},
 	{
-		"nvimdev/guard.nvim",
+		"stevearc/conform.nvim",
 		event = "BufReadPre",
 		config = function()
-			local ft = require("guard.filetype")
-
-			ft("lua"):fmt("stylua")
-			ft("c,cpp"):fmt("clang-format")
-			ft("python"):fmt({ cmd = "black", args = { "--quiet", "-" }, stdin = true })
-			ft("sh"):fmt("shfmt")
-			ft("javascript,typescript,javascriptreact,typescriptreact,json"):fmt("prettierd")
-			ft("tex"):fmt("latexindent")
-			ft("java"):fmt("google-java-format")
-
-			require("guard").setup({
-				-- the only options for the setup function
-				fmt_on_save = true,
-				-- Use lsp if no formatter was defined for this filetype
-				lsp_as_default_formatter = false,
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					python = { "isort", "black" },
+					javascript = { { "prettierd", "prettier" } },
+					cpp = { "clang-format" },
+					bash = { "shfmt" },
+					java = { "google-java-format" },
+					json = { "prettierd", "prettier" },
+					tex = { "latexindent" },
+					markdown = { "markdownlint" },
+				},
+				format_on_save = {
+					-- These options will be passed to conform.format()
+					timeout_ms = 500,
+					lsp_fallback = true,
+				},
 			})
 		end,
 	},
