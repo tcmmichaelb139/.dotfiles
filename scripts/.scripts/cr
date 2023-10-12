@@ -9,7 +9,7 @@ filename="$1"
 
 filename="${filename%.*}"
 
-flag="-std=c++20 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wl,-stack_size,0x10000000"
+flag="-std=c++20 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wl,-ld_classic,-stack_size,0x10000000"
 
 dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -g"
 

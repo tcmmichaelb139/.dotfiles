@@ -225,6 +225,9 @@ return {
 					smart_indent_cap = true,
 					priority = 2,
 				},
+				scope = {
+					enabled = false,
+				},
 			})
 		end,
 	},
