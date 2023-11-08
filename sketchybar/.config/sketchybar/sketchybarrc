@@ -16,6 +16,8 @@ POPUP_CORNER_RADIUS=11
 
 CORNER_RADIUS=15
 
+BORDER_WIDTH=2
+
 SHADOW=on
 
 # General bar and defaults

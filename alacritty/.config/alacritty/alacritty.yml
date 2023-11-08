@@ -39,35 +39,8 @@ font:
 
   size: 14
 
-colors:
-  primary:
-    background: "0x1a1b26"
-    foreground: "0xa9b1d6"
-
-  normal:
-    black: "0x444b6a"
-    red: "0xff7a93"
-    green: "0xb9f27c"
-    yellow: "0xff9e64"
-    blue: "0x7da6ff"
-    magenta: "0xbb9af7"
-    cyan: "0x0db9d7"
-    white: "0xacb0d0"
-
-  bright:
-    black: "0x444b6a"
-    red: "0xff7a93"
-    green: "0xb9f27c"
-    yellow: "0xff9e64"
-    blue: "0x7da6ff"
-    magenta: "0xbb9af7"
-    cyan: "0x0db9d7"
-    white: "0xacb0d0"
-
-  indexed_colors:
-    - { index: 16, color: "0xffa066" }
-    - { index: 17, color: "0xff5d62" }
-    - { index: 18, color: "0x16161e" } # tmux (from folke)
+import: 
+  - ~/.config/alacritty/themes/tokyonight_night.yml
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
