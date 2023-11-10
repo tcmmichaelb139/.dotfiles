@@ -1,24 +1,6 @@
 #!/usr/bin/env sh
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
-source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
-
-ITEM_DIR="$HOME/.config/sketchybar/items"
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-
-FONT="FiraCode Nerd Font"
-# SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
-
-PADDINGS=3 # All paddings use this value (icon, label, background)
-
-POPUP_BORDER_WIDTH=2
-POPUP_CORNER_RADIUS=11
-
-CORNER_RADIUS=15
-
-BORDER_WIDTH=2
-
-SHADOW=on
+source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
 # General bar and defaults
 
@@ -45,7 +27,7 @@ sketchybar --bar height=30 \
 	label.padding_right=$PADDINGS \
 	background.padding_right=$PADDINGS \
 	background.padding_left=$PADDINGS \
-	popup.background.border_width=2 \
+	popup.background.border_width=1 \
 	popup.background.corner_radius=11 \
 	popup.background.border_color=$POPUP_BORDER_COLOR \
 	popup.background.color=$POPUP_BACKGROUND_COLOR \

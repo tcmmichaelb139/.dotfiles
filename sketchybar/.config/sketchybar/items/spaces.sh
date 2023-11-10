@@ -6,28 +6,36 @@ SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
 SPACE_CLICK_SCRIPT='yabai -m space --focus $SID 2>/dev/null'
 
+sketchybar --add item spacer.1 left \
+    --set spacer.1 background.drawing=off \
+        label.drawing=off \
+        icon.drawing=off \
+        width=10 \
+
 for i in "${!SPACE_ICONS[@]}"; do
 	sid=$(($i + 1))
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
-		icon=${SPACE_ICONS[i]} \
-		icon.padding_left=22 \
-		icon.padding_right=22 \
-		icon.highlight_color=$RED \
-		background.padding_left=-11 \
-		background.padding_right=-11 \
-		background.height=26 \
-		background.corner_radius=$CORNER_RADIUS \
-		background.color=$BAR_COLOR \
-		background.drawing=on \
-		label.background.drawing=on \
-		label.padding_right=20 \
-		label.drawing=off \
+        label.drawing=off \
 		script="$PLUGIN_DIR/space.sh" \
 		click_script="$SPACE_CLICK_SCRIPT"
 done
 
-sketchybar --set space.1 background.padding_left=-1
+sketchybar --add item spacer.2 left \
+    --set spacer.2 background.drawing=off \
+        label.drawing=off \
+        icon.drawing=off \
+        width=5
+
+sketchybar --add bracket spaces '/space.*/'             \
+           --set         spaces background.border_width=$BORDER_WIDTH \
+                                background.border_color=$RED \
+                                background.corner_radius=$CORNER_RADIUS  \
+                                background.color=$BAR_COLOR \
+                                background.height=26 \
+                                background.color=$BAR_COLOR \
+                                background.drawing=on
+
 
 sketchybar --add item separator left \
 	--set separator icon= \

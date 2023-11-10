@@ -116,7 +116,7 @@ alias deleteDS_Store="find . -name .DS_Store -delete"
 export EDITOR='nvim'
 
 # brew stuff
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts:~/.spicetify
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 export PATH=$HOME/.emacs.d/bin:$PATH

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+brew upgrade
+
+# spicetify upgrade
+# spicetify restore apply
