@@ -14,7 +14,6 @@ sketchybar \
     background.corner_radius=$CORNER_RADIUS \
     background.color=$BAR_COLOR \
     label.color=$COLOR \
-    label.font="$FONT:Bold:15.0" \
 	label.padding_left=10 \
 	label.padding_right=10 \
     associated_display=active \
