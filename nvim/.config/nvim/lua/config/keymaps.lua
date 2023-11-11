@@ -79,7 +79,6 @@ local leader = {
     name = "+telescope",
     ["f"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
     ["a"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All Files" },
-    ["e"] = { "<cmd> Telescope file_browser <CR>", "File Browser" },
     ["w"] = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
     ["b"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
     ["h"] = { "<cmd> Telescope help_tags <CR>", "Help Tags" },
