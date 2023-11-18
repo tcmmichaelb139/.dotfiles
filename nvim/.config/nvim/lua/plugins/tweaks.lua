@@ -8,7 +8,7 @@ return {
     "mbbill/undotree",
     cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" },
     keys = {
-      { "<leader>u", "<cmd> UndotreeToggle<CR>", desc = "Undo Tree" },
+      { "<leader>uu", "<cmd> UndotreeToggle<CR>", desc = "Undo Tree" },
     },
   },
   {
