@@ -9,3 +9,5 @@ map("t", "<ESC>", "<C-\\><C-n>")
 
 -- U = redo
 map("n", "U", "<C-r>", { desc = "Redo" })
+
+vim.keymap.del("n", "s")

@@ -12,6 +12,14 @@ return {
     },
   },
   {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      filetypes = {
+        cpp = false,
+      },
+    },
+  },
+  {
     "akinsho/nvim-toggleterm.lua",
     cmd = { "TermExec", "ToggleTerm" },
     config = function()
