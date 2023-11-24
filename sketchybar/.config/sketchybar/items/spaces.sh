@@ -4,8 +4,6 @@
 # SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
-SPACE_CLICK_SCRIPT="yabai -m space --focus $SID 2>/dev/null"
-
 sketchybar --add item spacer.1 left \
 	--set spacer.1 background.drawing=off \
 	label.drawing=off \
@@ -17,8 +15,11 @@ for i in "${!SPACE_ICONS[@]}"; do
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
 		label.drawing=off \
-		script="$PLUGIN_DIR/space.sh" \
-		click_script="$SPACE_CLICK_SCRIPT"
+		icon.padding_left=10 \
+		icon.padding_right=10 \
+		background.padding_left=-5 \
+		background.padding_right=-5 \
+		script="$PLUGIN_DIR/space.sh"
 done
 
 sketchybar --add item spacer.2 left \
@@ -33,7 +34,6 @@ sketchybar --add bracket spaces '/space.*/' \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.color="$BAR_COLOR" \
 	background.height=26 \
-	background.color="$BAR_COLOR" \
 	background.drawing=on
 
 sketchybar --add item separator left \

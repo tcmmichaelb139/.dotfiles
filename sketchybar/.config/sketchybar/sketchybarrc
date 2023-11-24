@@ -17,11 +17,11 @@ sketchybar --bar height=30 \
 	blur_radius=20 \
 	notch_width=200 \
 	--default updates=when_shown \
-	icon.font="$FONT:Bold:14.0" \
+	icon.font="$FONT:Bold:13.5" \
 	icon.color="$ICON_COLOR" \
 	icon.padding_left="$PADDINGS" \
 	icon.padding_right="$PADDINGS" \
-	label.font="$FONT:SemiBold:13.0" \
+	label.font="$FONT:Bold:13.0" \
 	label.color="$LABEL_COLOR" \
 	label.padding_left="$PADDINGS" \
 	label.padding_right="$PADDINGS" \
@@ -32,8 +32,6 @@ sketchybar --bar height=30 \
 	popup.background.border_color="$POPUP_BORDER_COLOR" \
 	popup.background.color="$POPUP_BACKGROUND_COLOR" \
 	popup.background.shadow.drawing="$SHADOW"
-
-sketchybar --hotload true
 
 # Left
 # source "$ITEM_DIR/apple.sh"
@@ -51,6 +49,8 @@ source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/cpu.sh"
 
 #################### Finalizing Setup ####################
+
+sketchybar --hotload true
 
 sketchybar --update
 
