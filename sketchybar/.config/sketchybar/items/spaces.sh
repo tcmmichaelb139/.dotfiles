@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# SPACE_ICONS=("" "" "" "" "" "" "" "" "" "")
-# SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
 sketchybar --add item spacer.1 left \
@@ -10,7 +8,7 @@ sketchybar --add item spacer.1 left \
 	icon.drawing=off \
 	width=10
 
-for i in "${!SPACE_ICONS[@]}"; do
+for i in {0..9}; do
 	sid=$((i + 1))
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
