@@ -54,6 +54,7 @@ yabai -m rule --add app="OpenVPN Connect" manage=off
 
 yabai -m config --space 9 layout float
 
-borders active_color=0xff7aa2f7 inactive_color=0x80565f89 width=5.0 2>/dev/null 1>&2 &
+borders active_color="gradient(top_left=0xffff9e64,bottom_right=0xffbb9af7)" inactive_color="gradient(top_left=0x40ff9e64,bottom_right=0x40bb9af7)" width=5 2>/dev/null 1>&2 &
+# borders active_color="gradient(top_left=0xffff9e64,bottom_right=0xffbb9af7)" inactive_color=0x80565f89 width=5 2>/dev/null 1>&2 &
 
 echo "yabai configuration loaded.."

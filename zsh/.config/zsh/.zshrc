@@ -117,6 +117,7 @@ export EDITOR='nvim'
 
 # brew stuff
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts:~/.spicetify
+export PATH=$PATH:/Users/tcmb139/.dotfiles/scripts/.scripts/mbcp
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 export PATH=$HOME/.emacs.d/bin:$PATH
