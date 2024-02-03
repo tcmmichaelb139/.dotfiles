@@ -5,8 +5,6 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
-map("t", "<ESC>", "<C-\\><C-n>")
-
 -- U = redo
 map("n", "U", "<C-r>", { desc = "Redo" })
 

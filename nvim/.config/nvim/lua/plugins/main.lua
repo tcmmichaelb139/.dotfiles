@@ -1,5 +1,4 @@
 return {
-  -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
@@ -18,7 +17,6 @@ return {
     },
   },
 
-  -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -41,7 +39,6 @@ return {
     },
   },
 
-  -- add any tools you want to have installed below
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
@@ -106,11 +103,10 @@ return {
           border = {},
           borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
           color_devicons = true,
-          set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+          set_env = { ["COLORTERM"] = "truecolor" },
           file_previewer = require("telescope.previewers").vim_buffer_cat.new,
           grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
           qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-          -- Developer configurations: Not meant for general override
           buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
           mappings = {
             n = { ["q"] = require("telescope.actions").close },
@@ -121,8 +117,6 @@ return {
     end,
   },
 
-  -- Use <tab> for completion and snippets (supertab)
-  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
     "L3MON4D3/LuaSnip",
     keys = function()
@@ -130,8 +124,6 @@ return {
     end,
   },
 
-  -- then: setup supertab in cmp
-  -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
@@ -149,8 +141,6 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-            -- this way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
