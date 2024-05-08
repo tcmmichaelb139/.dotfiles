@@ -2,10 +2,14 @@
 
 # modified from theprimeagen
 
+search_dirs="~/.dotfiles ~/programming ~ ~/.config ~/Bao/ ~/Bao/2 Projects/"
+exclude_dirs=""
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/.dotfiles ~/programming ~ ~/.config -mindepth 0 -maxdepth 2 -type d | sort | uniq | fzf)
+	# selected=$(find "$search_dirs" -mindepth 0 -maxdepth 3 -type d | sort | uniq | fzf)
+	selected=$(find ~/.dotfiles ~/programming ~ ~/.config ~/Bao/2\ Projects -mindepth 0 -maxdepth 2 -type d | sort | uniq | fzf)
 fi
 
 if [[ -z "$selected" ]]; then

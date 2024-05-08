@@ -141,3 +141,5 @@ export FZF_DEFAULT_OPTS='--color=bg+:#292e42,bg:#16161e,border:#1f2335,hl:#ff9e6
 # export FZF_DEFAULT_OPTS='--color=bg+:#c4c8da,bg:#e9e9ec,border:#e9e9ec,hl:#b15c00,fg:#6172b0,header:#c4c8da,pointer:#9854f1,fg+:#6172b0,preview-bg:#e1e2e7,prompt:#007197,hl+:#2e7de9,info:#8c6c3e'
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_391`
+
+export PATH=$PATH:/opt/anaconda3/bin

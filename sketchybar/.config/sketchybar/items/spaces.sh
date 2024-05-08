@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
 sketchybar --add item spacer.1 left \
 	--set spacer.1 background.drawing=off \
@@ -8,7 +8,7 @@ sketchybar --add item spacer.1 left \
 	icon.drawing=off \
 	width=10
 
-for i in {0..9}; do
+for i in "${!SPACE_ICONS[@]}"; do
 	sid=$((i + 1))
 	sketchybar --add space space.$sid left \
 		--set space.$sid associated_space=$sid \
@@ -35,10 +35,10 @@ sketchybar --add bracket spaces '/space.*/' \
 	background.drawing=on
 
 sketchybar --add item separator left \
-	--set separator icon= \
+	\
 	icon.font="$FONT:Regular:16.0" \
 	background.padding_left=26 \
 	background.padding_right=15 \
 	label.drawing=off \
 	associated_display=active \
-	icon.color="$YELLOW"
+	icon.color="$YELLOW" # --set separator icon= \

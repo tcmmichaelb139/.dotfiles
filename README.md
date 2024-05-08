@@ -183,6 +183,8 @@ stow tmux
 
 <https://ign.schrodinger-hat.it/color-schemes> is amazing for converting wallpapers info a colorscheme.
 
+Also check out [siddrs/wallpapers](https://github.com/siddrs/wallpapers) for Tokyo Night themed wallpapers
+
 ## yabai
 
 ### Installation

@@ -48,3 +48,5 @@ CORNER_RADIUS=15
 BORDER_WIDTH=2
 
 SHADOW=on
+
+SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
