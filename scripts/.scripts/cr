@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-	echo "Please give a file to compile and run."
-	exit
+  echo "Please give a file to compile and run."
+  exit
 fi
 
 filename="$1"
@@ -14,37 +14,37 @@ flag="-std=c++20 -O2 -Wall -Wextra -Wshadow -Wconversion -Wfloat-equal -Wl,-ld_c
 dbgFlag="-fsanitize=address -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize-recover=all -fstack-protector-all -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -g"
 
 if [ "$2" == "-d" ]; then
-	printf "Using lldb (use r (run) and bt (backtrace))"
+  printf "Using lldb (use r (run) and bt (backtrace))"
 
-	printf "g++-13 $1 -o $filename $flag && lldb $filename"
+  printf "g++-14 $1 -o $filename $flag && lldb $filename"
 
-	# printf "\n\nCompiled with DEBUG flags enabled, code may be slower than normal"
-	printf "\n\n|---- \e[0;34mDebugging\e[m ----|\n\n"
+  # printf "\n\nCompiled with DEBUG flags enabled, code may be slower than normal"
+  printf "\n\n|---- \e[0;34mDebugging\e[m ----|\n\n"
 
-	g++-13 $1 -o $filename $flag && lldb $filename
+  g++-14 $1 -o $filename $flag && lldb $filename
 else
-	printf "g++-13 $1 -g -o $filename $flag"
+  printf "g++-14 $1 -g -o $filename $flag"
 
-	printf "\n\n|----\e[0;34m Compilation output \e[m----|\n\n"
+  printf "\n\n|----\e[0;34m Compilation output \e[m----|\n\n"
 
-	g++-13 $1 -o $filename $flag
+  g++-14 $1 -o $filename $flag
 
-	if [ $? -ne 0 ]; then
-		printf "\n\n|----\e[0;31m\033[1m Errors found \e[m----|\n\n"
-		exit
-	fi
+  if [ $? -ne 0 ]; then
+    printf "\n\n|----\e[0;31m\033[1m Errors found \e[m----|\n\n"
+    exit
+  fi
 
-	printf "\n|----\e[0;34m Running (Input) \e[m----|\n\n"
+  printf "\n|----\e[0;34m Running (Input) \e[m----|\n\n"
 
-	# if the filename is not equal to a slash then add a ./ in front
+  # if the filename is not equal to a slash then add a ./ in front
 
-	if [ "${filename:0:1}" != "/" ]; then
-		filename="./$filename"
-	fi
+  if [ "${filename:0:1}" != "/" ]; then
+    filename="./$filename"
+  fi
 
-	# replace gtime with time on linux operating systems
-	gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' $filename
-	# output=$(gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' $filename 2>&1)
-	# printf "\n|----\e[0;34m Running (Output) \e[m----|\n\n"
-	# printf "$output\n\n"
+  # replace gtime with time on linux operating systems
+  gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' $filename
+  # output=$(gtime -f '\n|--------|\n\n  real\t%E\n  user\t%U\n  sys\t%S\n  mem\t%MKB\n' $filename 2>&1)
+  # printf "\n|----\e[0;34m Running (Output) \e[m----|\n\n"
+  # printf "$output\n\n"
 fi

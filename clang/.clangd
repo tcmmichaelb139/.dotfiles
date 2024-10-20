@@ -1,21 +1,21 @@
 CompileFlags:
   Add:
-  - -DLOCAL
-  - -Wall
-  - -O2
-  - -Wextra
-  - -Wshadow
-  - -Wconversion
-  - -Wfloat-equal
-  - -Wno-unused-const-variable
-  - -Wno-sign-conversion
-  - -std=c++17
-  - -I/opt/homebrew/Cellar/gcc/13.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/13/../../../../../../include/c++/13
-  - -I/opt/homebrew/Cellar/gcc/13.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/13/../../../../../../include/c++/13/aarch64-apple-darwin22
-  - -I/opt/homebrew/Cellar/gcc/13.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/13/../../../../../../include/c++/13/backward
-  - -I/opt/homebrew/Cellar/gcc/13.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/13/include
-  - -I/opt/homebrew/Cellar/gcc/13.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin22/13/include-fixed
-  - -I/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include
-  - -I/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/System/Library/Frameworks
+    - -DLOCAL
+    - -Wall
+    - -O2
+    - -Wextra
+    - -Wshadow
+    - -Wconversion
+    - -Wfloat-equal
+    - -Wno-unused-const-variable
+    - -Wno-sign-conversion
+    - -std=c++17
+    - -I/opt/homebrew/Cellar/gcc/14.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin23/14/../../../../../../include/c++/14
+    - -I/opt/homebrew/Cellar/gcc/14.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin23/14/../../../../../../include/c++/14/aarch64-apple-darwin23
+    - -I/opt/homebrew/Cellar/gcc/14.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin23/14/../../../../../../include/c++/14/backward
+    - -I/opt/homebrew/Cellar/gcc/14.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin23/14/include
+    - -I/opt/homebrew/Cellar/gcc/14.2.0/bin/../lib/gcc/current/gcc/aarch64-apple-darwin23/14/include-fixed
+    # - -I/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include
+    # - -I/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/System/Library/Frameworks
 Index:
   Background: Skip
