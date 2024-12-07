@@ -1,4 +1,3 @@
-import = ["/Users/tcmb139/.config/alacritty/themes/tokyonight_night.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -306,7 +305,7 @@ multiplier = 3
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "source ~/.config/zsh/.zshrc; ~/.scripts/tmux-sessionizer"]
 program = "/bin/zsh"
 
@@ -318,3 +317,8 @@ opacity = 1
 [window.padding]
 x = 2
 y = 2
+
+[general]
+import = ["/Users/tcmb139/.config/alacritty/themes/tokyonight_night.toml"]
+
+[terminal]
