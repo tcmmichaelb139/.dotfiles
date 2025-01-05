@@ -52,6 +52,7 @@ yabai -m rule --add app="Shottr" manage=off
 yabai -m rule --add app="Anki" opacity=0.90
 yabai -m rule --add app="Raycast" sticky=on manage=off
 yabai -m rule --add app="OpenVPN Connect" manage=off
+yabai -m rule --add app="python" manage=off
 
 yabai -m config --space 9 layout float
 
