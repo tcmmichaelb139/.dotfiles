@@ -10,14 +10,14 @@ return {
       { "<leader>uu", "<cmd> UndotreeToggle<CR>", desc = "Undo Tree" },
     },
   },
-  {
-    "zbirenbaum/copilot.lua",
-    opts = {
-      filetypes = {
-        cpp = false,
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   opts = {
+  --     filetypes = {
+  --       cpp = false,
+  --     },
+  --   },
+  -- },
   {
     "akinsho/nvim-toggleterm.lua",
     cmd = { "TermExec", "ToggleTerm" },
