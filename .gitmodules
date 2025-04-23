@@ -1,6 +1,3 @@
 [submodule "scripts/.scripts/mbcp"]
 	path = scripts/.scripts/mbcp
 	url = https://github.com/tcmmichaelb139/mbcp
-[submodule "scripts/.scripts/scripts/.scripts/mbcp"]
-	path = scripts/.scripts/scripts/.scripts/mbcp
-	url = https://github.com/tcmmichaelb139/mbcp
