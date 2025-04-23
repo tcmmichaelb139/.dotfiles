@@ -1,3 +1,4 @@
 [submodule "scripts/.scripts/mbcp"]
 	path = scripts/.scripts/mbcp
 	url = https://github.com/tcmmichaelb139/mbcp
+	branch = main
