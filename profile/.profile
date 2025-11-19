@@ -4,3 +4,5 @@ export ZDOTDIR="$HOME/.config/zsh"
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
+
+. "$HOME/.local/bin/env"
