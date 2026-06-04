@@ -1,0 +1,8 @@
+sudo apt update 
+sudo apt install python3 python3-pip 
+curl -LsSf https://astral.sh/uv/install.sh | sh
+curl -L https://lambdalabs-guest-agent.s3.us-west-2.amazonaws.com/scripts/install.sh | sudo bash # guest lambda
+uv init . 
+uv venv .venv 
+uv add torch transformers numpy matplotlib vllm tqdm ipykernel pandas
+
