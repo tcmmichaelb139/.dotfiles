@@ -10,6 +10,10 @@ index = 17
 color = "0x16161e"
 index = 18
 
+[[colors.indexed_colors]]
+color = "0x565f89"
+index = 19
+
 [colors.bright]
 black = "0x414868"
 blue = "0x7aa2f7"
