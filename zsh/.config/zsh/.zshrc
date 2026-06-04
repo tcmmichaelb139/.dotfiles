@@ -117,7 +117,7 @@ export EDITOR='nvim'
 
 # brew stuff
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/.scripts:~/.spicetify
-export PATH=$PATH:/Users/tcmb139/.dotfiles/scripts/.scripts/mbcp
+[ -d "$HOME/.dotfiles/scripts/.scripts/mbcp" ] && export PATH="$PATH:$HOME/.dotfiles/scripts/.scripts/mbcp"
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 export PATH=$HOME/.emacs.d/bin:$PATH
@@ -129,10 +129,17 @@ ulimit -s unlimited
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-alias luamake=/Users/tcmb139/.config/nvim/lsps/lua-language-server/3rd/luamake/luamake
+[ -f "$HOME/.config/nvim/lsps/lua-language-server/3rd/luamake/luamake" ] && alias luamake="$HOME/.config/nvim/lsps/lua-language-server/3rd/luamake/luamake"
+
+# vim 
+ 
+export NVIM_LOG_FILE="$HOME/.cache/nvim/nvim.log"
+
+
+
 
 # fuck
-eval $(thefuck --alias)
+command -v thefuck >/dev/null 2>&1 && eval "$(thefuck --alias)"
 
 # fzf
 # tokyonight dark
@@ -140,7 +147,7 @@ export FZF_DEFAULT_OPTS='--color=bg+:#292e42,bg:#16161e,border:#1f2335,hl:#ff9e6
 # tokyonight day
 # export FZF_DEFAULT_OPTS='--color=bg+:#c4c8da,bg:#e9e9ec,border:#e9e9ec,hl:#b15c00,fg:#6172b0,header:#c4c8da,pointer:#9854f1,fg+:#6172b0,preview-bg:#e1e2e7,prompt:#007197,hl+:#2e7de9,info:#8c6c3e'
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_391`
+JAVA_HOME=$(/usr/libexec/java_home -v 11.0.17 2>/dev/null) && export JAVA_HOME
 
 export PATH=$PATH:/opt/anaconda3/bin
 
@@ -161,3 +168,9 @@ unset __conda_setup
 
 
 . "$HOME/.local/bin/env"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi

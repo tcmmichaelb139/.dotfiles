@@ -7,3 +7,5 @@ tmp/
 .zcompdump
 .zcompcache/
 __pycache__/
+nvim.log
+sketchybar/.config/sketchybar/local.sh

@@ -7,8 +7,13 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 #
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+# `sudo -n` runs non-interactively: it never prompts for a password. On a machine
+# with the passwordless-sudo entry + SIP partially disabled, the scripting addition
+# loads (full features). On a machine without it (e.g. SIP enabled work laptop), this
+# skips cleanly with no hang and no error — yabai runs in basic tiling mode.
+if sudo -n yabai --load-sa 2>/dev/null; then
+  yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+fi
 #
 
 # global settings

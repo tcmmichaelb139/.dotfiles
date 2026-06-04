@@ -2,30 +2,49 @@
 
 # modified from theprimeagen
 
-search_dirs="~/.dotfiles ~/programming ~ ~/.config ~/Bao/ ~/Bao/2 Projects/"
-exclude_dirs=""
+# Directories to fuzzy-search for projects. Non-existent ones are skipped, so the
+# same script stays portable across machines. To add machine-specific dirs without
+# editing this file, put them (one per line, ~ allowed) in:
+#   ~/.config/tmux-sessionizer/dirs
+search_dirs=(
+  "$HOME/.dotfiles"
+  "$HOME/.config"
+  "$HOME/projects"
+  "$HOME/programming"
+  "$HOME"
+)
+
+extra_dirs_file="$HOME/.config/tmux-sessionizer/dirs"
+if [[ -f "$extra_dirs_file" ]]; then
+  while IFS= read -r line; do
+    [[ -n "$line" ]] && search_dirs+=("${line/#\~/$HOME}")
+  done < "$extra_dirs_file"
+fi
 
 if [[ $# -eq 1 ]]; then
-	selected=$1
+  selected=$1
 else
-	# selected=$(find "$search_dirs" -mindepth 0 -maxdepth 3 -type d | sort | uniq | fzf)
-	selected=$(find ~/.dotfiles ~/programming ~ ~/.config ~/Bao/2\ Projects -mindepth 0 -maxdepth 2 -type d | sort | uniq | fzf)
+  existing=()
+  for d in "${search_dirs[@]}"; do
+    [[ -d "$d" ]] && existing+=("$d")
+  done
+  selected=$(find "${existing[@]}" -mindepth 0 -maxdepth 2 -type d 2>/dev/null | sort | uniq | fzf)
 fi
 
 if [[ -z "$selected" ]]; then
-	exit 0
+  exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	tmux new-session -s "$selected_name" -c "$selected"
-	exit 0
+  tmux new-session -s "$selected_name" -c "$selected"
+  exit 0
 fi
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-	tmux new-session -ds "$selected_name" -c "$selected"
+  tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
 tmux new-session -A -s "$selected_name" -c "$selected" || tmux switch -t "$selected_name" || tmux switch-client -t "$selected_name"

@@ -49,4 +49,14 @@ BORDER_WIDTH=2
 
 SHADOW=on
 
+# --- Bar geometry (defaults; override per-machine in local.sh at the bottom) ---
+BAR_HEIGHT=30
+BAR_Y_OFFSET=5
+BAR_MARGIN=5
+NOTCH_WIDTH=200
+
 SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十" "十一" "十二" "十三" "十四" "十五" "十六" "十七" "十八" "十九" "二十")
+
+# Per-machine overrides (untracked / gitignored). Each Mac can set its own bar
+# geometry here — e.g. a different notch width or vertical offset per display.
+[ -f "$HOME/.config/sketchybar/local.sh" ] && . "$HOME/.config/sketchybar/local.sh"
