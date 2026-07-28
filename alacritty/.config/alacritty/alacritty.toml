@@ -18,7 +18,7 @@ style = "Light Italic"
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-style = "Light"
+style = "Regular"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"

@@ -9,6 +9,7 @@
 search_dirs=(
   "$HOME/.dotfiles"
   "$HOME/.config"
+  "$HOME/work"
   "$HOME/projects"
   "$HOME/programming"
   "$HOME"
