@@ -3,18 +3,34 @@
     "ask": [],
     "defaultMode": "bypassPermissions"
   },
+  "model": "opus[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/tcmb139/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "sh $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "pyright-lsp@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": false,
     "code-review@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": false,
+    "mechanize-tools@mechanize-marketplace": true,
+    "pyright-lsp@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -22,10 +38,17 @@
         "source": "github",
         "repo": "anthropics/claude-code"
       }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
     }
   },
   "effortLevel": "xhigh",
+  "fastMode": true,
+  "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "theme": "dark-ansi",
-  "autoMemoryEnabled": false
+  "theme": "dark-ansi"
 }

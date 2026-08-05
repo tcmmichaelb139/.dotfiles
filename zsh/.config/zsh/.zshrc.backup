@@ -166,12 +166,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="$HOME/.local/bin:$PATH"
-
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-eval $(thefuck --alias FUCK)
-eval $(thefuck --alias FUCKING)
-eval $(thefuck --alias SHIT)
-eval $(thefuck --alias shit)

@@ -11,6 +11,7 @@ search_dirs=(
   "$HOME/.config"
   "$HOME/projects"
   "$HOME/programming"
+  "$HOME/work"
   "$HOME"
 )
 
@@ -18,7 +19,7 @@ extra_dirs_file="$HOME/.config/tmux-sessionizer/dirs"
 if [[ -f "$extra_dirs_file" ]]; then
   while IFS= read -r line; do
     [[ -n "$line" ]] && search_dirs+=("${line/#\~/$HOME}")
-  done < "$extra_dirs_file"
+  done <"$extra_dirs_file"
 fi
 
 if [[ $# -eq 1 ]]; then
