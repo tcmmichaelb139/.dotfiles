@@ -1,0 +1,10 @@
+# Match the existing terminal appearance without requiring a work-specific font.
+theme = TokyoNight
+font-size = 12
+
+window-padding-x = 2
+window-padding-y = 2
+macos-titlebar-style = hidden
+
+# Start the existing tmux session picker in the configured zsh environment.
+command = /bin/zsh -l -c "source ~/.config/zsh/.zshrc; exec ~/.scripts/tmux-sessionizer"
